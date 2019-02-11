@@ -1,4 +1,8 @@
 const {connectToToken} = require('./abi/networks');
+const firstNames = require('./data/firstNames');
+const lastNames = require('./data/lastNames');
+const nationalities = require('./data/nationalities');
+const positions = require('./data/positions');
 
 const axios = require('axios');
 
@@ -87,7 +91,10 @@ class FutballCardsContractService {
             number: _number.toNumber(),
             boots: _boots.toNumber(),
             points: _points.toNumber(),
-            stars: _stars.toNumber()
+            stars: _stars.toNumber(),
+            fullName: `${firstNames[_firstName.toNumber()]} ${lastNames[_lastName.toNumber()]}`,
+            nationalityText: `${nationalities[_nationality.toNumber()]}`,
+            positionText: `${positions[_position.toNumber()]}`,
         };
     }
 
