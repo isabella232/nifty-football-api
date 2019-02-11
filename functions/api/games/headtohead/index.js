@@ -20,4 +20,19 @@ headToHead.get('/list/open', async (req, res, next) => {
     }
 });
 
+headToHead.get('/game/:gameId', async (req, res, next) => {
+    try {
+        const {network, gameId} = req.params;
+
+        const details = await headToHeadGameService.getGame(network, gameId);
+
+        return res
+            .status(200)
+            .json(details);
+        
+    } catch (e) {
+        next(e);
+    }
+});
+
 module.exports = headToHead;
