@@ -10,29 +10,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(require('./api/logger'));
 
-app.get('/card', async (request, response) => {
-    return require('./image').fillSVG(request, response);
-});
-
-app.get('/mockup', async (request, response) => {
-    return require('./image').cardMockup(request, response);
-});
-
+// IMAGE API
+app.use('/image', require('./api/image'));
 
 // TOKEN API
-
-app.get('/network/:network/pointers', async (request, response) => {
-    return require('./token').tokenPointers(request, response);
-});
-
-app.get('/network/:network/token/:tokenId', async (request, response) => {
-    return require('./token').tokenDetails(request, response);
-});
+app.use('/network/:network', require('./api/token'));
 
 // GAME API
-
 app.use('/games/headtohead', require('./api/games/headtohead'));
-
 
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);

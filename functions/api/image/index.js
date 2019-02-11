@@ -1,6 +1,10 @@
-const ethnicityService = require('../services/ethnicity.service');
-const kitService = require('../services/kit.service');
-const cheerioSVGService = require('../services/cheerioSVGService.service');
+const ethnicityService = require('../../services/ethnicity.service');
+const kitService = require('../../services/kit.service');
+const cheerioSVGService = require('../../services/cheerioSVGService.service');
+
+const _ = require('lodash');
+
+const headToHead = require('express').Router();
 
 const generateSVG = () => {
 
@@ -46,27 +50,26 @@ const generateSVG = () => {
     );
 };
 
-module.exports = {
-
-    async fillSVG (request, response) {
-        try {
-            const svg = generateSVG();
-            // console.log(svg);
-            response.contentType('image/svg+xml');
-            return response.send(svg);
-        } catch (e) {
-            console.error(e);
-        }
-    },
-
-    async cardMockup (request, response) {
-        try {
-            const svg = generateSVG();
-
-            response.contentType('text/html');
-            return response.send(cheerioSVGService.buildCard(svg));
-        } catch (e) {
-            console.error(e);
-        }
+headToHead.get('/card', async (req, res, next) => {
+    try {
+        const svg = generateSVG();
+        // console.log(svg);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
+    } catch (e) {
+        next(e);
     }
-};
+});
+
+headToHead.get('/mockup', async (req, res, next) => {
+    try {
+        const svg = generateSVG();
+
+        res.contentType('text/html');
+        return res.send(cheerioSVGService.buildCard(svg));
+    } catch (e) {
+        next(e);
+    }
+});
+
+module.exports = headToHead;
