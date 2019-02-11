@@ -15,6 +15,13 @@ app.get('/mockup', async (request, response) => {
     return require('./image').cardMockup(request, response);
 });
 
+
+// TOKEN API
+
+app.get('/network/:network/token/:tokenId', async (request, response) => {
+    return require('./token').tokenPointers(request, response);
+});
+
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
 

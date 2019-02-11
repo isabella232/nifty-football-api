@@ -51,7 +51,7 @@ module.exports = {
     async fillSVG (request, response) {
         try {
             const svg = generateSVG();
-            console.log(svg);
+            // console.log(svg);
             response.contentType('image/svg+xml');
             return response.send(svg);
         } catch (e) {
