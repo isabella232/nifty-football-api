@@ -56,8 +56,17 @@ class FutballCardsContractService {
             _lastName
         } = await token.attributesAndName(tokenId);
 
-        // const extras = await token.extras(tokenId);
-        // const experience = await token.experience(tokenId);
+        const {
+            _badge,
+            _sponsor,
+            _number,
+            _boots
+        } = await token.extras(tokenId);
+
+        const {
+            _points,
+            _stars
+        } = await token.experience(tokenId);
 
         return {
             cardType: _cardType.toNumber(),
@@ -72,7 +81,13 @@ class FutballCardsContractService {
             skill: _skill.toNumber(),
             special: _special.toNumber(),
             firstName: _firstName.toNumber(),
-            lastName: _lastName.toNumber()
+            lastName: _lastName.toNumber(),
+            badge: _badge.toNumber(),
+            sponsor: _sponsor.toNumber(),
+            number: _number.toNumber(),
+            boots: _boots.toNumber(),
+            points: _points.toNumber(),
+            stars: _stars.toNumber()
         };
     }
 

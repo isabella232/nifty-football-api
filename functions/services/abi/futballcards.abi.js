@@ -962,6 +962,10 @@ const tokenABI = [
             {
                 "name": "_number",
                 "type": "uint256"
+            },
+            {
+                "name": "_boots",
+                "type": "uint256"
             }
         ],
         "payable": false,
