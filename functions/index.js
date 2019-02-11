@@ -18,8 +18,12 @@ app.get('/mockup', async (request, response) => {
 
 // TOKEN API
 
-app.get('/network/:network/token/:tokenId', async (request, response) => {
+app.get('/network/:network/pointers', async (request, response) => {
     return require('./token').tokenPointers(request, response);
+});
+
+app.get('/network/:network/token/:tokenId', async (request, response) => {
+    return require('./token').tokenDetails(request, response);
 });
 
 // Expose Express API as a single Cloud Function:

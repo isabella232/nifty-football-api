@@ -1,4 +1,4 @@
-const {connectToToken} = require("./abi/networks");
+const {connectToToken} = require('./abi/networks');
 
 const axios = require('axios');
 
@@ -13,7 +13,7 @@ const lookupMetadata = async (tokenUri) => {
 
 class FutballCardsContractService {
 
-    async tokenBaseURI(network = 1) {
+    async tokenBaseURI (network = 1) {
         console.log(`Find base token URI on network [${network}]`);
 
         const token = connectToToken(network);
@@ -22,7 +22,7 @@ class FutballCardsContractService {
         return tokenBaseURI;
     }
 
-    async tokenPointers(network = 1) {
+    async tokenPointers (network = 1) {
         const token = connectToToken(network);
         const totalCards = await token.totalCards();
 
@@ -31,42 +31,51 @@ class FutballCardsContractService {
         };
     }
 
-    // async tokenDetails(network = 1, tokenId) {
-    //     console.log(`Find token details for [${tokenId}] on network [${network}]`);
-    //
-    //     const token = connectToBlockCities(network);
-    //
-    //     // Get token attributes
-    //     const {
-    //         _exteriorColorway,
-    //         _windowColorway,
-    //         _city,
-    //         _base,
-    //         _body,
-    //         _roof,
-    //         _architect
-    //     } = await token.attributes(tokenId);
-    //
-    //     // Get token URI
-    //     const tokenURI = await token.tokenURI(tokenId);
-    //
-    //     // Get metadata
-    //     const metadata = await lookupMetadata(tokenURI[0]);
-    //
-    //     // Build full details response
-    //     return {
-    //         exteriorColorway: _exteriorColorway,
-    //         windowColorway: _windowColorway,
-    //         city: _city,
-    //         base: _base,
-    //         body: _body,
-    //         roof: _roof,
-    //         architect: _architect,
-    //         ...metadata
-    //     };
-    // }
+    async tokenDetails (network = 1, tokenId) {
+        console.log(`Find token details for [${tokenId}] on network [${network}]`);
+
+        const token = connectToToken(network);
+
+        // Get token attributes
+        const {
+            _cardType,
+            _nationality,
+            _position,
+            _ethnicity,
+            _kit,
+            _colour
+        } = await token.card(tokenId);
+
+        const {
+            _strength,
+            _speed,
+            _intelligence,
+            _skill,
+            _special,
+            _firstName,
+            _lastName
+        } = await token.attributesAndName(tokenId);
+
+        // const extras = await token.extras(tokenId);
+        // const experience = await token.experience(tokenId);
+
+        return {
+            cardType: _cardType.toNumber(),
+            nationality: _nationality.toNumber(),
+            position: _position.toNumber(),
+            ethnicity: _ethnicity.toNumber(),
+            kit: _kit.toNumber(),
+            colour: _colour.toNumber(),
+            strength: _strength.toNumber(),
+            speed: _speed.toNumber(),
+            intelligence: _intelligence.toNumber(),
+            skill: _skill.toNumber(),
+            special: _special.toNumber(),
+            firstName: _firstName.toNumber(),
+            lastName: _lastName.toNumber()
+        };
+    }
 
 }
-
 
 module.exports = new FutballCardsContractService();
