@@ -2,7 +2,7 @@ const futballcardsService = require('../../services/futballcards.contract.servic
 
 const token = require('express').Router();
 
-token.get('/token/pointers', async (req, res, next) => {
+token.get('/pointers', async (req, res, next) => {
     try {
         const network = request.params.network;
 
@@ -15,7 +15,7 @@ token.get('/token/pointers', async (req, res, next) => {
     }
 });
 
-token.get('/token/:tokenId', async (req, res, next) => {
+token.get('/:tokenId', async (req, res, next) => {
     try {
         const tokenId = request.params.tokenId;
         const network = request.params.network;

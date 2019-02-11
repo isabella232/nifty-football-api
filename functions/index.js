@@ -14,10 +14,10 @@ app.use(require('./api/logger'));
 app.use('/image', require('./api/image'));
 
 // TOKEN API
-app.use('/network/:network', require('./api/token'));
+app.use('/network/:network/token', require('./api/token'));
 
 // GAME API
-app.use('/games/headtohead', require('./api/games/headtohead'));
+app.use('/network/:network/games/headtohead', require('./api/games/headtohead'));
 
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
