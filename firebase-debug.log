@@ -1,0 +1,31 @@
+[debug] [2019-02-11T17:01:56.732Z] ----------------------------------------------------------------------
+[debug] [2019-02-11T17:01:56.735Z] Command:       /Users/jamesmorgan/.nvm/versions/node/v8.9.4/bin/node /Users/jamesmorgan/.nvm/versions/node/v8.9.4/bin/firebase serve --only functions
+[debug] [2019-02-11T17:01:56.735Z] CLI Version:   4.2.1
+[debug] [2019-02-11T17:01:56.735Z] Platform:      darwin
+[debug] [2019-02-11T17:01:56.735Z] Node Version:  v8.9.4
+[debug] [2019-02-11T17:01:56.737Z] Time:          Mon Feb 11 2019 17:01:56 GMT+0000 (GMT)
+[debug] [2019-02-11T17:01:56.737Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-11T17:01:56.755Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-11T17:01:56.755Z] > authorizing via signed-in user
+[debug] [2019-02-11T17:01:56.757Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-02-11T17:01:56.758Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2019-02-11T17:01:56.979Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-11T17:01:56.991Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-02-11T17:01:57.569Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-11T17:01:57.569Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-02-11T17:01:58.303Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jamesmorgan/Dropbox/workspace-blockrocket/futbol-cards-api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-02-11T17:01:59.156Z] Fetching environment
+[debug] [2019-02-11T17:01:59.158Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1067786577179:getServerAppConfig  
+ 
+[debug] [2019-02-11T17:01:59.377Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-11T17:01:59.377Z] Starting @google-cloud/functions-emulator
+[debug] [2019-02-11T17:02:00.924Z] Parsing function triggers
+[info] ✔  functions: api: http://localhost:5000/futbol-cards/us-central1/api

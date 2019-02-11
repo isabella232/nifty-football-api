@@ -1,4 +1,4 @@
-const {connectToToken} = require('./abi/networks');
+const {connectToToken} = require('./web3/networks');
 const firstNames = require('./data/firstNames');
 const lastNames = require('./data/lastNames');
 const nationalities = require('./data/nationalities');

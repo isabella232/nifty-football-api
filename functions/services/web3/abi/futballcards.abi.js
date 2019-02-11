@@ -1,4 +1,4 @@
-const tokenABI = [
+module.exports = [
     {
         "constant": true,
         "inputs": [
@@ -1102,7 +1102,3 @@ const tokenABI = [
         "signature": "0x2295ee5b"
     }
 ];
-
-module.exports = {
-    abi: tokenABI
-};

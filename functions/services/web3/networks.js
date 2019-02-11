@@ -1,16 +1,9 @@
 const _ = require('lodash');
 const Eth = require('ethjs');
 
-const {INFURA_KEY} = require('./constants');
-const {abi} = require('./futballcards.abi');
+const {INFURA_KEY} = require('../constants');
 
-const connectToToken = (network) => {
-    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
-        .contract(abi)
-        .at(getAddressForNetwork(network));
-};
-
-function getHttpProviderUri (network) {
+function getHttpProviderUri(network) {
     if (_.toNumber(network) === 5777) {
         return 'http://127.0.0.1:7545'; // a.k.a. truffle
     }
@@ -50,7 +43,7 @@ const getNetwork = (network) => {
     });
 };
 
-const getAddressForNetwork = (network) => {
+const getTokenAddressForNetwork = (network) => {
     return networkSplitter(network, {
         mainnet: '0x0',
         ropsten: '0xa5da44032B0e1A12F0BE6046Ff1aAF4837Ef83f7',
@@ -59,6 +52,29 @@ const getAddressForNetwork = (network) => {
     });
 };
 
+
+const getHeadToHeadAddressForNetwork = (network) => {
+    return networkSplitter(network, {
+        mainnet: '0x0',
+        ropsten: '0x0',
+        rinkeby: '0x0',
+        local: '0x194bAfbf8eb2096e63C5d9296363d6DAcdb32527'
+    });
+};
+
+const connectToToken = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
+        .contract(require('./abi/futballcards.abi'))
+        .at(getTokenAddressForNetwork(network));
+};
+
+const connectToHeadToHeadGame = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
+        .contract(require('./abi/headToHead.abi'))
+        .at(getHeadToHeadAddressForNetwork(network));
+};
+
 module.exports = {
-    connectToToken
+    connectToToken,
+    connectToHeadToHeadGame
 };
