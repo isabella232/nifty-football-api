@@ -2,8 +2,8 @@ const _ = require('lodash');
 const cheerio = require('cheerio');
 
 const countriesCodes = ['BE', 'CI', 'EG', 'CO', 'IM', 'NP', 'US', 'UY', 'AD', 'FR', 'BR'];
-const firstNames = require('./firstNames');
-const lastNames = require('./lastNames');
+const firstNames = require('./data/firstNames');
+const lastNames = require('./data/lastNames');
 
 
 class CheerioSVGService {
