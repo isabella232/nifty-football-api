@@ -10,14 +10,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(require('./api/logger'));
 
+const token = require('./api/token');
+const image = require('./api/image');
+const headToHead = require('./api/games/headtohead');
+
 // IMAGE API
-app.use('/network/:network/image', require('./api/image'));
+app.use('/network/:network/image', image);
 
 // TOKEN API
-app.use('/network/:network/token', require('./api/token'));
+app.use('/network/:network/token', token);
 
 // GAME API
-app.use('/network/:network/games/headtohead', require('./api/games/headtohead'));
+app.use('/network/:network/games/headtohead', headToHead);
 
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);

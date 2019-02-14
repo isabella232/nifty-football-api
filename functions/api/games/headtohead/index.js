@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const headToHeadGameService = require('../../../services/games/headToHeadGame.service');
 
-const headToHead = require('express').Router();
+const headToHead = require('express').Router({mergeParams: true});
 
 headToHead.get('/list/open', async (req, res, next) => {
     try {
@@ -29,7 +29,7 @@ headToHead.get('/game/:gameId', async (req, res, next) => {
         return res
             .status(200)
             .json(details);
-        
+
     } catch (e) {
         next(e);
     }

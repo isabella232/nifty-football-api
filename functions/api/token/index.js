@@ -1,12 +1,10 @@
 const futballcardsService = require('../../services/futballcards.contract.service');
 
-const token = require('express').Router();
+const token = require('express').Router({mergeParams: true});
 
 token.get('/pointers', async (req, res, next) => {
     try {
-        console.log(`REQ`, req.params);
-        // const network = req.params.network;
-        const network = 5777;
+        const network = req.params.network;
 
         const pointers = await futballcardsService.tokenPointers(network);
 
@@ -18,10 +16,8 @@ token.get('/pointers', async (req, res, next) => {
 
 token.get('/:tokenId', async (req, res, next) => {
     try {
-        // const tokenId = req.params.tokenId;
-        const tokenId = 0;
-        // const network = req.params.network;
-        const network = 5777;
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
 
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 

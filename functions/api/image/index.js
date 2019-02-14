@@ -3,7 +3,7 @@ const futballcardsService = require('../../services/futballcards.contract.servic
 
 const _ = require('lodash');
 
-const headToHead = require('express').Router();
+const headToHead = require('express').Router({mergeParams: true});
 
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
@@ -65,10 +65,8 @@ const tokenValues = {
 
 headToHead.get('/:tokenId', async (req, res, next) => {
     try {
-        // const tokenId = req.params.tokenId;
-        const tokenId = 4;
-        // const network = req.params.network;
-        const network = 5777;
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
 
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 
@@ -83,7 +81,6 @@ headToHead.get('/:tokenId', async (req, res, next) => {
 
 headToHead.get('/mockup', async (req, res, next) => {
     try {
-
 
         const svg = generateSVG(tokenValues);
 
