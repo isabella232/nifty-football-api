@@ -1,4 +1,4 @@
-const ethnicityService = require('../../services/ethnicity.service');
+
 const kitService = require('../../services/kit.service');
 const cheerioSVGService = require('../../services/cheerioSVGService.service');
 
@@ -6,10 +6,11 @@ const _ = require('lodash');
 
 const headToHead = require('express').Router();
 
-const generateSVG = () => {
+const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
-    const ethnicity = ethnicityService.skinAndHair();
-    const {kit, primary, secondary, tertiary} = kitService.kitAndColours();
+    const ethnicityToken = require(`../../services/data/${nationality}/ethnicities`)[ethnicity];
+    const kitToken = require(`../../services/data/kits`)[kit];
+    const {primary, secondary, tertiary} = require(`../../services/data/colours`)[colour];
 
     const idFills = {
         ...ethnicity,
@@ -52,7 +53,12 @@ const generateSVG = () => {
 
 headToHead.get('/card', async (req, res, next) => {
     try {
-        const svg = generateSVG();
+        const svg = generateSVG({
+            nationality: 0,
+            ethnicity: 0,
+            kit: 0,
+            colour: 0
+        });
         // console.log(svg);
         res.contentType('image/svg+xml');
         return res.send(svg);
@@ -63,7 +69,12 @@ headToHead.get('/card', async (req, res, next) => {
 
 headToHead.get('/mockup', async (req, res, next) => {
     try {
-        const svg = generateSVG();
+        const svg = generateSVG({
+            nationality: 0,
+            ethnicity: 0,
+            kit: 0,
+            colour: 0
+        });
 
         res.contentType('text/html');
         return res.send(cheerioSVGService.buildCard(svg));
