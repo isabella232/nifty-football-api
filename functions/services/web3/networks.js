@@ -46,7 +46,7 @@ const getNetwork = (network) => {
 const getTokenAddressForNetwork = (network) => {
     return networkSplitter(network, {
         mainnet: '0x0',
-        ropsten: '0xa5da44032B0e1A12F0BE6046Ff1aAF4837Ef83f7',
+        ropsten: '0x0',
         rinkeby: '0x0',
         local: '0x194bAfbf8eb2096e63C5d9296363d6DAcdb32527'
     });

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(require('./api/logger'));
 
 // IMAGE API
-app.use('/image', require('./api/image'));
+app.use('/network/:network/image', require('./api/image'));
 
 // TOKEN API
 app.use('/network/:network/token', require('./api/token'));

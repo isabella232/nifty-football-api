@@ -27,6 +27,7 @@ class FutballCardsContractService {
     }
 
     async tokenPointers (network = 1) {
+        console.log(network);
         const token = connectToToken(network);
         const totalCards = await token.totalCards();
 
