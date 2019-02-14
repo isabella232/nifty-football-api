@@ -1,5 +1,3 @@
-
-const kitService = require('../../services/kit.service');
 const cheerioSVGService = require('../../services/cheerioSVGService.service');
 
 const _ = require('lodash');
@@ -21,7 +19,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         socks: secondary
     };
 
-    switch (kit) {
+    switch (kitToken) {
         case 'classic':
             break;
         case 'striped':
@@ -51,14 +49,21 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     );
 };
 
+// these will come from the TOKEN eventually...
+const tokenValues = {
+    nationality: 1,
+    ethnicity: 2,
+    kit: 2,
+    colour: 5,
+    firstName: 0,
+    lastName: 0,
+    attributeAverage: 77
+};
+
+
 headToHead.get('/card', async (req, res, next) => {
     try {
-        const svg = generateSVG({
-            nationality: 0,
-            ethnicity: 0,
-            kit: 0,
-            colour: 0
-        });
+        const svg = generateSVG(tokenValues);
         // console.log(svg);
         res.contentType('image/svg+xml');
         return res.send(svg);
@@ -69,15 +74,22 @@ headToHead.get('/card', async (req, res, next) => {
 
 headToHead.get('/mockup', async (req, res, next) => {
     try {
-        const svg = generateSVG({
-            nationality: 0,
-            ethnicity: 0,
-            kit: 0,
-            colour: 0
-        });
+
+
+        const svg = generateSVG(tokenValues);
+
+        const nationalityText = require(`../../services/data/nationalities`)[tokenValues.nationality];
+        const firstNameText = require(`../../services/data/${tokenValues.nationality}/firstNames`)[tokenValues.firstName];
+        const lastNameText = require(`../../services/data/${tokenValues.nationality}/lastNames`)[tokenValues.lastName];
+        const attributeAverage = tokenValues.attributeAverage;
 
         res.contentType('text/html');
-        return res.send(cheerioSVGService.buildCard(svg));
+        return res.send(cheerioSVGService.buildCard(svg, {
+            nationalityText,
+            firstNameText,
+            lastNameText,
+            attributeAverage
+        }));
     } catch (e) {
         next(e);
     }
