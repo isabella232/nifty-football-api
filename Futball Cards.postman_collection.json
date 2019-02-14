@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "4f0c38c1-c9f5-44dc-a588-02c95af8fc7f",
+		"name": "Futball Cards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/image/:tokenId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"image",
+						":tokenId"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						},
+						{
+							"key": "tokenId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1de8f370-b745-49db-9948-4dbf1f2c5640",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8f5c3576-4ff3-4f76-a02f-95878c23801d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
