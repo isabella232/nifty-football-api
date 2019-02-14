@@ -16,13 +16,13 @@ class HeadToHeadGameService {
     async getGame(network = 1, gameId) {
         const headToHead = connectToHeadToHeadGame(network);
 
-        await {
+        const {
             homeTokenId,
             homeOwner,
             awayTokenId,
             awayOwner,
             state,
-        } = headToHead.getGame(gameId);
+        } = await headToHead.getGame(gameId);
 
         // TODO normalise
         return {

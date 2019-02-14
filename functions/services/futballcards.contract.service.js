@@ -1,6 +1,6 @@
 const {connectToToken} = require('./web3/networks');
-const firstNames = require('./data/firstNames');
-const lastNames = require('./data/lastNames');
+const firstNames = require('./data/0/firstNames');
+const lastNames = require('./data/0/lastNames');
 const nationalities = require('./data/nationalities');
 const positions = require('./data/positions');
 
