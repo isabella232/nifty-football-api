@@ -1,5 +1,3 @@
-const kits = ['classic', 'striped', 'mixed', 'tri', 'one-tone'];
-const colours = ['#DA291C', '#B50E12', '#000', '#FFF', '#6C1D45', '#99D6EA', '#F0B323', '#6CABDD', '#1C2C5B', '#FBEE23', '#004812', '#61259E'];
 
 class KitService {
 

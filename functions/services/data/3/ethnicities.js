@@ -1,45 +1,62 @@
-const hairs = ['', '', '', '#', '', '', ''];
-const skins = ['', '', '', '', '', '', ''];
-
 module.exports = [
     {
-        skin: '#E0AC69',
-        hair: '#8D5524'
+        skin: ['#E0AC69', 100],
+        hair: ['#8D5524', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#C68642',
-        hair: '#B55239'
+        skin: ['#C68642', 100],
+        hair: ['#B55239', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#E0AC69',
-        hair: '#1E1E1E'
+        skin: ['#E0AC69', 100],
+        hair: ['#1E1E1E', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#F1C27D',
-        hair: '#603909'
+        skin: ['#F1C27D', 100],
+        hair: ['#603909', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#FFDBAC',
-        hair: '#424949'
+        skin: ['#FFDBAC', 100],
+        hair: ['#424949', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#603909',
-        hair: '#603909'
+        skin: ['#603909', 100],
+        hair: ['#603909', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#7e4d1c',
-        hair: '#7e4d1c'
+        skin: ['#E0AC69', 100],
+        hair: ['#7e4d1c', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '#7e4d1c',
-        hair: '#1E1E1E'
+        skin: ['#FFDBAC', 100],
+        hair: ['#FFA500', 100],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '',
-        hair: ''
+        skin: ['#FFDBAC', 100],
+        hair: ['#d2691e', 10],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
     {
-        skin: '',
-        hair: ''
+        skin: ['#FFDBAC', 100],
+        hair: ['#424949', 50],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
     },
 ];
