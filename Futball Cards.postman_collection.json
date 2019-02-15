@@ -43,6 +43,121 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Token Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/token/:tokenId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"token",
+						":tokenId"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						},
+						{
+							"key": "tokenId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/token/contract/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"token",
+						"contract",
+						"info"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tokens For Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/token/account/:address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"token",
+						"account",
+						":address"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						},
+						{
+							"key": "address",
+							"value": "0x0df0cc6576ed17ba870d6fc271e20601e3ee176e"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

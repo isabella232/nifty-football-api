@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const futballcardsService = require('../../services/futballcards.contract.service');
 
 const token = require('express').Router({mergeParams: true});
@@ -22,6 +24,38 @@ token.get('/:tokenId', async (req, res, next) => {
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 
         return res.status(200).json(tokenDetails);
+    } catch (e) {
+        next(e);
+    }
+});
+
+token.get('/account/:address', async (req, res, next) => {
+    try {
+        const address = req.params.address;
+        const network = req.params.network;
+
+        const {tokenIds} = await futballcardsService.accountTokenDetails(network, address);
+
+        const tokenDetails = await Promise.all(_.map(tokenIds, (tokenId) => {
+            return futballcardsService.tokenDetails(network, tokenId);
+        }));
+
+        return res.status(200).json({
+            tokenIds,
+            tokenDetails
+        });
+    } catch (e) {
+        next(e);
+    }
+});
+
+token.get('/contract/info', async (req, res, next) => {
+    try {
+        const network = req.params.network;
+
+        const contractInfo = await futballcardsService.contractInfo(network);
+
+        return res.status(200).json(contractInfo);
     } catch (e) {
         next(e);
     }

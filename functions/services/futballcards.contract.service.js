@@ -17,7 +17,7 @@ const lookupMetadata = async (tokenUri) => {
 
 class FutballCardsContractService {
 
-    async tokenBaseURI (network = 1) {
+    async tokenBaseURI(network = 1) {
         console.log(`Find base token URI on network [${network}]`);
 
         const token = connectToToken(network);
@@ -26,7 +26,7 @@ class FutballCardsContractService {
         return tokenBaseURI;
     }
 
-    async tokenPointers (network = 1) {
+    async tokenPointers(network = 1) {
         console.log(network);
         const token = connectToToken(network);
         const totalCards = await token.totalCards();
@@ -36,7 +36,7 @@ class FutballCardsContractService {
         };
     }
 
-    async tokenDetails (network = 1, tokenId) {
+    async tokenDetails(network = 1, tokenId) {
         console.log(`Find token details for [${tokenId}] on network [${network}]`);
 
         const token = connectToToken(network);
@@ -73,6 +73,8 @@ class FutballCardsContractService {
             _stars
         } = await token.experience(tokenId);
 
+        const owner = await token.ownerOf(tokenId);
+
         return {
             cardType: _cardType.toNumber(),
             nationality: _nationality.toNumber(),
@@ -96,9 +98,37 @@ class FutballCardsContractService {
             fullName: `${firstNames[_firstName.toNumber()]} ${lastNames[_lastName.toNumber()]}`,
             nationalityText: `${nationalities[_nationality.toNumber()]}`,
             positionText: `${positions[_position.toNumber()]}`,
+            owner: owner[0],
         };
     }
 
+    async accountTokenDetails(network = 1, address) {
+        console.log(`Get account token details [${address}] on network [${network}]`);
+
+        const token = connectToToken(network);
+
+        const tokens = await token.tokensOfOwner(address);
+
+        return {
+            tokenIds: tokens[0]
+        };
+    }
+
+    async contractInfo(network = 1) {
+        console.log(`Get contract info on network [${network}]`);
+
+        const token = connectToToken(network);
+
+        const totalSupply = await token.totalSupply();
+        const symbol = await token.symbol();
+        const name = await token.name();
+
+        return {
+            totalSupply: totalSupply[0].toNumber(),
+            symbol: symbol[0],
+            name: name[0]
+        };
+    }
 }
 
 module.exports = new FutballCardsContractService();
