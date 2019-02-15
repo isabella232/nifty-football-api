@@ -3,7 +3,7 @@ const futballcardsService = require('../../services/futballcards.contract.servic
 
 const _ = require('lodash');
 
-const headToHead = require('express').Router({mergeParams: true});
+const image = require('express').Router({mergeParams: true});
 
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
@@ -63,7 +63,7 @@ const tokenValues = {
 };
 
 
-headToHead.get('/:tokenId', async (req, res, next) => {
+image.get('/:tokenId', async (req, res, next) => {
     try {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
@@ -79,7 +79,7 @@ headToHead.get('/:tokenId', async (req, res, next) => {
     }
 });
 
-headToHead.get('/mockup', async (req, res, next) => {
+image.get('/mockup', async (req, res, next) => {
     try {
 
         const svg = generateSVG(tokenValues);
@@ -101,4 +101,4 @@ headToHead.get('/mockup', async (req, res, next) => {
     }
 });
 
-module.exports = headToHead;
+module.exports = image;
