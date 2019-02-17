@@ -59,5 +59,65 @@ module.exports = [
         primary: '#FFCD00',
         secondary: '#005B9E',
         tertiary: '#FFF'
+    },
+    {
+        name: 'Wolverhampton',
+        primary: '#FDB913',
+        secondary: '#231F20',
+        tertiary: '#C8102E'
+    },
+    {
+        name: 'Barcelona',
+        primary: '#A50044',
+        secondary: '#004D98',
+        tertiary: '#EDBB00'
+    },
+    {
+        name: 'Barcelona',
+        primary: '#A50044',
+        secondary: '#004D98',
+        tertiary: '#EDBB00'
+    },
+    {
+        name: 'Real Betis',
+        primary: '#0BB363',
+        secondary: '#E7A614',
+        tertiary: '#D62550'
+    },
+    {
+        name: 'Real Betis',
+        primary: '#0BB363',
+        secondary: '#E7A614',
+        tertiary: '#D62550'
+    },
+    {
+        name: 'Deportivo',
+        primary: '#57175E',
+        secondary: '#A38D44',
+        tertiary: '#B9D9EC'
+    },
+    {
+        name: 'Real Madrid',
+        primary: '#FFF',
+        secondary: '#00529F',
+        tertiary: '#FEBE10'
+    },
+    {
+        name: 'Roma',
+        primary: '#8E1F2F',
+        secondary: '#F0BC42',
+        tertiary: '#CACACC'
+    },
+    {
+        name: 'Juve',
+        primary: '#FFF',
+        secondary: '#000',
+        tertiary: '#FFCD00'
+    },
+    {
+        name: 'AC Milan',
+        primary: '#FB090B',
+        secondary: '#000',
+        tertiary: '#CACACC'
     }
 ];
