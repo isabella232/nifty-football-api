@@ -1,53 +1,63 @@
 ['#DA291C', '#B50E12', '#000', '#FFF', '#6C1D45', '#99D6EA', '#F0B323', '#6CABDD', '#1C2C5B', '#FBEE23', '#004812', '#61259E'];
 module.exports = [
     {
-        primary: '#DA291C',
-        secondary: '#FFF',
-        tertiary: '#000'
-    },
-    {
-        primary: '#FFBF00',
-        secondary: '#000',
-        tertiary: '#000'
-    },
-    {
-        primary: '#000',
-        secondary: '#FFF',
-        tertiary: '#000'
-    },
-    {
-        primary: '#FFF',
-        secondary: '#B50E12',
-        tertiary: '#000'
-    },
-    {
+        name: 'Burnley',
         primary: '#6C1D45',
         secondary: '#99D6EA',
-        tertiary: '#99D6EA'
-    },
-    {
-        primary: '#99D6EA',
-        secondary: '#F0B323',
-        tertiary: '#FFF'
-    },
-    {
-        primary: '#F0B323',
-        secondary: '#FFF',
         tertiary: '#F0B323'
     },
     {
+        name: 'Arsenal',
+        primary: '#DB0007',
+        secondary: '#FFFFFF',
+        tertiary: '#063672'
+    },
+    {
+        name: 'Manchester City',
         primary: '#6CABDD',
-        secondary: '#004812',
-        tertiary: '#FFF'
+        secondary: '#1C2C5B',
+        tertiary: '#FFC659'
     },
     {
+        name: 'Newcastle',
+        primary: '#241F20',
+        secondary: '#FFF',
+        tertiary: '#F1BE48'
+    },
+    {
+        name: 'Watford',
         primary: '#FBEE23',
-        secondary: '#99D6EA',
-        tertiary: '#FFF'
+        secondary: '#ED2127',
+        tertiary: '#11210C'
     },
     {
-        primary: '#004812',
-        secondary: '#FBEE23',
+        name: 'West Ham',
+        primary: '#7A263A',
+        secondary: '#1BB1E7',
+        tertiary: '#F3D459'
+    },
+    {
+        name: 'Chelsea',
+        primary: '#034694',
+        secondary: '#FFF',
+        tertiary: '#EE242C'
+    },
+    {
+        name: 'Liverpool',
+        primary: '#C8102E',
+        secondary: '#00B2A9',
+        tertiary: '#F6EB61'
+    },
+    {
+        name: 'Tottenham',
+        primary: '#132257',
+        secondary: '#FFF',
+        tertiary: '#F3D459'
+    },
+    {
+        name: 'Leeds',
+        primary: '#FFCD00',
+        secondary: '#005B9E',
         tertiary: '#FFF'
     }
 ];
