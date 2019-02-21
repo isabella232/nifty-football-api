@@ -7,13 +7,14 @@ const image = require('express').Router({mergeParams: true});
 
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
-    const {skin, hair} = require(`../../services/data/${nationality}/ethnicities`)[ethnicity];
+    const {skin, hair, beard} = require(`../../services/data/${nationality}/ethnicities`)[ethnicity];
     const kitToken = require(`../../services/data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`../../services/data/colours`)[colour];
 
     const idFills = {
         skin: skin[0],
         hair: hair[0],
+        beard: beard[0],
         jersey: primary,
         verticalStripes: primary,
         collar: secondary,
@@ -30,10 +31,10 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         topHoop: 0,
         centerHoop: 0,
         bottomHoop: 0,
-        beard: 0
+        hair: hair[1],
+        beard: beard[1]
     };
 
-    console.log(kitToken);
     switch (kitToken) {
         case 'classic':
             break;

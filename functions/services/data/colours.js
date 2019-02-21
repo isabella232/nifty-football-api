@@ -16,7 +16,7 @@ module.exports = [
         name: 'Manchester City',
         primary: '#6CABDD',
         secondary: '#1C2C5B',
-        tertiary: '#FFC659'
+        tertiary: '#FFF'
     },
     {
         name: 'Newcastle',

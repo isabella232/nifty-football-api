@@ -1,62 +1,74 @@
 module.exports = [
     {
-        skin: ['#E0AC69', 100],
-        hair: ['#8D5524', 100],
+        skin: ['#E0AC69', 1],
+        hair: ['#8D5524', 1],
         beard: ['#8D5524', .2],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#C68642', 100],
-        hair: ['#B55239', 100],
+        skin: ['#C68642', 1],
+        hair: ['#B55239', 1],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#E0AC69', 100],
-        hair: ['#1E1E1E', 100],
+        skin: ['#E0AC69', 1],
+        hair: ['#1E1E1E', 1],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#F1C27D', 100],
-        hair: ['#603909', 100],
+        skin: ['#F1C27D', 1],
+        hair: ['#603909', 1],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#FFDBAC', 100],
-        hair: ['#424949', 100],
+        skin: ['#FFDBAC', 1],
+        hair: ['#424949', 1],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#603909', 100],
-        hair: ['#603909', 100],
+        skin: ['#8D5524', 1],
+        hair: ['#603909', 1],
+        beard: ['#603909', .8],
+        tache: ['#603909', 0]
+    },
+    {
+        skin: ['#7e4d1c', 1],
+        hair: ['#7e4d1c', 1],
+        beard: ['#1E1E1E', .4],
+        tache: ['#8D5524', 0]
+    },
+    {
+        skin: ['#7e4d1c', 1],
+        hair: ['#1E1E1E', 1],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#7e4d1c', 100],
-        hair: ['#7e4d1c', 100],
-        beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
-    },
-    {
-        skin: ['#7e4d1c', 100],
-        hair: ['#1E1E1E', 100],
-        beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
-    },
-    {
-        skin: ['#FFDBAC', 100],
+        skin: ['#FFDBAC', 1],
         hair: ['#424949', 10],
         beard: ['#8D5524', 0],
         tache: ['#8D5524', 0]
     },
     {
-        skin: ['#FFDBAC', 100],
+        skin: ['#FFDBAC', 1],
         hair: ['#424949', 50],
         beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
+    },
+    {
+        skin: ['#FFDBAC', 1],
+        hair: ['#DC143C', .5],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 0]
+    },
+    {
+        skin: ['#FFDBAC', 1],
+        hair: ['#1E1E1E', .1],
+        beard: ['#D462FF', .75],
         tache: ['#8D5524', 0]
     },
 ];
