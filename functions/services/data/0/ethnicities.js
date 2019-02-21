@@ -2,7 +2,7 @@ module.exports = [
     {
         skin: ['#E0AC69', 100],
         hair: ['#8D5524', 100],
-        beard: ['#8D5524', 0],
+        beard: ['#8D5524', .2],
         tache: ['#8D5524', 0]
     },
     {

@@ -73,18 +73,6 @@ module.exports = [
         tertiary: '#EDBB00'
     },
     {
-        name: 'Barcelona',
-        primary: '#A50044',
-        secondary: '#004D98',
-        tertiary: '#EDBB00'
-    },
-    {
-        name: 'Real Betis',
-        primary: '#0BB363',
-        secondary: '#E7A614',
-        tertiary: '#D62550'
-    },
-    {
         name: 'Real Betis',
         primary: '#0BB363',
         secondary: '#E7A614',
@@ -119,5 +107,17 @@ module.exports = [
         primary: '#FB090B',
         secondary: '#000',
         tertiary: '#CACACC'
+    },
+    {
+        name: 'Everton',
+        primary: '#003399',
+        secondary: '#FFF',
+        tertiary: '#FFF'
+    },
+    {
+        name: 'Southampton',
+        primary: '#D71920',
+        secondary: '#130C0E',
+        tertiary: '#0DB14B'
     }
 ];

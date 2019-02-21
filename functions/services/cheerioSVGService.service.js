@@ -3,13 +3,14 @@ const cheerio = require('cheerio');
 
 class CheerioSVGService {
 
-    process (svgXml, fills = {}, opacityClasses = {}) {
+    process (svgXml, fills = {}, opacity = {}) {
         const $ = cheerio.load(
             svgXml,
             {xmlMode: true}
         );
 
         _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
+        _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
 
         return $.xml();
     }
