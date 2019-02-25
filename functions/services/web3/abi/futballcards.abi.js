@@ -405,26 +405,6 @@ module.exports = [
         "signature": "0xbb5f747b"
     },
     {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "tokenId",
-                "type": "uint256"
-            }
-        ],
-        "name": "tokenURI",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function",
-        "signature": "0xc87b56dd"
-    },
-    {
         "constant": false,
         "inputs": [],
         "name": "renounceWhitelisted",
@@ -507,6 +487,19 @@ module.exports = [
         "anonymous": false,
         "inputs": [
             {
+                "indexed": false,
+                "name": "_new",
+                "type": "string"
+            }
+        ],
+        "name": "TokenBaseURIChanged",
+        "type": "event",
+        "signature": "0xeb44d3cd28695bf80f91b729a9b18c4658ae3f971329ebfaf805f1006ed9308a"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
                 "indexed": true,
                 "name": "_tokenId",
                 "type": "uint256"
@@ -569,28 +562,121 @@ module.exports = [
             },
             {
                 "indexed": false,
-                "name": "_badge",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "_sponsor",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "_number",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "_boots",
+                "name": "_value",
                 "type": "uint256"
             }
         ],
-        "name": "ExtrasSet",
+        "name": "SpecialSet",
         "type": "event",
-        "signature": "0x1fb8666567c2985f86f5d4867d4601bf2e79e805fe75235ad39f62db07f66afa"
+        "signature": "0x2a32126946c3137a9afa70442339e37a0a82ed9e4d2281a447b8ecb40c9e5019"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "BadgeSet",
+        "type": "event",
+        "signature": "0x850866ad49a69c1541ccee0e2f2f02ef30ab1335cf98c5b062aa7d1c12191e34"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "SponsorSet",
+        "type": "event",
+        "signature": "0xb090761efd169ad07cc9478dce823ced9f143c64870c1a212a59bf59f269f06a"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "NumberSet",
+        "type": "event",
+        "signature": "0x9b99fe1e164b2f59c23e957801d298251d28b6c108a9e5348c4128956db0483b"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "BootsSet",
+        "type": "event",
+        "signature": "0xa964212e3161d61e75a66f706534700581768662c0c97c384cae5ae8bd78596d"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "StarAdded",
+        "type": "event",
+        "signature": "0x15d07b9caa4ef0ff84bff233c4b3be3396d65dc4cdde0cd418a747e5c61c52aa"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "XpAdded",
+        "type": "event",
+        "signature": "0xe2e0abad15d85a43318b503a336369b2309f9c5dc640310c7079f2ae23122bca"
     },
     {
         "anonymous": false,
@@ -822,42 +908,6 @@ module.exports = [
         "signature": "0x92f5fb1b"
     },
     {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_tokenId",
-                "type": "uint256"
-            },
-            {
-                "name": "_badge",
-                "type": "uint256"
-            },
-            {
-                "name": "_sponsor",
-                "type": "uint256"
-            },
-            {
-                "name": "_number",
-                "type": "uint256"
-            },
-            {
-                "name": "_boots",
-                "type": "uint256"
-            }
-        ],
-        "name": "setExtras",
-        "outputs": [
-            {
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0xf38760b4"
-    },
-    {
         "constant": true,
         "inputs": [
             {
@@ -966,36 +1016,20 @@ module.exports = [
             {
                 "name": "_boots",
                 "type": "uint256"
+            },
+            {
+                "name": "_stars",
+                "type": "uint256"
+            },
+            {
+                "name": "_xp",
+                "type": "uint256"
             }
         ],
         "payable": false,
         "stateMutability": "view",
         "type": "function",
         "signature": "0x5468bc2f"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "_tokenId",
-                "type": "uint256"
-            }
-        ],
-        "name": "experience",
-        "outputs": [
-            {
-                "name": "_points",
-                "type": "uint256"
-            },
-            {
-                "name": "_stars",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function",
-        "signature": "0xd3e97165"
     },
     {
         "constant": true,
@@ -1065,11 +1099,11 @@ module.exports = [
                 "type": "uint256"
             },
             {
-                "name": "_tokenUri",
-                "type": "string"
+                "name": "_newSpecial",
+                "type": "uint256"
             }
         ],
-        "name": "setTokenURI",
+        "name": "setSpecial",
         "outputs": [
             {
                 "name": "",
@@ -1079,7 +1113,167 @@ module.exports = [
         "payable": false,
         "stateMutability": "nonpayable",
         "type": "function",
-        "signature": "0x162094c4"
+        "signature": "0x0bde9046"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_new",
+                "type": "uint256"
+            }
+        ],
+        "name": "setBadge",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x21c3e69d"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_new",
+                "type": "uint256"
+            }
+        ],
+        "name": "setSponsor",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x86be19ae"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_new",
+                "type": "uint256"
+            }
+        ],
+        "name": "setNumber",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x6b19e8c7"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_new",
+                "type": "uint256"
+            }
+        ],
+        "name": "setBoots",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xb987f993"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "addStar",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x01750e74"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_increment",
+                "type": "uint256"
+            }
+        ],
+        "name": "addXp",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xdc0ab925"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenURI",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xc87b56dd"
     },
     {
         "constant": false,

@@ -3,6 +3,7 @@ const firstNames = require('./data/0/firstNames');
 const lastNames = require('./data/0/lastNames');
 const nationalities = require('./data/nationalities');
 const positions = require('./data/positions');
+const cheerioSVGService = require('./cheerioSVGService.service');
 
 const axios = require('axios');
 
@@ -68,11 +69,6 @@ class FutballCardsContractService {
             _boots
         } = await token.extras(tokenId);
 
-        const {
-            _points,
-            _stars
-        } = await token.experience(tokenId);
-
         const owner = await token.ownerOf(tokenId);
 
         return {
@@ -86,6 +82,7 @@ class FutballCardsContractService {
             speed: _speed.toNumber(),
             intelligence: _intelligence.toNumber(),
             skill: _skill.toNumber(),
+            attributeAvg: Math.floor((_strength.toNumber() + _speed.toNumber() + _intelligence.toNumber() + _skill.toNumber()) / 4),
             special: _special.toNumber(),
             firstName: _firstName.toNumber(),
             lastName: _lastName.toNumber(),
@@ -93,12 +90,11 @@ class FutballCardsContractService {
             sponsor: _sponsor.toNumber(),
             number: _number.toNumber(),
             boots: _boots.toNumber(),
-            points: _points.toNumber(),
-            stars: _stars.toNumber(),
             fullName: `${firstNames[_firstName.toNumber()]} ${lastNames[_lastName.toNumber()]}`,
             nationalityText: `${nationalities[_nationality.toNumber()]}`,
             positionText: `${positions[_position.toNumber()]}`,
             owner: owner[0],
+            tokenId: tokenId,
         };
     }
 
