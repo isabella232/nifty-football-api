@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(require('./api/logger'));
 
 const token = require('./api/token');
+const marketplace = require('./api/marketplace');
 const image = require('./api/image');
 const headToHead = require('./api/games/headtohead');
 
@@ -19,6 +20,9 @@ app.use('/network/:network/image', image);
 
 // TOKEN API
 app.use('/network/:network/token', token);
+
+// MARKETPLACE API
+app.use('/network/:network/marketplace', marketplace);
 
 // GAME API
 app.use('/network/:network/games/headtohead', headToHead);

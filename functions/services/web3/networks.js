@@ -62,10 +62,25 @@ const getHeadToHeadAddressForNetwork = (network) => {
     });
 };
 
+const getMarketplaceAddressForNetwork = (network) => {
+    return networkSplitter(network, {
+        mainnet: '0x0',
+        ropsten: '0x0',
+        rinkeby: '0x0',
+        local: '0xccFdbA3880d42a0De4c7407631a0066EE61996aA'
+    });
+};
+
 const connectToToken = (network) => {
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
         .contract(require('./abi/futballcards.abi'))
         .at(getTokenAddressForNetwork(network));
+};
+
+const connectToMarketplace = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
+        .contract(require('./abi/buyNowMarkeplace.abi'))
+        .at(getMarketplaceAddressForNetwork(network));
 };
 
 const connectToHeadToHeadGame = (network) => {
@@ -76,5 +91,6 @@ const connectToHeadToHeadGame = (network) => {
 
 module.exports = {
     connectToToken,
-    connectToHeadToHeadGame
+    connectToHeadToHeadGame,
+    connectToMarketplace
 };

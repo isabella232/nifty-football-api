@@ -127,6 +127,26 @@ module.exports = [
         "signature": "0x23b872dd"
     },
     {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "staticIpfsImageLink",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x261eb4e5"
+    },
+    {
         "constant": false,
         "inputs": [
             {
@@ -199,6 +219,21 @@ module.exports = [
         "stateMutability": "view",
         "type": "function",
         "signature": "0x3b3a1a7a"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "tokenBaseIpfsURI",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x3e10169f"
     },
     {
         "constant": false,
@@ -495,6 +530,50 @@ module.exports = [
         "name": "TokenBaseURIChanged",
         "type": "event",
         "signature": "0xeb44d3cd28695bf80f91b729a9b18c4658ae3f971329ebfaf805f1006ed9308a"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "name": "_new",
+                "type": "string"
+            }
+        ],
+        "name": "TokenBaseIPFSURIChanged",
+        "type": "event",
+        "signature": "0x93bc8252380c645fd4b845fab020073aba271b77652e908c3450d2346be94ee9"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "name": "_ipfsHash",
+                "type": "string"
+            }
+        ],
+        "name": "StaticIpfsTokenURISet",
+        "type": "event",
+        "signature": "0xcc21c9e97f4c1b48853cc4c5675c52597c939ba6762fbf5d1bb439b147a4552e"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "StaticIpfsTokenURICleared",
+        "type": "event",
+        "signature": "0xeefcdf933acebe3408b59e310709eeb11c01f4b3f75b0934f506d2d58ca2754e"
     },
     {
         "anonymous": false,
@@ -1294,5 +1373,69 @@ module.exports = [
         "stateMutability": "nonpayable",
         "type": "function",
         "signature": "0x2295ee5b"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenBaseIpfsURI",
+                "type": "string"
+            }
+        ],
+        "name": "updateTokenBaseIpfsURI",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x893bc904"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "_ipfsHash",
+                "type": "string"
+            }
+        ],
+        "name": "overrideDynamicImageWithIpfsLink",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x427849d6"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "clearIpfsImageUri",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xbf405274"
     }
 ];
