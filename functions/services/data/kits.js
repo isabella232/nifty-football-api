@@ -5,8 +5,8 @@ module.exports = [
     'mixed',
     'tri',
     'one-tone',
-    'one-hoop',
     'tri-hoop',
+    'one-hoop',
     'all-trim',
     'classic-sock-band',
     'top-hoop'

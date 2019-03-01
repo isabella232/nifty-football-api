@@ -7,6 +7,8 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
+    console.log(kit, kitToken);
+
     const fills = {
         skin: skin[0],
         hair: hair[0],
@@ -95,7 +97,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 class CheerioSVGService {
 
     process (svgXml, {nationality, ethnicity, kit, colour}) {
-        const {fills, opacity} = generateSVG({nationality, ethnicity, kit, colour})
+        const {fills, opacity} = generateSVG({nationality, ethnicity, kit, colour});
 
         const $ = cheerio.load(
             svgXml,
