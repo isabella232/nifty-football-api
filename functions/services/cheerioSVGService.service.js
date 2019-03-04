@@ -107,6 +107,13 @@ class CheerioSVGService {
         _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
         _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
 
+        // FIXME - once we have new SVG or clearance for side head.
+        $('#skin').attr('opacity', 0);
+        $('#neckShadow').attr('opacity', 0);
+        $('#hair').attr('opacity', 0);
+        $('#eye').attr('opacity', 0);
+        $('#beard').attr('opacity', 0);
+
         return $.xml();
     }
 
