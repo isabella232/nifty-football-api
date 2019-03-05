@@ -91,6 +91,8 @@ class HeadToHeadGameService {
         const numHomeTokenId = homeTokenId.toNumber();
         const numAwayTokenId = awayTokenId.toNumber();
 
+        console.log(numState, numHomeTokenId, numAwayTokenId);
+
         // Dont make the call for token details if game not created
         const homeCard = numState !== 0 && numHomeTokenId !== 0
             ? await futballCardsContractService.tokenDetails(network, homeTokenId)

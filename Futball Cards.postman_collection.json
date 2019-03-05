@@ -37,7 +37,7 @@
 						},
 						{
 							"key": "tokenId",
-							"value": "1"
+							"value": "4"
 						}
 					]
 				}
@@ -153,6 +153,126 @@
 						{
 							"key": "address",
 							"value": "0x0df0cc6576ed17ba870d6fc271e20601e3ee176e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Open games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/games/headtohead/list/open",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"games",
+						"headtohead",
+						"list",
+						"open"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game State",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/games/headtohead/game/:gameId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"games",
+						"headtohead",
+						"game",
+						":gameId"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						},
+						{
+							"key": "gameId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token Game State",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/games/headtohead/tokens?tokenId=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"games",
+						"headtohead",
+						"tokens"
+					],
+					"query": [
+						{
+							"key": "tokenId",
+							"value": "4"
+						}
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
 						}
 					]
 				}
