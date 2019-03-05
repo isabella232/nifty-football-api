@@ -45,13 +45,12 @@ headToHead.get('/tokens', async (req, res, next) => {
             tokenIds = [tokenIds];
         }
 
-        console.log(tokenIds);
-
         const promises = _.map(tokenIds, (tokenId) => {
             return headToHeadGameService.getGameForToken(network, tokenId);
         });
 
         const results = await Promise.all(promises);
+        console.log(results);
 
         const realGames = _.filter(results, (game) => {
             console.log(game.state);
