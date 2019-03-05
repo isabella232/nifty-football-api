@@ -20,8 +20,14 @@ class HeadToHeadGameService {
             if (gameId !== 0) {
 
                 const game = await this.getGame(network, gameId);
-                const homeCard = await futballCardsContractService.tokenDetails(network, game.homeTokenId);
-                const awayCard = await futballCardsContractService.tokenDetails(network, game.awayTokenId);
+
+                const homeCard = game.state !== 0 && game.homeTokenId !== 0
+                    ? await futballCardsContractService.tokenDetails(network, game.homeTokenId)
+                    : {};
+
+                const awayCard = game.state !== 0 && game.awayTokenId !== 0
+                    ? await futballCardsContractService.tokenDetails(network, game.awayTokenId)
+                    : {};
 
                 openGames.push({
                     game: {
@@ -81,18 +87,27 @@ class HeadToHeadGameService {
             state,
         } = await headToHead.getGameForToken(tokenId);
 
+        const numState = state.toNumber();
+        const numHomeTokenId = homeTokenId.toNumber();
+        const numAwayTokenId = awayTokenId.toNumber();
+
         // Dont make the call for token details if game not created
-        const homeCard = state !== 0 ? await futballCardsContractService.tokenDetails(network, homeTokenId) : {};
-        const awayCard = state !== 0 ? await futballCardsContractService.tokenDetails(network, awayTokenId) : {};
+        const homeCard = numState !== 0 && numHomeTokenId !== 0
+            ? await futballCardsContractService.tokenDetails(network, homeTokenId)
+            : {};
+
+        const awayCard = numState !== 0 && numAwayTokenId !== 0
+            ? await futballCardsContractService.tokenDetails(network, awayTokenId)
+            : {};
 
         return {
             game: {
                 gameId,
-                homeTokenId: homeTokenId.toNumber(),
+                homeTokenId: numHomeTokenId,
                 homeOwner,
-                awayTokenId: awayTokenId.toNumber(),
+                awayTokenId: numAwayTokenId,
                 awayOwner,
-                state: state.toNumber(),
+                state: numState,
             },
             cards: {
                 homeCard: {
