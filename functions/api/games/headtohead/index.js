@@ -50,11 +50,9 @@ headToHead.get('/tokens', async (req, res, next) => {
         });
 
         const results = await Promise.all(promises);
-        console.log(results);
 
         const realGames = _.filter(results, (game) => {
-            console.log(game.state);
-            return game.state !== 0;
+            return game.game.state !== 0;
         });
 
         return res

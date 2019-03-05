@@ -81,13 +81,27 @@ class HeadToHeadGameService {
             state,
         } = await headToHead.getGameForToken(tokenId);
 
+        // Dont make the call for token details if game not created
+        const homeCard = state !== 0 ? await futballCardsContractService.tokenDetails(network, homeTokenId) : {};
+        const awayCard = state !== 0 ? await futballCardsContractService.tokenDetails(network, awayTokenId) : {};
+
         return {
-            gameId,
-            homeTokenId: homeTokenId.toNumber(),
-            homeOwner,
-            awayTokenId: awayTokenId.toNumber(),
-            awayOwner,
-            state: state.toNumber(),
+            game: {
+                gameId,
+                homeTokenId: homeTokenId.toNumber(),
+                homeOwner,
+                awayTokenId: awayTokenId.toNumber(),
+                awayOwner,
+                state: state.toNumber(),
+            },
+            cards: {
+                homeCard: {
+                    ...homeCard
+                },
+                awayCard: {
+                    ...awayCard
+                }
+            }
         };
     }
 }
