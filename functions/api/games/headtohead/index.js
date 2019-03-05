@@ -35,4 +35,36 @@ headToHead.get('/game/:gameId', async (req, res, next) => {
     }
 });
 
+headToHead.get('/tokens', async (req, res, next) => {
+    try {
+        const {network} = req.params;
+
+        // Map to an array
+        let tokenIds = _.get(req.query, 'tokenId', []);
+        if (tokenIds && !_.isArray(tokenIds)) {
+            tokenIds = [tokenIds];
+        }
+
+        console.log(tokenIds);
+
+        const promises = _.map(tokenIds, (tokenId) => {
+            return headToHeadGameService.getGameForToken(network, tokenId);
+        });
+
+        const results = await Promise.all(promises);
+
+        const realGames = _.filter(results, (game) => {
+            console.log(game.state);
+            return game.state !== 0;
+        });
+
+        return res
+            .status(200)
+            .json(realGames);
+
+    } catch (e) {
+        next(e);
+    }
+});
+
 module.exports = headToHead;

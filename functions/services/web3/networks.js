@@ -58,7 +58,7 @@ const getHeadToHeadAddressForNetwork = (network) => {
         mainnet: '0x0',
         ropsten: '0x0',
         rinkeby: '0x0',
-        local: '0x194bAfbf8eb2096e63C5d9296363d6DAcdb32527'
+        local: '0xe39f3f7361512de3aBd7cB264efd42D22A4B11C7'
     });
 };
 

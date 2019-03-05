@@ -106,7 +106,7 @@ class FutballCardsContractService {
         const tokens = await token.tokensOfOwner(address);
 
         return {
-            tokenIds: tokens[0]
+            tokenIds: tokens[0].map(id => id.toNumber())
         };
     }
 

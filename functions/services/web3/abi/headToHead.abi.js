@@ -1,6 +1,45 @@
 module.exports = [
     {
         "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "games",
+        "outputs": [
+            {
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "name": "homeTokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "homeOwner",
+                "type": "address"
+            },
+            {
+                "name": "awayTokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "awayOwner",
+                "type": "address"
+            },
+            {
+                "name": "state",
+                "type": "uint8"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
         "inputs": [],
         "name": "totalGames",
         "outputs": [
@@ -11,8 +50,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x2c4e591b"
+        "type": "function"
     },
     {
         "constant": false,
@@ -21,8 +59,7 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x3f4ba83a"
+        "type": "function"
     },
     {
         "constant": true,
@@ -41,8 +78,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x46fbf68e"
+        "type": "function"
     },
     {
         "constant": true,
@@ -56,8 +92,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x47ccca02"
+        "type": "function"
     },
     {
         "constant": true,
@@ -71,8 +106,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x4bfb2028"
+        "type": "function"
     },
     {
         "constant": true,
@@ -86,8 +120,26 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x5c975abb"
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "gamesIndex",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
     },
     {
         "constant": false,
@@ -96,8 +148,7 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x6ef8d66d"
+        "type": "function"
     },
     {
         "constant": false,
@@ -106,8 +157,7 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x715018a6"
+        "type": "function"
     },
     {
         "constant": false,
@@ -121,8 +171,7 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x82dc1ec4"
+        "type": "function"
     },
     {
         "constant": false,
@@ -131,8 +180,7 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x8456cb59"
+        "type": "function"
     },
     {
         "constant": true,
@@ -146,8 +194,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x8da5cb5b"
+        "type": "function"
     },
     {
         "constant": true,
@@ -161,8 +208,26 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0x8f32d59b"
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenToGameMapping",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
     },
     {
         "constant": false,
@@ -176,8 +241,26 @@ module.exports = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0xf2fde38b"
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "openGames",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
     },
     {
         "inputs": [
@@ -192,8 +275,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "constructor",
-        "signature": "constructor"
+        "type": "constructor"
     },
     {
         "anonymous": false,
@@ -215,31 +297,7 @@ module.exports = [
             }
         ],
         "name": "GameCreated",
-        "type": "event",
-        "signature": "0x7dfb67e9ff596fca4da65c7eedb128cd1aac553af54b3c0cb733625a2480d8bd"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "home",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "away",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "result",
-                "type": "uint256"
-            }
-        ],
-        "name": "Test",
-        "type": "event",
-        "signature": "0x84b25e53041d51b92e445fe53c7f7d48ab488808667e96bf1e771bba256732b4"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -276,8 +334,7 @@ module.exports = [
             }
         ],
         "name": "GameResulted",
-        "type": "event",
-        "signature": "0x6517776a77c135b8e36ba8f6999c694cf514d1bb2fe1c99c8eec2349e7dcf8a1"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -314,8 +371,7 @@ module.exports = [
             }
         ],
         "name": "GameDraw",
-        "type": "event",
-        "signature": "0x7638d20944c890f2b27fe51f2f231775e1850b1b28833e05980c41af6f1cc24a"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -332,8 +388,7 @@ module.exports = [
             }
         ],
         "name": "GameClosed",
-        "type": "event",
-        "signature": "0x2ad0a22b93512c1ad0ec7824ed7945bc92e436a68404f6913fbc45d0d53e78d5"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -345,8 +400,7 @@ module.exports = [
             }
         ],
         "name": "Paused",
-        "type": "event",
-        "signature": "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -358,8 +412,7 @@ module.exports = [
             }
         ],
         "name": "Unpaused",
-        "type": "event",
-        "signature": "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -371,8 +424,7 @@ module.exports = [
             }
         ],
         "name": "PauserAdded",
-        "type": "event",
-        "signature": "0x6719d08c1888103bea251a4ed56406bd0c3e69723c8a1686e017e7bbe159b6f8"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -384,8 +436,7 @@ module.exports = [
             }
         ],
         "name": "PauserRemoved",
-        "type": "event",
-        "signature": "0xcd265ebaf09df2871cc7bd4133404a235ba12eff2041bb89d9c714a2621c7c7e"
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -402,8 +453,7 @@ module.exports = [
             }
         ],
         "name": "OwnershipTransferred",
-        "type": "event",
-        "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        "type": "event"
     },
     {
         "constant": false,
@@ -422,8 +472,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x48e837b9"
+        "type": "function"
     },
     {
         "constant": false,
@@ -446,8 +495,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x97427ef4"
+        "type": "function"
     },
     {
         "constant": false,
@@ -466,8 +514,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0xa1d5df21"
+        "type": "function"
     },
     {
         "constant": false,
@@ -486,8 +533,7 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function",
-        "signature": "0x68f4bbd2"
+        "type": "function"
     },
     {
         "constant": true,
@@ -522,7 +568,59 @@ module.exports = [
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function",
-        "signature": "0xa2f77bcc"
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "openGamesSize",
+        "outputs": [
+            {
+                "name": "_size",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getGameForToken",
+        "outputs": [
+            {
+                "name": "gameId",
+                "type": "uint256"
+            },
+            {
+                "name": "homeTokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "homeOwner",
+                "type": "address"
+            },
+            {
+                "name": "awayTokenId",
+                "type": "uint256"
+            },
+            {
+                "name": "awayOwner",
+                "type": "address"
+            },
+            {
+                "name": "state",
+                "type": "uint8"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
     }
 ];
