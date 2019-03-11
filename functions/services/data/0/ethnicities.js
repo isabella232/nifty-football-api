@@ -126,7 +126,7 @@ module.exports = [
         shadow: ['#60300F', 1],
         hair_top: ['#FFF5E1', .9],
         hair_bottom: ['#60300F', .7],
-        beard: ['#DC143C', .75],
+        beard: ['#FFF5E1', .75],
         tache: ['#8D5524', 0]
     },
 ];

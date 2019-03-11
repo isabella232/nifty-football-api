@@ -31,10 +31,11 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
     const fills = {
-        Background_Layer: '#88d840',
+        Background: '#247209',
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
+        Eye: '#000',
 
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
@@ -73,8 +74,9 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
     let opacity = {
         Body: skin[1],
-        Cheek: cheek[1],
-        Shadow: shadow[1],
+        Cheek: 0.5,
+        Shadow: 0.75,
+        Eye: 0.8,
 
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
@@ -331,7 +333,7 @@ class CheerioSVGService {
         _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
 
         _.forEach(fills, (v, k) => $(`.st2`).attr('fill', fills.Shadow));
-        _.forEach(fills, (v, k) => $(`.st4`).attr('fill', fills.Cheek));
+        _.forEach(fills, (v, k) => $(`.st3`).attr('fill', fills.Cheek));
 
         return $.xml();
     }
