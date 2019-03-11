@@ -62,6 +62,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Stripe: secondary,
         Boca_Stripe: secondary,
         Rovers_Shirt_Panel_Long_Sleeve: secondary,
+        Rovers_Shirt_Panel_Short_Sleeve: secondary,
         Pinstripe: secondary,
         Villa_style_LS: secondary,
         Sash: secondary,
@@ -89,6 +90,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Stripe: 0,
         Boca_Stripe: 0,
         Rovers_Shirt_Panel_Long_Sleeve: 0,
+        Rovers_Shirt_Panel_Short_Sleeve: 0,
         Pinstripe: 0,
         Villa_style_LS: 0,
         Sash: 0,
@@ -98,7 +100,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
     console.log(kitToken);
     switch (kitToken) {
-        case 'classic-long':
+        case 'classic':
             break;
         case 'classic-short':
             opacity = {
@@ -157,6 +159,102 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
             opacity = {
                 ...opacity,
                 Hoops_Long_Sleeve: 1,
+            };
+            break;
+        case 'classic-stripe-short':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-single-hoop-short':
+            opacity = {
+                ...opacity,
+                Boca_Stripe: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-rovers-short':
+            opacity = {
+                ...opacity,
+                Rovers_Shirt_Panel_Short_Sleeve: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-pinstripe-short':
+            opacity = {
+                ...opacity,
+                Pinstripe: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-villa-short':
+            opacity = {
+                ...opacity,
+                Villa_style_LS: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-sash-short':
+            opacity = {
+                ...opacity,
+                Sash: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-chevron-short':
+            opacity = {
+                ...opacity,
+                Chevron: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            break;
+        case 'classic-hoops-short':
+            opacity = {
+                ...opacity,
+                Hoops_Long_Sleeve: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
             };
             break;
         // case 'mixed':

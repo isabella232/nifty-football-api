@@ -1,6 +1,6 @@
 
 module.exports = [
-    'classic-long',
+    'classic',
     'classic-short',
     'classic-stripe',
     'classic-single-hoop',
@@ -10,4 +10,12 @@ module.exports = [
     'classic-sash',
     'classic-chevron',
     'classic-hoops',
+    'classic-stripe-short',
+    'classic-single-hoop-short',
+    'classic-rovers-short',
+    'classic-pinstripe-short',
+    'classic-villa-short',
+    'classic-sash-short',
+    'classic-chevron-short',
+    'classic-hoops-short',
 ];
