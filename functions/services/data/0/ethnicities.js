@@ -43,7 +43,8 @@ module.exports = [
     },
     {
         skin: ['#7e4d1c', 1],
-        hair: ['#7e4d1c', 1],
+        hair_top: ['#7e4d1c', 1],
+        hair_bottom: ['#7e4d1c', .5],
         beard: ['#1E1E1E', .4],
         tache: ['#1E1E1E', 1]
     },
