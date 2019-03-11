@@ -26,13 +26,15 @@ const shadeColor = (color, percent) => {
 
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
-    const {skin, hair_top, hair_bottom, beard, tache} = require(`./data/${nationality}/ethnicities`)[ethnicity];
+    const {skin, shadow, cheek, hair_top, hair_bottom, beard, tache} = require(`./data/${nationality}/ethnicities`)[ethnicity];
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
     const fills = {
         Background_Layer: '#88d840',
         Body: skin[0],
+        Cheek: cheek[0],
+        Shadow: shadow[0],
 
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
@@ -48,10 +50,9 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         ShortSleeve: primary,
         ShortSleeve_cuff: secondary,
 
-        Pectoral_Shadow: shadeColor(primary, -40),
+        Pectoral_Shadow: '#000',
 
         Shorts: secondary,
-        Go_Faster_Stripe_Shorts: primary,
 
         Upper_Sock: primary,
         Sock_Stripes: secondary,
@@ -71,13 +72,17 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     };
 
     let opacity = {
+        Body: skin[1],
+        Cheek: cheek[1],
+        Shadow: shadow[1],
+
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
 
         Beard: beard[1],
         Moustache: tache[1],
 
-        Pectoral_Shadow: 0.3,
+        Pectoral_Shadow: 0.1,
 
         Long_Sleeve: 1,
         LongSleeve: 1,
@@ -325,8 +330,8 @@ class CheerioSVGService {
         _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
         _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
 
-        _.forEach(fills, (v, k) => $(`.st2`).attr('fill', shadeColor(fills.Body, -10)));
-        _.forEach(fills, (v, k) => $(`.st4`).attr('fill', shadeColor(fills.Body, -5)));
+        _.forEach(fills, (v, k) => $(`.st2`).attr('fill', fills.Shadow));
+        _.forEach(fills, (v, k) => $(`.st4`).attr('fill', fills.Cheek));
 
         return $.xml();
     }

@@ -18,4 +18,6 @@ module.exports = [
     'classic-sash-short',
     'classic-chevron-short',
     'classic-hoops-short',
+    'one-tone-no-trim',
+    'one-tone-trim',
 ];
