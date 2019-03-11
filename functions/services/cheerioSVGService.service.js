@@ -1,8 +1,6 @@
 const _ = require('lodash');
 const cheerio = require('cheerio');
 
-const colourAdjust = require('./data/colour-adjust');
-
 const shadeColor = (color, percent) => {
 
     var R = parseInt(color.substring(1, 3), 16);
@@ -30,7 +28,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
-    const fills = {
+    let fills = {
         Background: '#247209',
         Body: skin[0],
         Cheek: cheek[0],
@@ -54,6 +52,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Pectoral_Shadow: '#000',
 
         Shorts: secondary,
+        Short_trim: secondary,
 
         Upper_Sock: primary,
         Sock_Stripes: secondary,
@@ -70,6 +69,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Sash: secondary,
         Chevron: secondary,
         Hoops_Long_Sleeve: secondary,
+        Fade: secondary,
     };
 
     let opacity = {
@@ -83,8 +83,9 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
         Beard: beard[1],
         Moustache: tache[1],
+        Neckline: 1,
 
-        Pectoral_Shadow: 0.1,
+        Pectoral_Shadow: 0.075,
 
         Long_Sleeve: 1,
         LongSleeve: 1,
@@ -93,6 +94,13 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Short_Sleeve: 0,
         ShortSleeve: 0,
         ShortSleeve_cuff: 0,
+
+        Shorts: 1,
+        Short_trim: 0,
+
+        Upper_Sock: 1,
+        Sock_Stripes: 1,
+        Socks: 1,
 
         Stripe: 0,
         Boca_Stripe: 0,
@@ -264,6 +272,118 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 ShortSleeve_cuff: 1,
             };
             break;
+        case 'one-tone-no-trim':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+                Neckline: 0,
+            };
+            fills = {
+                ...fills,
+                Cuff: primary,
+                Shorts: primary,
+                Sock_Stripes: primary,
+                Socks: primary,
+                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+            };
+            break;
+        case 'one-tone-no-trim-short':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+                Neckline: 0,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                ShortSleeve_cuff: primary,
+                Shorts: primary,
+                Sock_Stripes: primary,
+                Socks: primary,
+                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+            };
+            break;
+        case 'one-tone-trim':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+                Short_trim: 1,
+            };
+            fills = {
+                ...fills,
+                Cuff: secondary,
+                Shorts: primary,
+                Short_trim: secondary,
+                Upper_Sock: secondary,
+                Sock_Stripes: primary,
+                Socks: primary,
+                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+            };
+            break;
+        case 'one-tone-trim-short':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+                Short_trim: 1,
+            };
+            fills = {
+                ...fills,
+                ShortSleeve_cuff: secondary,
+                Shorts: primary,
+                Short_trim: secondary,
+                Upper_Sock: secondary,
+                Sock_Stripes: primary,
+                Socks: primary,
+                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+            };
+            break;
+        case 'fade':
+            opacity = {
+                ...opacity,
+                Fade: 1,
+                Neckline: 1,
+            };
+            fills = {
+                ...fills,
+                Cuff: secondary,
+                Sock_Stripes: secondary,
+                Socks: primary,
+            };
+            break;
+        case 'fade-short':
+            opacity = {
+                ...opacity,
+                Fade: 1,
+                Neckline: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                ShortSleeve_cuff: secondary,
+                Sock_Stripes: secondary,
+                Socks: primary,
+            };
+            break;
+
+        //     'one-tone-trim',
+        //     'one-tone-trim-short',
+
         // case 'mixed':
         //     fills.collar = tertiary;
         //     fills.verticalStripes = secondary;

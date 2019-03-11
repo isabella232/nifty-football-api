@@ -19,5 +19,9 @@ module.exports = [
     'classic-chevron-short',
     'classic-hoops-short',
     'one-tone-no-trim',
+    'one-tone-no-trim-short',
     'one-tone-trim',
+    'one-tone-trim-short',
+    'fade',
+    'fade-short',
 ];

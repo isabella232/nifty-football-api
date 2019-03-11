@@ -11,7 +11,25 @@ image.get('/xxx', async (req, res, next) => {
         const paramTokenValues = {
             nationality: 0,
             ethnicity:  Math.floor(Math.random() * 11),
-            kit:  Math.floor(Math.random() * 17),
+            kit:  Math.floor(Math.random() * 24),
+            colour:  Math.floor(Math.random() * 17),
+        };
+
+        const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
+    } catch (e) {
+        next(e);
+    }
+});
+
+image.get('/mock-kit', async (req, res, next) => {
+    try {
+
+        const paramTokenValues = {
+            nationality: 0,
+            ethnicity:  Math.floor(Math.random() * 11),
+            kit:  23,
             colour:  Math.floor(Math.random() * 17),
         };
 
