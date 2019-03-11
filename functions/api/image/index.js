@@ -9,8 +9,8 @@ image.get('/xxx', async (req, res, next) => {
     try {
 
         const paramTokenValues = {
-            nationality:  Math.floor(Math.random() * 5),
-            ethnicity:  Math.floor(Math.random() * 10),
+            nationality: 0,
+            ethnicity:  Math.floor(Math.random() * 12),
             kit:  Math.floor(Math.random() * 10),
             colour:  Math.floor(Math.random() * 15),
         };

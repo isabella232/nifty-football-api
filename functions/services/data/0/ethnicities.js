@@ -9,7 +9,7 @@ module.exports = [
         skin: ['#C68642', 1],
         hair: ['#B55239', 1],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', .5]
     },
     {
         skin: ['#E0AC69', 1],
@@ -20,14 +20,14 @@ module.exports = [
     {
         skin: ['#F1C27D', 1],
         hair: ['#603909', 1],
-        beard: ['#8D5524', 0],
+        beard: ['#8D5524', 1],
         tache: ['#8D5524', 0]
     },
     {
         skin: ['#FFDBAC', 1],
         hair: ['#424949', 1],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
+        tache: ['#424949', 1]
     },
     {
         skin: ['#8D5524', 1],
@@ -39,7 +39,7 @@ module.exports = [
         skin: ['#7e4d1c', 1],
         hair: ['#7e4d1c', 1],
         beard: ['#1E1E1E', .4],
-        tache: ['#8D5524', 0]
+        tache: ['#1E1E1E', 1]
     },
     {
         skin: ['#7e4d1c', 1],

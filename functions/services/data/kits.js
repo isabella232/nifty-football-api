@@ -1,6 +1,7 @@
 
 module.exports = [
-    'classic',
+    'classic-long',
+    'classic-short',
     'striped',
     'mixed',
     'tri',

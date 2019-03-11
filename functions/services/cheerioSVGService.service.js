@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
-    const {skin, hair, beard} = require(`./data/${nationality}/ethnicities`)[ethnicity];
+    const {skin, hair, beard, tache} = require(`./data/${nationality}/ethnicities`)[ethnicity];
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
@@ -12,34 +12,39 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const fills = {
         Background_Layer: '#88d840',
         Body: skin[0],
-        Hair_Bottom: hair[0],
-        Hair_Top: hair[0],
+        Hair_Bottom_Layer: hair[0],
+        Hair_Top_Layer: hair[0],
         Beard: beard[0],
-        Moustache: beard[0],
+        Moustache: tache[0],
+
         Long_Sleeve: primary,
+        LongSleeve:primary,
+        Cuff: secondary,
+
+        ShortSleeve_cuff: secondary,
+
         Shorts: secondary,
-        Upper_Sock: secondary,
+        Go_Faster_Stripe_Shorts: primary,
+
+        Upper_Sock: primary,
         Sock_Stripes: secondary,
         Socks: secondary,
         Neckline: secondary,
-        Cuff: secondary,
         verticalStripes: primary,
         hoops: secondary
     };
 
     const opacity = {
-        topHoop: 0,
-        centerHoop: 0,
-        bottomHoop: 0,
-        hair: hair[1],
+        Hair_Top_Layer: hair[1],
+        Hair_Bottom_Layer: hair[1],
         Beard: beard[1],
-        Moustache: beard[1],
+        Moustache: tache[1],
     };
 
     switch (kitToken) {
-        case 'classic':
+        case 'classic-long':
             break;
-        case 'striped':
+        case 'classic-short':
             fills.verticalStripes = secondary;
             break;
         case 'mixed':
