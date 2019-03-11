@@ -1,9 +1,9 @@
-module.exports = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 1202.94">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 1202.94">
     <defs>
         <style>
             .cls-5 {
             fill: black;
-            opacity: 0.06;
+            opacity: 0.2;
             }
         </style>
     </defs>
@@ -12,7 +12,7 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 12
         <g id="Background_Layer" opacity="1" fill="gray">
             <rect width="862.46" height="1202.94" rx="12" />
         </g>
-        <g id="Football" opacity="1" fill="#FFF">
+        <g id="Football" opacity="0">
             <circle class="cls-3" cx="364.53" cy="1100.95" r="75.15" />
         </g>
         <g id="Body" opacity="1" fill="white">
@@ -44,7 +44,7 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 12
         <g id="Hair_Bottom" opacity=".8" fill="green">
             <path d="M370.08,161.08l.12,0,34.21-32.38a29.48,29.48,0,0,1-4.09-10c-2.34-11.16,1.58-21.49,8.76-23.06S424,101.84,426.33,113a29.09,29.09,0,0,1,.5,3.27h18.53l-1.16-27h9.25L465.7,52.9l42.08-.07c-.36-1.45-1.88-7.28-2.25-8.71l0-.08c-.38-1.44-.76-2.88-1.15-4.3,0,0-38.46-8.62-71.3-8.62-38.87,0-70.37,31.2-70.37,70.87a72.5,72.5,0,0,0,9.7,36.34Z" transform="translate(7.89 9.38)" />
         </g>
-        <g id="Eye" opacity=".6" fill="black">
+        <g id="Eye" opacity=".75" fill="black">
             <polygon points="474.56 98.84 510.47 98.84 506.19 105.97 493.37 105.97 495.08 112.45 474.56 98.84" />
         </g>
         <g id="Beard" opacity="1" fill="brown">
@@ -74,7 +74,7 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 12
         <g id="Shorts" opacity="1" fill="cyan">
             <polygon  points="563.81 635.25 428.39 635.25 292.96 635.25 270.02 833.83 402.54 833.83 428.39 777.27 454.24 833.83 586.75 833.83 563.81 635.25" />
         </g>
-        <g id="Go_Faster_stripe_Shorts" opacity="0" fill="blue">
+        <g id="Go_Faster_stripe_Shorts" opacity="1" fill="blue">
             <polygon  points="586.75 833.83 563.81 635.25 563.81 635.25 555.33 635.63 578.11 833.83 586.75 833.83 586.75 833.83" />
             <polygon  points="270.02 833.83 270.03 833.83 278.67 833.83 301.59 635.64 293.11 635.25 292.96 635.25 270.02 833.83" />
         </g>
@@ -108,4 +108,4 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 862.46 12
             </g>
         </g>
     </g>
-</svg>`;
+</svg>

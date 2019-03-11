@@ -5,6 +5,24 @@ const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
 
+image.get('/xxx', async (req, res, next) => {
+    try {
+
+        const paramTokenValues = {
+            nationality:  Math.floor(Math.random() * 5),
+            ethnicity:  Math.floor(Math.random() * 10),
+            kit:  Math.floor(Math.random() * 10),
+            colour:  Math.floor(Math.random() * 15),
+        };
+
+        const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
+    } catch (e) {
+        next(e);
+    }
+});
+
 image.get('/:tokenId', async (req, res, next) => {
     try {
         const tokenId = req.params.tokenId;
@@ -55,7 +73,7 @@ image.get('/mockup', async (req, res, next) => {
     }
 });
 
-image.get('/nationality/:nationality/ethnicity/:ethnicity/kit/:kit/colour/:colour/firstName/:firstName/lastName/:lastName/attributeAverage/:attributeAverage', async (req, res, next) => {
+image.get('/nationality/:nationality/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next) => {
     try {
 
         const paramTokenValues = {
@@ -63,28 +81,16 @@ image.get('/nationality/:nationality/ethnicity/:ethnicity/kit/:kit/colour/:colou
             ethnicity: req.params.ethnicity,
             kit: req.params.kit,
             colour: req.params.colour,
-            firstName: req.params.firstName,
-            lastName: req.params.lastName,
-            attributeAverage: req.params.attributeAverage
         };
 
-        const svg = generateSVG(paramTokenValues);
-
-        const nationalityText = require(`../../services/data/nationalities`)[paramTokenValues.nationality];
-        const firstNameText = require(`../../services/data/${paramTokenValues.nationality}/firstNames`)[paramTokenValues.firstName];
-        const lastNameText = require(`../../services/data/${paramTokenValues.nationality}/lastNames`)[paramTokenValues.lastName];
-        const attributeAverage = paramTokenValues.attributeAverage;
-
-        res.contentType('text/html');
-        return res.send(cheerioSVGService.buildCard(svg, {
-            nationalityText,
-            firstNameText,
-            lastNameText,
-            attributeAverage
-        }));
+        const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
     } catch (e) {
         next(e);
     }
 });
+
+
 
 module.exports = image;

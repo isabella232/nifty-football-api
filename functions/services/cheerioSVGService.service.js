@@ -10,18 +10,20 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     console.log(kit, kitToken);
 
     const fills = {
-        skin: skin[0],
-        hair: hair[0],
-        beard: beard[0],
-        jersey: primary,
+        Background_Layer: '#88d840',
+        Body: skin[0],
+        Hair_Bottom: hair[0],
+        Hair_Top: hair[0],
+        Beard: beard[0],
+        Moustache: beard[0],
+        Long_Sleeve: primary,
+        Shorts: secondary,
+        Upper_Sock: secondary,
+        Sock_Stripes: secondary,
+        Socks: secondary,
+        Neckline: secondary,
+        Cuff: secondary,
         verticalStripes: primary,
-        collar: secondary,
-        shorts: secondary,
-        socks: secondary,
-        shirtTrim: secondary,
-        shortsTrimMiddle: secondary,
-        sockTrim: secondary,
-        sockTopTrim: primary,
         hoops: secondary
     };
 
@@ -30,7 +32,8 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         centerHoop: 0,
         bottomHoop: 0,
         hair: hair[1],
-        beard: beard[1]
+        Beard: beard[1],
+        Moustache: beard[1],
     };
 
     switch (kitToken) {
