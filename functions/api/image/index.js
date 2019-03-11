@@ -10,7 +10,7 @@ image.get('/xxx', async (req, res, next) => {
 
         const paramTokenValues = {
             nationality: 0,
-            ethnicity:  Math.floor(Math.random() * 12),
+            ethnicity:  Math.floor(Math.random() * 11),
             kit:  Math.floor(Math.random() * 10),
             colour:  Math.floor(Math.random() * 15),
         };

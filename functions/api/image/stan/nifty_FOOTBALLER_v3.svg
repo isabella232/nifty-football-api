@@ -4,12 +4,11 @@
      viewBox="0 0 841.89 1190.55"
      style="enable-background:new 0 0 841.89 1190.55;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#02562C;}
-	.st2{fill:#D8A275;}
+	.st0{fill:#247209;}
+	<!--.st2{fill:#D8A275;}-->
 	.st3{fill:#C69C6D;}
-	.st4{opacity:0.5;fill:#D8A275;}
+	<!--.st4{opacity:0.5;fill:#D8A275;}-->
 	.st5{opacity:0.75;fill:#A67C52;}
-	.st25{fill:#999999;opacity:0.5;}
 </style>
     <switch>
 	<g>
@@ -152,7 +151,7 @@
 					C689.47,408.29,673.53,548.58,653.57,625.87z"/>
 			</g>
 		</g>
-        <g id="ShortSleeve" opacity="0" fill="fuchsia">
+        <g id="ShortSleeve" opacity="1" fill="fuchsia">
 			<g>
 				<path
                       d="M285.07,387.25L242.8,277.61c-37.95,54.34-57.35,110.33-65.65,162.77h89.53l18.39-18.36V387.25z"/>
@@ -278,10 +277,10 @@
 			<path  d="M420.5,271.65c33.06,0,63.31-12.05,86.59-32c-9.24-2.79-18.7-5.26-28.11-7.19l0,0
 				c-34.84,25.43-82.12,25.43-116.96,0l0,0c-9.42,1.93-18.87,4.41-28.11,7.19C357.19,259.6,387.44,271.65,420.5,271.65z"/>
 		</g>
-        <g id="Pectoral_Shadow">
-			<g class="st24">
-				<polygon class="st25" points="285.07,374.6 285.07,441.07 362.7,441.07 				"/>
-                <polygon class="st25" points="556.19,374.6 556.19,441.07 478.56,441.07 				"/>
+        <g id="Pectoral_Shadow" opacity="1" fill="pink">
+			<g>
+				<polygon  points="285.07,374.6 285.07,441.07 362.7,441.07"/>
+                <polygon  points="556.19,374.6 556.19,441.07 478.56,441.07"/>
 			</g>
 		</g>
 	</g>
