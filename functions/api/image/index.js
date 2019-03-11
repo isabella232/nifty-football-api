@@ -12,7 +12,7 @@ image.get('/xxx', async (req, res, next) => {
             nationality: 0,
             ethnicity:  Math.floor(Math.random() * 11),
             kit:  Math.floor(Math.random() * 10),
-            colour:  Math.floor(Math.random() * 15),
+            colour:  Math.floor(Math.random() * 17),
         };
 
         const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);

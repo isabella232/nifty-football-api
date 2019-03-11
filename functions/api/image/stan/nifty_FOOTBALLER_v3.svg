@@ -159,7 +159,7 @@
                       d="M555.93,387.25v34.77l18.39,18.36h89.53c-8.3-52.44-27.7-108.44-65.65-162.77L555.93,387.25z"/>
 			</g>
 		</g>
-        <g id="Hoops_Long_Sleeve" opacity="0" fill="red">
+        <g id="Hoops_Long_Sleeve" opacity="1" fill="red">
 			<g>
 				<rect x="285.07" y="450.65"  width="270.85" height="48.92"/>
                 <rect x="285.07" y="352.28"  width="270.85" height="48.92"/>

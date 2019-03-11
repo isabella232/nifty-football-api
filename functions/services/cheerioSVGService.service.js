@@ -30,15 +30,13 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
-
-
-    console.log(shadeColor(primary, -0.7,), primary);
-
     const fills = {
         Background_Layer: '#88d840',
         Body: skin[0],
+
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
+
         Beard: beard[0],
         Moustache: tache[0],
 
@@ -58,71 +56,155 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Upper_Sock: primary,
         Sock_Stripes: secondary,
         Socks: secondary,
+
         Neckline: secondary,
-        verticalStripes: primary,
-        hoops: secondary
+
+        Stripe: secondary,
+        Boca_Stripe: secondary,
+        Rovers_Shirt_Panel_Long_Sleeve: secondary,
+        Pinstripe: secondary,
+        Villa_style_LS: secondary,
+        Sash: secondary,
+        Chevron: secondary,
+        Hoops_Long_Sleeve: secondary,
     };
 
-    const opacity = {
+    let opacity = {
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
+
         Beard: beard[1],
         Moustache: tache[1],
+
         Pectoral_Shadow: 0.3,
+
+        Long_Sleeve: 1,
+        LongSleeve: 1,
+        Cuff: 1,
+
+        Short_Sleeve: 0,
+        ShortSleeve: 0,
+        ShortSleeve_cuff: 0,
+
+        Stripe: 0,
+        Boca_Stripe: 0,
+        Rovers_Shirt_Panel_Long_Sleeve: 0,
+        Pinstripe: 0,
+        Villa_style_LS: 0,
+        Sash: 0,
+        Chevron: 0,
+        Hoops_Long_Sleeve: 0,
     };
 
+    console.log(kitToken);
     switch (kitToken) {
         case 'classic-long':
             break;
         case 'classic-short':
-            fills.verticalStripes = secondary;
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
             break;
-        case 'mixed':
-            fills.collar = tertiary;
-            fills.verticalStripes = secondary;
-            fills.socks = tertiary;
+        case 'classic-stripe':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+            };
             break;
-        case 'tri':
-            fills.collar = tertiary;
-            fills.shorts = secondary;
-            fills.socks = tertiary;
+        case 'classic-single-hoop':
+            opacity = {
+                ...opacity,
+                Boca_Stripe: 1,
+            };
             break;
-        case 'one-tone':
-            fills.collar = primary;
-            fills.collar = primary;
-            fills.shorts = primary;
-            fills.socks = primary;
-            fills.shirtTrim = primary;
-            fills.shortsTrimMiddle = primary;
-            fills.sockTrim = primary;
-            fills.sockTopTrim = primary;
+        case 'classic-rovers':
+            opacity = {
+                ...opacity,
+                Rovers_Shirt_Panel_Long_Sleeve: 1,
+            };
             break;
-        case 'one-hoop':
-            opacity.centerHoop = 1;
+        case 'classic-pinstripe':
+            opacity = {
+                ...opacity,
+                Pinstripe: 1,
+            };
             break;
-        case 'tri-hoop':
-            opacity.topHoop = 1;
-            opacity.centerHoop = 1;
-            opacity.bottomHoop = 1;
+        case 'classic-villa':
+            opacity = {
+                ...opacity,
+                Villa_style_LS: 1,
+            };
             break;
-        case 'all-trim':
-            fills.shirtTrim = secondary;
-            fills.shortsTrimMiddle = primary;
-            fills.sockTrim = primary;
-            fills.sockTopTrim = primary;
+        case 'classic-sash':
+            opacity = {
+                ...opacity,
+                Sash: 1,
+            };
             break;
-        case 'classic-sock-band':
-            fills.collar = primary;
-            fills.shirtTrim = primary;
-            fills.shortsTrimMiddle = secondary;
-            fills.sockTrim = primary;
-            fills.sockTopTrim = secondary;
+        case 'classic-chevron':
+            opacity = {
+                ...opacity,
+                Chevron: 1,
+            };
             break;
-        case 'top-hoop':
-            opacity.topHoop = 1;
-            opacity.centerHoop = 0;
-            opacity.bottomHoop = 0;
+        case 'classic-hoops':
+            opacity = {
+                ...opacity,
+                Hoops_Long_Sleeve: 1,
+            };
             break;
+        // case 'mixed':
+        //     fills.collar = tertiary;
+        //     fills.verticalStripes = secondary;
+        //     fills.socks = tertiary;
+        //     break;
+        // case 'tri':
+        //     fills.collar = tertiary;
+        //     fills.shorts = secondary;
+        //     fills.socks = tertiary;
+        //     break;
+        // case 'one-tone':
+        //     fills.collar = primary;
+        //     fills.collar = primary;
+        //     fills.shorts = primary;
+        //     fills.socks = primary;
+        //     fills.shirtTrim = primary;
+        //     fills.shortsTrimMiddle = primary;
+        //     fills.sockTrim = primary;
+        //     fills.sockTopTrim = primary;
+        //     break;
+        // case 'one-hoop':
+        //     opacity.centerHoop = 1;
+        //     break;
+        // case 'tri-hoop':
+        //     opacity.topHoop = 1;
+        //     opacity.centerHoop = 1;
+        //     opacity.bottomHoop = 1;
+        //     break;
+        // case 'all-trim':
+        //     fills.shirtTrim = secondary;
+        //     fills.shortsTrimMiddle = primary;
+        //     fills.sockTrim = primary;
+        //     fills.sockTopTrim = primary;
+        //     break;
+        // case 'classic-sock-band':
+        //     fills.collar = primary;
+        //     fills.shirtTrim = primary;
+        //     fills.shortsTrimMiddle = secondary;
+        //     fills.sockTrim = primary;
+        //     fills.sockTopTrim = secondary;
+        //     break;
+        // case 'top-hoop':
+        //     opacity.topHoop = 1;
+        //     opacity.centerHoop = 0;
+        //     opacity.bottomHoop = 0;
+        //     break;
         default:
     }
 
