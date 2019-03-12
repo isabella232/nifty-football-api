@@ -24,4 +24,6 @@ module.exports = [
     'one-tone-trim-short',
     'fade',
     'fade-short',
+    'chequed',
+    'chequed-short',
 ];

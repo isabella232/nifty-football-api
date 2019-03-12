@@ -38,6 +38,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Cheek: cheek[0],
         Shadow: shadow[0],
         Eye: black,
+        Stubble: black,
 
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
@@ -74,6 +75,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Chevron: secondary,
         Hoops_Long_Sleeve: secondary,
         Fade: secondary,
+        Croat_LS: secondary,
     };
 
     let opacity = {
@@ -81,6 +83,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Cheek: 1,
         Shadow: 1,
         Eye: 0.8,
+        Stubble: 0.1,
 
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
@@ -115,6 +118,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Sash: 0,
         Chevron: 0,
         Hoops_Long_Sleeve: 0,
+        Croat_LS: 0,
     };
 
     console.log(kitToken);
@@ -391,6 +395,20 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 ...fills,
                 ShortSleeve_cuff: secondary,
                 Sock_Stripes: secondary,
+                Socks: primary,
+            };
+            break;
+        case 'chequed':
+            opacity = {
+                ...opacity,
+                Croat_LS: 1,
+                Neckline: 1,
+                Cuff: 1,
+            };
+            fills = {
+                ...fills,
+                Cuff: secondary,
+                Sock_Stripes: primary,
                 Socks: primary,
             };
             break;

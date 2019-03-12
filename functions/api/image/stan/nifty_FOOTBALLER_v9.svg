@@ -1,4 +1,4 @@
-module.exports = `<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1144,9 +1144,9 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
 		</g>
         <g id="Cuff" opacity="0" fill="white">
 			<g>
-				<path 
+				<path
                       d="M616.69,590.86c2.4,10.82,3.18,22.39,1.2,35.01h35.68c2.73-10.55,5.37-22.29,7.69-35.01H616.69z"/>
-                <path 
+                <path
                       d="M179.74,590.86c2.31,12.72,4.96,24.46,7.69,35.01h35.68c-1.98-12.62-1.2-24.19,1.2-35.01H179.74z"/>
 			</g>
 		</g>
@@ -1162,4 +1162,4 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
 		</g>
 	</g>
 </switch>
-</svg>`;
+</svg>
