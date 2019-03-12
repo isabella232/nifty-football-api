@@ -22,6 +22,10 @@ const shadeColor = (color, percent) => {
     return `#${RR}${GG}${BB}`.toUpperCase();
 };
 
+const black = `#000`;
+const white = `#FFF`;
+const whiteDark = '#F5F5F5';
+
 const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
     const {skin, shadow, cheek, hair_top, hair_bottom, beard, tache} = require(`./data/${nationality}/ethnicities`)[ethnicity];
@@ -33,7 +37,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
-        Eye: '#000',
+        Eye: black,
 
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
@@ -49,7 +53,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         ShortSleeve: primary,
         ShortSleeve_cuff: secondary,
 
-        Pectoral_Shadow: '#000',
+        Pectoral_Shadow: black,
 
         Shorts: secondary,
         Short_trim: secondary,
@@ -138,6 +142,8 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
             opacity = {
                 ...opacity,
                 Boca_Stripe: 1,
+                Neckline: 0,
+                Cuff: 0,
             };
             break;
         case 'classic-rovers':
@@ -156,12 +162,16 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
             opacity = {
                 ...opacity,
                 Villa_style_LS: 1,
+                Neckline: 0,
+                Cuff: 0,
             };
             break;
         case 'classic-sash':
             opacity = {
                 ...opacity,
                 Sash: 1,
+                Neckline: 0,
+                Cuff: 0,
             };
             break;
         case 'classic-chevron':
@@ -195,9 +205,10 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Long_Sleeve: 0,
                 LongSleeve: 0,
                 Cuff: 0,
+                Neckline: 0,
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
-                ShortSleeve_cuff: 1,
+                ShortSleeve_cuff: 0,
             };
             break;
         case 'classic-rovers-short':
@@ -231,9 +242,10 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Long_Sleeve: 0,
                 LongSleeve: 0,
                 Cuff: 0,
+                Neckline: 0,
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
-                ShortSleeve_cuff: 1,
+                ShortSleeve_cuff: 0,
             };
             break;
         case 'classic-sash-short':
@@ -243,9 +255,10 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Long_Sleeve: 0,
                 LongSleeve: 0,
                 Cuff: 0,
+                Neckline: 0,
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
-                ShortSleeve_cuff: 1,
+                ShortSleeve_cuff: 0,
             };
             break;
         case 'classic-chevron-short':
@@ -284,7 +297,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Shorts: primary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
             };
             break;
         case 'one-tone-no-trim-short':
@@ -305,7 +318,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Shorts: primary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
             };
             break;
         case 'one-tone-trim':
@@ -322,7 +335,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Upper_Sock: secondary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
             };
             break;
         case 'one-tone-trim-short':
@@ -345,14 +358,15 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Upper_Sock: secondary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === '#FFF' ? '#F5F5F5' : shadeColor(primary, -8),
+                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -8),
             };
             break;
         case 'fade':
             opacity = {
                 ...opacity,
                 Fade: 1,
-                Neckline: 1,
+                Neckline: 0,
+                Cuff: 0,
             };
             fills = {
                 ...fills,
@@ -365,13 +379,13 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
             opacity = {
                 ...opacity,
                 Fade: 1,
-                Neckline: 1,
+                Neckline: 0,
                 Long_Sleeve: 0,
                 LongSleeve: 0,
                 Cuff: 0,
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
-                ShortSleeve_cuff: 1,
+                ShortSleeve_cuff: 0,
             };
             fills = {
                 ...fills,
