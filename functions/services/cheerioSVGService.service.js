@@ -74,8 +74,8 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
 
     let opacity = {
         Body: skin[1],
-        Cheek: 0.5,
-        Shadow: 0.75,
+        Cheek: 1,
+        Shadow: 1,
         Eye: 0.8,
 
         Hair_Top_Layer: hair_top[1],

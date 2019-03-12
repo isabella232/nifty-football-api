@@ -1,6 +1,10 @@
 const cheerioSVGService = require('../../services/cheerioSVGService.service');
 const futballcardsService = require('../../services/futballcards.contract.service');
 
+const ethnicities  = require('../../services/data/0/ethnicities');
+const kits  = require('../../services/data/kits');
+const colours  = require('../../services/data/colours');
+
 const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
@@ -23,19 +27,14 @@ image.get('/xxx', async (req, res, next) => {
     }
 });
 
-image.get('/mock-kit', async (req, res, next) => {
+image.get('/data', async (req, res, next) => {
     try {
 
-        const paramTokenValues = {
-            nationality: 0,
-            ethnicity:  Math.floor(Math.random() * 11),
-            kit:  23,
-            colour:  Math.floor(Math.random() * 17),
-        };
-
-        const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);
-        res.contentType('image/svg+xml');
-        return res.send(svg);
+        return res.status(200).json({
+            ethnicities: ethnicities,
+            kits: kits,
+            colours: colours,
+        });
     } catch (e) {
         next(e);
     }
