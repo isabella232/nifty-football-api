@@ -4,10 +4,10 @@ module.exports = [
         skin: ['#E0AC69', 1],
         cheek: ['#D8A064', 1],
         shadow: ['#C68442', 1],
-        hair_top: ['#8D5524', .75],
-        hair_bottom: ['#8D5524', .5],
-        beard: ['#8D5524', .2],
-        tache: ['#8D5524', 0]
+        hair_top: ['#8D5524', 0],
+        hair_bottom: ['#8D5524', 0],
+        beard: ['#8D5524', 0],
+        tache: ['#8D5524', 1]
     },
     {
         name: 'askew',

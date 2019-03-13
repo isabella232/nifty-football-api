@@ -76,6 +76,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Hoops_Long_Sleeve: secondary,
         Fade: secondary,
         Croat_LS: secondary,
+        Croat_SS: secondary,
     };
 
     let opacity = {
@@ -119,6 +120,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
         Chevron: 0,
         Hoops_Long_Sleeve: 0,
         Croat_LS: 0,
+        Croat_SS: 0,
     };
 
     console.log(kitToken);
@@ -301,7 +303,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Shorts: primary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
         case 'one-tone-no-trim-short':
@@ -322,7 +324,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Shorts: primary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
         case 'one-tone-trim':
@@ -339,7 +341,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Upper_Sock: secondary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === white ? whiteDark : shadeColor(primary, -8),
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
         case 'one-tone-trim-short':
@@ -362,7 +364,7 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
                 Upper_Sock: secondary,
                 Sock_Stripes: primary,
                 Socks: primary,
-                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -8),
+                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
         case 'fade':
@@ -408,6 +410,25 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
             fills = {
                 ...fills,
                 Cuff: secondary,
+                Sock_Stripes: primary,
+                Socks: primary,
+            };
+            break;
+        case 'chequed-short':
+            opacity = {
+                ...opacity,
+                Croat_SS: 1,
+                Neckline: 1,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                ShortSleeve_cuff: secondary,
                 Sock_Stripes: primary,
                 Socks: primary,
             };
