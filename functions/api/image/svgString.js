@@ -4,29 +4,6 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 841.89 1190.55"
      style="enable-background:new 0 0 841.89 1190.55;" xml:space="preserve">
-<style type="text/css">
-	<!--.st0{fill:#02562C;}-->
-    <!--.st5{fill:#EFD9A0;}-->
-    <!--.st6{fill:#0071BC;}-->
-    <!--.st7{fill:#603813;}-->
-    <!--.st8{opacity:0.37;fill:#603813;}-->
-    <!--.st9{fill:#ED1C24;}-->
-    <!--.st10{fill:#C1272D;}-->
-    <!--.st11{fill:#F15A24;}-->
-    <!--.st12{fill:#F7931E;}-->
-    <!--.st13{fill:#9E005D;}-->
-    <!--.st14{fill:#009245;}-->
-    <!--.st15{fill:#8CC63F;}-->
-    <!--.st16{fill:#E84E1F;}-->
-    <!--.st17{fill:#FCEE21;}-->
-    <!--.st18{fill:#D9E021;}-->
-    <!--.st19{fill:#ED1E79;}-->
-    <!--.st20{fill:#FFFFFF;}-->
-    <!--.st21{fill:#29ABE2;}-->
-    <!--.st22{fill:#D4145A;}-->
-    <!--.st23{fill:#FBB03B;}-->
-    <!--.st24{opacity:0.1;}-->
-</style>
     <switch>
 	<g>
 		<g id="Background">
