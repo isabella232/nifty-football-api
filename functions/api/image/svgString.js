@@ -6,10 +6,6 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
      style="enable-background:new 0 0 841.89 1190.55;" xml:space="preserve">
 <style type="text/css">
 	<!--.st0{fill:#02562C;}-->
-    .st1{fill:#E8BE95;}
-    .st2{fill:#D8A275;}
-    .st3{opacity:0.5;fill:#D8A275;}
-    .st4{opacity:0.75;fill:#A67C52;}
     <!--.st5{fill:#EFD9A0;}-->
     <!--.st6{fill:#0071BC;}-->
     <!--.st7{fill:#603813;}-->

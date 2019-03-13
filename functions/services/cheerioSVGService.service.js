@@ -33,7 +33,8 @@ const generateSVG = ({nationality, ethnicity, kit, colour}) => {
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 
     let fills = {
-        Background: '#247209',
+        // Background: '#247209',
+        Background: shadeColor(primary, -50),
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
