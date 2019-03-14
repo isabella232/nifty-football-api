@@ -26,9 +26,9 @@ const black = `#000`;
 const white = `#FFF`;
 const whiteDark = '#F5F5F5';
 
-const generateSVG = ({nationality, ethnicity, kit, colour}) => {
+const generateSVG = ({ethnicity, kit, colour}) => {
 
-    const {skin, shadow, cheek, hair_top, hair_bottom, beard, tache} = require(`./data/${nationality}/ethnicities`)[ethnicity];
+    const {skin, shadow, cheek, hair_top, hair_bottom, beard, tache} = require(`./data/ethnicities`)[ethnicity];
     const kitToken = require(`./data/kits`)[kit];
     const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
 

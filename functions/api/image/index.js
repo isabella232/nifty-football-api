@@ -1,7 +1,7 @@
 const cheerioSVGService = require('../../services/cheerioSVGService.service');
 const futballcardsService = require('../../services/futballcards.contract.service');
 
-const ethnicities  = require('../../services/data/0/ethnicities');
+const ethnicities  = require('../../services/data/ethnicities');
 const kits  = require('../../services/data/kits');
 const colours  = require('../../services/data/colours');
 
@@ -90,7 +90,7 @@ image.get('/mockup', async (req, res, next) => {
     }
 });
 
-image.get('/nationality/:nationality/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next) => {
+image.get('/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next) => {
     try {
 
         const paramTokenValues = {
