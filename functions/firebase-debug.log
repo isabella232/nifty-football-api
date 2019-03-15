@@ -1,0 +1,29 @@
+[debug] [2019-03-14T20:44:03.806Z] ----------------------------------------------------------------------
+[debug] [2019-03-14T20:44:03.808Z] Command:       /usr/local/bin/node /Users/andy/.node/bin/firebase serve --only functions
+[debug] [2019-03-14T20:44:03.808Z] CLI Version:   6.0.1
+[debug] [2019-03-14T20:44:03.808Z] Platform:      darwin
+[debug] [2019-03-14T20:44:03.808Z] Node Version:  v8.9.4
+[debug] [2019-03-14T20:44:03.808Z] Time:          Thu Mar 14 2019 20:44:03 GMT+0000 (GMT)
+[debug] [2019-03-14T20:44:03.808Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-14T20:44:03.820Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-14T20:44:03.820Z] > authorizing via signed-in user
+[debug] [2019-03-14T20:44:03.820Z] [iam] checking project futbol-cards for permissions ["firebase.projects.get"]
+[debug] [2019-03-14T20:44:03.821Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards:testIamPermissions  
+
+[debug] [2019-03-14T20:44:04.721Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T20:44:04.722Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-03-14T20:44:05.460Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/andy/workspace/futbol-cards-api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-03-14T20:44:06.148Z] Fetching environment
+[debug] [2019-03-14T20:44:06.151Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1067786577179:getServerAppConfig  
+ 
+[debug] [2019-03-14T20:44:06.410Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-14T20:44:06.410Z] Starting @google-cloud/functions-emulator
+[debug] [2019-03-14T20:44:07.451Z] Parsing function triggers
+[info] ✔  functions: api: http://localhost:5000/futbol-cards/us-central1/api
+[info] Shutting down...

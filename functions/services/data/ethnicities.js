@@ -1,6 +1,6 @@
 module.exports = [
     {
-        name: 'neville',
+        name: 'Neville',
         skin: ['#E0AC69', 1],
         cheek: ['#D8A064', 1],
         shadow: ['#C68442', 1],
@@ -10,7 +10,7 @@ module.exports = [
         tache: ['#8D5524', 1]
     },
     {
-        name: 'askew',
+        name: 'Askew',
         skin: ['#C68642', 1],
         cheek: ['#BA783C', 1],
         shadow: ['#A56832', 1],
@@ -20,7 +20,7 @@ module.exports = [
         tache: ['#8D5524', .5]
     },
     {
-        name: 'whitehurst',
+        name: 'Whitehurst',
         skin: ['#F1C27D', 1],
         cheek: ['#E2AF6D', 1],
         shadow: ['#D19D59', 1],
@@ -30,7 +30,7 @@ module.exports = [
         tache: ['#8D5524', 0]
     },
     {
-        name: 'brabin',
+        name: 'Brabin',
         skin: ['#C68642', 1],
         cheek: ['#BA783C', 1],
         shadow: ['#A56832', 1],
@@ -40,7 +40,7 @@ module.exports = [
         tache: ['#8D5524', .5]
     },
     {
-        name: 'ole',
+        name: 'Feather',
         skin: ['#E0AC69', 1],
         cheek: ['#D8A064', 1],
         shadow: ['#C68442', 1],
@@ -50,7 +50,7 @@ module.exports = [
         tache: ['#424949', 1]
     },
     {
-        name: 'chestnut',
+        name: 'Chestnut',
         skin: ['#F1C27D', 1],
         cheek: ['#E2AF6D', 1],
         shadow: ['#D19D59', 1],
@@ -60,7 +60,7 @@ module.exports = [
         tache: ['#8D5524', 0]
     },
     {
-        name: 'whitmore',
+        name: 'Whitmore',
         skin: ['#8D5524', 1],
         cheek: ['#7C461E', 1],
         shadow: ['#663714', 1],
@@ -70,7 +70,7 @@ module.exports = [
         tache: ['#603909', 0]
     },
     {
-        name: 'goodison',
+        name: 'Goodison',
         skin: ['#7e4d1c', 1],
         cheek: ['#754214', 1],
         shadow: ['#60300F', 1],
@@ -80,7 +80,7 @@ module.exports = [
         tache: ['#1E1E1E', 1]
     },
     {
-        name: 'barnes',
+        name: 'Barnes',
         skin: ['#5B3719', 1],
         cheek: ['#4F2D15', 1],
         shadow: ['#442611', 1],
@@ -90,7 +90,7 @@ module.exports = [
         tache: ['#442611', 1]
     },
     {
-        name: 'phillips',
+        name: 'Phillips',
         skin: ['#FFCFAE', 1],
         cheek: ['#F4BE9A', 1],
         shadow: ['#E5AB83', 1],
@@ -100,7 +100,7 @@ module.exports = [
         tache: ['#8D5524', 0]
     },
     {
-        name: 'ali',
+        name: 'Ali',
         skin: ['#EDB188', 1],
         cheek: ['#DD9F76', 1],
         shadow: ['#CE8963', 1],
@@ -110,7 +110,7 @@ module.exports = [
         tache: ['#8D5524', 0]
     },
     {
-        name: 'rodman',
+        name: 'Rodman',
         skin: ['#5B3719', 1],
         cheek: ['#4F2D15', 1],
         shadow: ['#60300F', 1],
@@ -120,7 +120,7 @@ module.exports = [
         tache: ['#8D5524', 0]
     },
     {
-        name: 'milk',
+        name: 'Milk',
         skin: ['#7e4d1c', 1],
         cheek: ['#754214', 1],
         shadow: ['#60300F', 1],

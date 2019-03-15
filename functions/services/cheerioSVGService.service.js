@@ -26,11 +26,7 @@ const black = `#000`;
 const white = `#FFF`;
 const whiteDark = '#F5F5F5';
 
-const generateSVG = ({ethnicity, kit, colour}) => {
-
-    const {skin, shadow, cheek, hair_top, hair_bottom, beard, tache} = require(`./data/ethnicities`)[ethnicity];
-    const kitToken = require(`./data/kits`)[kit];
-    const {primary, secondary, tertiary} = require(`./data/colours`)[colour];
+const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, kitToken, primary, secondary, tertiary}) => {
 
     let fills = {
         // Background: '#247209',
@@ -495,8 +491,43 @@ const generateSVG = ({ethnicity, kit, colour}) => {
 
 class CheerioSVGService {
 
-    process (svgXml, {nationality, ethnicity, kit, colour}) {
-        const {fills, opacity} = generateSVG({nationality, ethnicity, kit, colour});
+    process (svgXml, {ethnicity, kit, colour}) {
+        const ethnicities = require(`./data/ethnicities`)[ethnicity];
+        const kitToken = require(`./data/kits`)[kit];
+        const colours = require(`./data/colours`)[colour];
+
+        const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours});
+
+        const $ = cheerio.load(
+            svgXml,
+            {xmlMode: true}
+        );
+
+        _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
+        _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
+
+        _.forEach(fills, (v, k) => $(`.st2`).attr('fill', fills.Shadow));
+        _.forEach(fills, (v, k) => $(`.st3`).attr('fill', fills.Cheek));
+
+        return $.xml();
+    }
+
+    player (svgXml, {skin, shadow, cheek, hair_top, hair_bottom, beard, tache, kit, colour}) {
+
+        const kitToken = require(`./data/kits`)[kit];
+        const colours = require(`./data/colours`)[colour];
+
+        const {fills, opacity} = generateSVG({
+            skin,
+            shadow,
+            cheek,
+            hair_top,
+            hair_bottom,
+            beard,
+            tache,
+            kitToken,
+            ...colours
+        });
 
         const $ = cheerio.load(
             svgXml,
