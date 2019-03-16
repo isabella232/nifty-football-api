@@ -81,7 +81,7 @@ const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, 
         Cheek: 1,
         Shadow: 1,
         Eye: 0.8,
-        Stubble: 0.1,
+        Stubble: 0,
 
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
