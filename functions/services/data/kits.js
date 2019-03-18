@@ -26,4 +26,10 @@ module.exports = [
     'fade-short',
     'chequed',
     'chequed-short',
+    'arse',
+    'arse-short',
+    'classic-tertiary-shorts',
+    'classic-tertiary-shorts-short',
+    'classic-tertiary-socks',
+    'classic-tertiary-socks-short',
 ];

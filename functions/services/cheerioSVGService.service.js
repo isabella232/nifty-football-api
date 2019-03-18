@@ -430,6 +430,77 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Socks: primary,
             };
             break;
+        case 'arse':
+            fills = {
+                ...fills,
+                LongSleeve: secondary,
+                Long_Sleeve: primary,
+                Cuff: primary,
+            };
+            break;
+        case 'arse-short':
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                ShortSleeve: secondary,
+                Short_Sleeve: primary,
+                ShortSleeve_cuff: primary,
+            };
+            break;
+        case 'classic-tertiary-shorts':
+            fills = {
+                ...fills,
+                Shorts: tertiary,
+            };
+            break;
+        case 'classic-tertiary-shorts-short':
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                Shorts: tertiary,
+            };
+            break;
+        case 'classic-tertiary-socks':
+            fills = {
+                ...fills,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+            };
+            break;
+        case 'classic-tertiary-socks-short':
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+            };
+            fills = {
+                ...fills,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+            };
+            break;
         default:
     }
 
