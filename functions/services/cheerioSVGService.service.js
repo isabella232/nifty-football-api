@@ -605,17 +605,6 @@ class CheerioSVGService {
 
         return $.xml();
     }
-
-    buildCard (svgXml, {nationalityText, firstNameText, lastNameText, attributeAverage}) {
-        const $ = cheerio.load(`<div id="card" style="max-width: 350px;margin: auto; "></div>`);
-
-        $('#card').append(`<h1>${firstNameText} ${lastNameText}</h1>`);
-        $('#card').append(`<h2 style="float: right;">${nationalityText}</h2>`);
-        $('#card').append(`<h2 style="float: left;">${attributeAverage}</h2>`);
-        $('#card').append(svgXml);
-
-        return $.html();
-    }
 }
 
 module.exports = new CheerioSVGService();

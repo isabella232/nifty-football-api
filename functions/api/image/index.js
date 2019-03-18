@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
 
-image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/', async (req, res, next) => {
+image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/name/:name', async (req, res, next) => {
     try {
 
         console.log(req.params);
@@ -26,6 +26,7 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
             stubble: [`#${req.params.stubble}`, parseFloat(req.params.stubble_opacity)],
             kit: req.params.kit,
             colour: req.params.colour,
+            name: req.params.name,
         };
 
         console.log(paramTokenValues);
@@ -69,51 +70,18 @@ image.get('/data', async (req, res, next) => {
     }
 });
 
-// image.get('/:tokenId', async (req, res, next) => {
-//     try {
-//         const tokenId = req.params.tokenId;
-//         const network = req.params.network;
-//
-//         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
-//
-//         const svg = cheerioSVGService.process(require('./svgString'), tokenDetails);
-//
-//         // console.log(svg);
-//         res.contentType('image/svg+xml');
-//         return res.send(svg);
-//     } catch (e) {
-//         next(e);
-//     }
-// });
-
-image.get('/mockup', async (req, res, next) => {
+image.get('/:tokenId', async (req, res, next) => {
     try {
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
 
-        // these will come from the TOKEN eventually...
-        const tokenValues = {
-            nationality: 1,
-            ethnicity: 2,
-            kit: 2,
-            colour: 5,
-            firstName: 0,
-            lastName: 0,
-            attributeAverage: 77
-        };
+        const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 
-        const svg = generateSVG(tokenValues);
+        const svg = cheerioSVGService.process(require('./svgString'), tokenDetails);
 
-        const nationalityText = require(`../../services/data/nationalities`)[tokenValues.nationality];
-        const firstNameText = require(`../../services/data/${tokenValues.nationality}/firstNames`)[tokenValues.firstName];
-        const lastNameText = require(`../../services/data/${tokenValues.nationality}/lastNames`)[tokenValues.lastName];
-        const attributeAverage = tokenValues.attributeAverage;
-
-        res.contentType('text/html');
-        return res.send(cheerioSVGService.buildCard(svg, {
-            nationalityText,
-            firstNameText,
-            lastNameText,
-            attributeAverage
-        }));
+        // console.log(svg);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
     } catch (e) {
         next(e);
     }
