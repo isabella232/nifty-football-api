@@ -29,8 +29,8 @@ const whiteDark = '#F5F5F5';
 const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary}) => {
 
     let fills = {
-        // Background: '#247209',
-        Background: shadeColor(primary, -50),
+        Background: '#247209',
+        // Background: shadeColor(primary, -50),
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
@@ -118,6 +118,8 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Hoops_Long_Sleeve: 0,
         Croat_LS: 0,
         Croat_SS: 0,
+        Lyon_lower_strip: 0,
+        Lyon_top_Layer: 0,
     };
 
     // console.log(kitToken);
@@ -501,6 +503,38 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Upper_Sock: tertiary,
             };
             break;
+        case 'lyon':
+            opacity = {
+                ...opacity,
+                Lyon_lower_strip: 1,
+                Lyon_top_Layer: 1,
+                Neckline: 0,
+            };
+            fills = {
+                ...fills,
+                Lyon_lower_strip: tertiary,
+                Lyon_top_Layer: secondary,
+            };
+            break;
+        case 'lyon-short':
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+                Lyon_lower_strip: 1,
+                Lyon_top_Layer: 1,
+                Neckline: 0,
+            };
+            fills = {
+                ...fills,
+                Lyon_lower_strip: tertiary,
+                Lyon_top_Layer: secondary,
+            };
+            break;
         default:
     }
 
@@ -510,9 +544,23 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
     };
 };
 
+const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
+
+    _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
+    _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
+
+    _.forEach(fills, (v, k) => $(`.st11`).attr('fill', fills.Shadow));
+    _.forEach(fills, (v, k) => $(`.st12`).attr('fill', fills.Cheek));
+
+    $('#Name').html(name.toUpperCase());
+    $('#Position').html(position.toUpperCase());
+    $('#Average').html(average.toUpperCase());
+    $('#TokenId').html('#' + ('0000000' + tokenId).slice(-8));
+};
+
 class CheerioSVGService {
 
-    process (svgXml, {ethnicity, kit, colour}) {
+    process (svgXml, {ethnicity, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
         const ethnicities = require(`./data/ethnicities`)[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -524,16 +572,12 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
-        _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
-
-        _.forEach(fills, (v, k) => $(`.st2`).attr('fill', fills.Shadow));
-        _.forEach(fills, (v, k) => $(`.st3`).attr('fill', fills.Cheek));
+        fillSVG($, {fills, opacity, name, position, average, tokenId});
 
         return $.xml();
     }
 
-    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour}) {
+    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
 
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -557,11 +601,7 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
-        _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
-
-        _.forEach(fills, (v, k) => $(`.st2`).attr('fill', fills.Shadow));
-        _.forEach(fills, (v, k) => $(`.st3`).attr('fill', fills.Cheek));
+        fillSVG($, {fills, opacity, name, position, average, tokenId});
 
         return $.xml();
     }

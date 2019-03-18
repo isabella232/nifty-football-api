@@ -50,8 +50,8 @@ module.exports = [
     },
     {
         name: 'Tottenham',
-        primary: '#132257',
-        secondary: '#FFF',
+        primary: '#FFF',
+        secondary: '#132257',
         tertiary: '#F3D459'
     },
     {
@@ -106,7 +106,7 @@ module.exports = [
         name: 'AC Milan',
         primary: '#FB090B',
         secondary: '#000',
-        tertiary: '#CACACC'
+        tertiary: '#FFFFFF'
     },
     {
         name: 'Everton',
