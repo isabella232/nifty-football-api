@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
 
-image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/kit/:kit/colour/:colour/', async (req, res, next) => {
+image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/', async (req, res, next) => {
     try {
 
         console.log(req.params);
@@ -18,10 +18,12 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/hair_top/:hair_
             skin: [`#${req.params.skin}`, parseFloat(req.params.skin_opacity)],
             shadow: [`#${req.params.shadow}`, 1],
             cheek: [`#${req.params.cheek}`, 1],
+            eye: [`#${req.params.eye}`, parseFloat(req.params.eye_opacity)],
             hair_top: [`#${req.params.hair_top}`, parseFloat(req.params.hair_top_opacity)],
             hair_bottom: [`#${req.params.hair_bottom}`, parseFloat(req.params.hair_bottom_opacity)],
             beard: [`#${req.params.beard}`, parseFloat(req.params.beard_opacity)],
             tache: [`#${req.params.tache}`, parseFloat(req.params.tache_opacity)],
+            stubble: [`#${req.params.stubble}`, parseFloat(req.params.stubble_opacity)],
             kit: req.params.kit,
             colour: req.params.colour,
         };

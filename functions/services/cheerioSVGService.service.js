@@ -26,7 +26,7 @@ const black = `#000`;
 const white = `#FFF`;
 const whiteDark = '#F5F5F5';
 
-const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, kitToken, primary, secondary, tertiary}) => {
+const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary}) => {
 
     let fills = {
         // Background: '#247209',
@@ -34,8 +34,8 @@ const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, 
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
-        Eye: black,
-        Stubble: black,
+        Eye: eye[0],
+        Stubble: stubble[0],
 
         Hair_Bottom_Layer: hair_bottom[0],
         Hair_Top_Layer: hair_top[0],
@@ -80,8 +80,8 @@ const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, 
         Body: skin[1],
         Cheek: 1,
         Shadow: 1,
-        Eye: 0.8,
-        Stubble: 0,
+        Eye: eye[1],
+        Stubble: stubble[1],
 
         Hair_Top_Layer: hair_top[1],
         Hair_Bottom_Layer: hair_bottom[1],
@@ -120,7 +120,7 @@ const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, 
         Croat_SS: 0,
     };
 
-    console.log(kitToken);
+    // console.log(kitToken);
     switch (kitToken) {
         case 'classic':
             break;
@@ -430,56 +430,6 @@ const generateSVG = ({skin, shadow, cheek, hair_top, hair_bottom, beard, tache, 
                 Socks: primary,
             };
             break;
-
-        //     'one-tone-trim',
-        //     'one-tone-trim-short',
-
-        // case 'mixed':
-        //     fills.collar = tertiary;
-        //     fills.verticalStripes = secondary;
-        //     fills.socks = tertiary;
-        //     break;
-        // case 'tri':
-        //     fills.collar = tertiary;
-        //     fills.shorts = secondary;
-        //     fills.socks = tertiary;
-        //     break;
-        // case 'one-tone':
-        //     fills.collar = primary;
-        //     fills.collar = primary;
-        //     fills.shorts = primary;
-        //     fills.socks = primary;
-        //     fills.shirtTrim = primary;
-        //     fills.shortsTrimMiddle = primary;
-        //     fills.sockTrim = primary;
-        //     fills.sockTopTrim = primary;
-        //     break;
-        // case 'one-hoop':
-        //     opacity.centerHoop = 1;
-        //     break;
-        // case 'tri-hoop':
-        //     opacity.topHoop = 1;
-        //     opacity.centerHoop = 1;
-        //     opacity.bottomHoop = 1;
-        //     break;
-        // case 'all-trim':
-        //     fills.shirtTrim = secondary;
-        //     fills.shortsTrimMiddle = primary;
-        //     fills.sockTrim = primary;
-        //     fills.sockTopTrim = primary;
-        //     break;
-        // case 'classic-sock-band':
-        //     fills.collar = primary;
-        //     fills.shirtTrim = primary;
-        //     fills.shortsTrimMiddle = secondary;
-        //     fills.sockTrim = primary;
-        //     fills.sockTopTrim = secondary;
-        //     break;
-        // case 'top-hoop':
-        //     opacity.topHoop = 1;
-        //     opacity.centerHoop = 0;
-        //     opacity.bottomHoop = 0;
-        //     break;
         default:
     }
 
@@ -512,7 +462,7 @@ class CheerioSVGService {
         return $.xml();
     }
 
-    player (svgXml, {skin, shadow, cheek, hair_top, hair_bottom, beard, tache, kit, colour}) {
+    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour}) {
 
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -521,10 +471,12 @@ class CheerioSVGService {
             skin,
             shadow,
             cheek,
+            eye,
             hair_top,
             hair_bottom,
             beard,
             tache,
+            stubble,
             kitToken,
             ...colours
         });

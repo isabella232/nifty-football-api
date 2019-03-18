@@ -7,7 +7,9 @@ module.exports = [
         hair_top: ['#8D5524', 0],
         hair_bottom: ['#8D5524', 0],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 1]
+        tache: ['#8D5524', 1],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Askew',
@@ -17,7 +19,9 @@ module.exports = [
         hair_top: ['#B55239', 1],
         hair_bottom: ['#B55239', .5],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', .5]
+        tache: ['#8D5524', .5],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Whitehurst',
@@ -27,7 +31,9 @@ module.exports = [
         hair_top: ['#1E1E1E', .9],
         hair_bottom: ['#1E1E1E', .6],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', 0],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Brabin',
@@ -37,7 +43,9 @@ module.exports = [
         hair_top: ['#E6CEA8', 1],
         hair_bottom: ['#504444', .5],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', .5]
+        tache: ['#8D5524', .5],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Feather',
@@ -57,7 +65,9 @@ module.exports = [
         hair_top: ['#603909', .6],
         hair_bottom: ['#603909', 1],
         beard: ['#8D5524', 1],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', 0],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Whitmore',
@@ -87,7 +97,9 @@ module.exports = [
         hair_top: ['#5B3719', .7],
         hair_bottom: ['#5B3719', .2],
         beard: ['#8D5524', 0],
-        tache: ['#442611', 1]
+        tache: ['#442611', 1],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Phillips',
@@ -107,7 +119,9 @@ module.exports = [
         hair_top: ['#71635A', .9],
         hair_bottom: ['#71635A', .7],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', 0],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Rodman',
@@ -117,7 +131,9 @@ module.exports = [
         hair_top: ['#DC143C', .7],
         hair_bottom: ['#DC143C', .2],
         beard: ['#8D5524', 0],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', 0],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
     {
         name: 'Milk',
@@ -127,37 +143,8 @@ module.exports = [
         hair_top: ['#FFF5E1', .9],
         hair_bottom: ['#60300F', .7],
         beard: ['#FFF5E1', .75],
-        tache: ['#8D5524', 0]
+        tache: ['#8D5524', 0],
+        stubble: ['#8D5524', 0],
+        eye: ['#1E1E1E', 1],
     },
-    {
-        "name": "Ravanelli",
-        "skin": [
-            "#E0AC69",
-            1
-        ],
-        "cheek": [
-            "#D8A064",
-            1
-        ],
-        "shadow": [
-            "#C68442",
-            1
-        ],
-        "hair_top": [
-            "#CABFB1",
-            "1"
-        ],
-        "hair_bottom": [
-            "#CABFB1",
-            "1"
-        ],
-        "beard": [
-            "#CABFB1",
-            ".3"
-        ],
-        "tache": [
-            "#CABFB1",
-            "0"
-        ]
-    }
 ];
