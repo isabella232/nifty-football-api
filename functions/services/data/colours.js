@@ -1,4 +1,3 @@
-['#DA291C', '#B50E12', '#000', '#FFF', '#6C1D45', '#99D6EA', '#F0B323', '#6CABDD', '#1C2C5B', '#FBEE23', '#004812', '#61259E'];
 module.exports = [
     {
         name: 'Burnley',
@@ -16,12 +15,12 @@ module.exports = [
         name: 'Manchester City',
         primary: '#6CABDD',
         secondary: '#1C2C5B',
-        tertiary: '#FFF'
+        tertiary: '#FFFFFF'
     },
     {
         name: 'Newcastle',
         primary: '#241F20',
-        secondary: '#FFF',
+        secondary: '#FFFFFF',
         tertiary: '#F1BE48'
     },
     {
@@ -39,18 +38,18 @@ module.exports = [
     {
         name: 'Chelsea',
         primary: '#034694',
-        secondary: '#FFF',
+        secondary: '#FFFFFF',
         tertiary: '#EE242C'
     },
     {
         name: 'Liverpool',
         primary: '#C8102E',
-        secondary: '#00B2A9',
-        tertiary: '#F6EB61'
+        secondary: '#F6EB61',
+        tertiary: '#00B2A9'
     },
     {
         name: 'Tottenham',
-        primary: '#FFF',
+        primary: '#FFFFFF',
         secondary: '#132257',
         tertiary: '#F3D459'
     },
@@ -58,7 +57,7 @@ module.exports = [
         name: 'Leeds',
         primary: '#FFCD00',
         secondary: '#005B9E',
-        tertiary: '#FFF'
+        tertiary: '#FFFFFF'
     },
     {
         name: 'Wolverhampton',
@@ -86,7 +85,7 @@ module.exports = [
     },
     {
         name: 'Real Madrid',
-        primary: '#FFF',
+        primary: '#FFFFFF',
         secondary: '#00529F',
         tertiary: '#FEBE10'
     },
@@ -98,7 +97,7 @@ module.exports = [
     },
     {
         name: 'Juve',
-        primary: '#FFF',
+        primary: '#FFFFFF',
         secondary: '#000',
         tertiary: '#FFCD00'
     },
@@ -111,13 +110,20 @@ module.exports = [
     {
         name: 'Everton',
         primary: '#003399',
-        secondary: '#FFF',
-        tertiary: '#FFF'
+        secondary: '#FFFFFF',
+        tertiary: '#FFFFFF'
     },
     {
         name: 'Southampton',
         primary: '#D71920',
         secondary: '#130C0E',
         tertiary: '#0DB14B'
+    },
+    {
+        name: 'Clover',
+        primary: '#339800',
+        secondary: '#FFFFFF',
+        tertiary: '#FF710F'
     }
+
 ];

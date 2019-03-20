@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 app.use(cors({origin: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(require('./api/logger'));
+// app.use(require('./api/logger'));
 
 const token = require('./api/token');
 const marketplace = require('./api/marketplace');

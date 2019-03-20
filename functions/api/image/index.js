@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
 
-image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/name/:name', async (req, res, next) => {
+image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/name/:name/position/:position/average/:average/tokenId/:tokenId', async (req, res, next) => {
     try {
 
         console.log(req.params);
@@ -27,11 +27,15 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
             kit: req.params.kit,
             colour: req.params.colour,
             name: req.params.name,
+            position: req.params.position,
+            average: req.params.average,
+            tokenId: parseInt(req.params.tokenId),
         };
 
-        console.log(paramTokenValues);
+        // console.log(paramTokenValues);
 
         const svg = cheerioSVGService.player(require('./svgString'), paramTokenValues);
+
         res.contentType('image/svg+xml');
         return res.send(svg);
     } catch (e) {
@@ -76,6 +80,8 @@ image.get('/:tokenId', async (req, res, next) => {
         const network = req.params.network;
 
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
+
+        console.log(tokenDetails);
 
         const svg = cheerioSVGService.process(require('./svgString'), tokenDetails);
 

@@ -552,15 +552,15 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
     _.forEach(fills, (v, k) => $(`.st11`).attr('fill', fills.Shadow));
     _.forEach(fills, (v, k) => $(`.st12`).attr('fill', fills.Cheek));
 
-    $('#Name').html(name.toUpperCase());
-    $('#Position').html(position.toUpperCase());
-    $('#Average').html(average.toUpperCase());
-    $('#TokenId').html('#' + ('0000000' + tokenId).slice(-8));
+    $('#Name').html(name ? name.toUpperCase() : 'NA');
+    $('#Position').html(position ? position.toUpperCase() : 'NA');
+    $('#Average').html(average ? average : 'NA');
+    $('#TokenId').html('#' + ('0000000' + parseInt(tokenId)).slice(-8));
 };
 
 class CheerioSVGService {
 
-    process (svgXml, {ethnicity, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
+    process (svgXml, {ethnicity, kit, colour, fullName, positionText, attributeAvg, tokenId}) {
         const ethnicities = require(`./data/ethnicities`)[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -572,7 +572,7 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        fillSVG($, {fills, opacity, name, position, average, tokenId});
+        fillSVG($, {fills, opacity, name: fullName, position: positionText, average: attributeAvg, tokenId});
 
         return $.xml();
     }
