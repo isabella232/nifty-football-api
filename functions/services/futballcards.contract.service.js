@@ -1,4 +1,4 @@
-const {connectToToken} = require('./web3/networks');
+const {connectToToken, ethjsProvider} = require('./web3/networks');
 const firstNames = require('./data/0/firstNames');
 const lastNames = require('./data/0/lastNames');
 const nationalities = require('./data/nationalities');

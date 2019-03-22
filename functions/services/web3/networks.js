@@ -89,7 +89,12 @@ const connectToHeadToHeadGame = (network) => {
         .at(getHeadToHeadAddressForNetwork(network));
 };
 
+const ethjsProvider = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)));
+};
+
 module.exports = {
+    ethjsProvider,
     connectToToken,
     connectToHeadToHeadGame,
     connectToMarketplace
