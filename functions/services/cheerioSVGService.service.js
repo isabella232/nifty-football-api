@@ -125,6 +125,14 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
     // console.log(kitToken);
     switch (kitToken) {
         case 'classic':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+            };
+            fills = {
+                ...fills,
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
+            };
             break;
         case 'classic-short':
             opacity = {
@@ -135,6 +143,11 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
                 ShortSleeve_cuff: 1,
+                Stripe: 1,
+            };
+            fills = {
+                ...fills,
+                Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
         case 'classic-stripe':

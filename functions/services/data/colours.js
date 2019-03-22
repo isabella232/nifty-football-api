@@ -124,6 +124,29 @@ module.exports = [
         primary: '#339800',
         secondary: '#FFFFFF',
         tertiary: '#FF710F'
+    },
+    {
+        name: 'Tulip',
+        primary: '#FF4F00',
+        secondary: '#FFFFFF',
+        tertiary: '#263769'
+    },
+    {
+        name: 'Scotia',
+        primary: '#082959',
+        secondary: '#FFFFFF',
+        tertiary: '#FF0000'
+    },
+    {
+        name: 'ThreeLions',
+        primary: '#FFFFFF',
+        secondary: '#003366',
+        tertiary: '#FF0000'
+    },
+    {
+        name: 'Coquerel',
+        primary: '#131C3D',
+        secondary: '#0E2A88',
+        tertiary: '#B93336'
     }
-
 ];

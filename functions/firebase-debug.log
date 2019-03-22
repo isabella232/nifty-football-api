@@ -1,0 +1,28 @@
+[debug] [2019-03-21T16:12:51.896Z] ----------------------------------------------------------------------
+[debug] [2019-03-21T16:12:51.898Z] Command:       /usr/local/bin/node /Users/andy/.node/bin/firebase serve --only functions
+[debug] [2019-03-21T16:12:51.898Z] CLI Version:   6.0.1
+[debug] [2019-03-21T16:12:51.898Z] Platform:      darwin
+[debug] [2019-03-21T16:12:51.898Z] Node Version:  v8.9.4
+[debug] [2019-03-21T16:12:51.899Z] Time:          Thu Mar 21 2019 16:12:51 GMT+0000 (GMT)
+[debug] [2019-03-21T16:12:51.899Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-21T16:12:51.909Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-21T16:12:51.909Z] > authorizing via signed-in user
+[debug] [2019-03-21T16:12:51.909Z] [iam] checking project futbol-cards for permissions ["firebase.projects.get"]
+[debug] [2019-03-21T16:12:51.910Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards:testIamPermissions  
+
+[debug] [2019-03-21T16:12:52.638Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-21T16:12:52.640Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-03-21T16:12:53.382Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/andy/workspace/futbol-cards-api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-03-21T16:12:54.066Z] Fetching environment
+[debug] [2019-03-21T16:12:54.068Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1067786577179:getServerAppConfig  
+ 
+[debug] [2019-03-21T16:12:54.270Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-21T16:12:54.270Z] Starting @google-cloud/functions-emulator
+[debug] [2019-03-21T16:12:55.320Z] Parsing function triggers
+[info] ✔  functions: api: http://localhost:5000/futbol-cards/us-central1/api
