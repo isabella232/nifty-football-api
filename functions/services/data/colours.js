@@ -148,5 +148,23 @@ module.exports = [
         primary: '#131C3D',
         secondary: '#0E2A88',
         tertiary: '#B93336'
+    },
+    {
+        name: 'Toro',
+        primary: '#E21B22',
+        secondary: '#005AAD',
+        tertiary: '#2E2C2D'
+    },
+    {
+        name: 'Figo',
+        primary: '#C91A2A',
+        secondary: '#263B72',
+        tertiary: '#166F30'
+    },
+    {
+        name: 'Ice',
+        primary: '#120FBC',
+        secondary: '#DC0902',
+        tertiary: '#FFFFFF'
     }
 ];

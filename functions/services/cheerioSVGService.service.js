@@ -508,12 +508,52 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Short_Sleeve: 1,
                 ShortSleeve: 1,
                 ShortSleeve_cuff: 1,
+                Neckline: 1,
+                Stripe: 1,
             };
             fills = {
                 ...fills,
                 Socks: tertiary,
                 Sock_Stripes: tertiary,
                 Upper_Sock: tertiary,
+                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
+            };
+            break;
+        case 'classic-tertiary-socks-and-cuff':
+            opacity = {
+                ...opacity,
+                Stripe: 1,
+            };
+            fills = {
+                ...fills,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+                Neckline: tertiary,
+                Cuff: tertiary,
+                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
+            };
+            break;
+        case 'classic-tertiary-socks-and-cuff-short':
+            opacity = {
+                ...opacity,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 1,
+                Neckline: 1,
+                Stripe: 1,
+            };
+            fills = {
+                ...fills,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+                ShortSleeve_cuff: tertiary,
+                Neckline: tertiary,
+                Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
         case 'lyon':

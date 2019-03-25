@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4f0c38c1-c9f5-44dc-a588-02c95af8fc7f",
+		"_postman_id": "0d7d4b05-06cb-4044-8b6e-06d8d899cf05",
 		"name": "Futball Cards",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -273,6 +273,47 @@
 						{
 							"key": "network",
 							"value": "5777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchases TXS hash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/futbol-cards/us-central1/api/network/:network/txs/mints/:transactionId/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"futbol-cards",
+						"us-central1",
+						"api",
+						"network",
+						":network",
+						"txs",
+						"mints",
+						":transactionId",
+						"cards"
+					],
+					"variable": [
+						{
+							"key": "network",
+							"value": "5777"
+						},
+						{
+							"key": "transactionId",
+							"value": "0xbd225503ac0c96991ef3673b101dc4d6a66b92ad8a05e76e53e0d1be4445dedf"
 						}
 					]
 				}

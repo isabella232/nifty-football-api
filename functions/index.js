@@ -14,6 +14,7 @@ const token = require('./api/token');
 const marketplace = require('./api/marketplace');
 const image = require('./api/image');
 const headToHead = require('./api/games/headtohead');
+const txs = require('./api/txs');
 
 // IMAGE API
 app.use('/network/:network/image', image);
@@ -26,6 +27,9 @@ app.use('/network/:network/marketplace', marketplace);
 
 // GAME API
 app.use('/network/:network/games/headtohead', headToHead);
+
+
+app.use('/network/:network/txs', txs);
 
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);

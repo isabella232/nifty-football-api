@@ -56,3 +56,30 @@
 [debug] [2019-03-04T11:31:24.119Z] Starting @google-cloud/functions-emulator
 [debug] [2019-03-04T11:31:25.673Z] Parsing function triggers
 [info] ✔  functions: api: http://localhost:5000/futbol-cards/us-central1/api
+[debug] [2019-03-22T10:33:21.099Z] ----------------------------------------------------------------------
+[debug] [2019-03-22T10:33:21.101Z] Command:       /Users/jamesmorgan/.nvm/versions/node/v8.9.4/bin/node /Users/jamesmorgan/.nvm/versions/node/v8.9.4/bin/firebase serve --only functions
+[debug] [2019-03-22T10:33:21.101Z] CLI Version:   4.2.1
+[debug] [2019-03-22T10:33:21.101Z] Platform:      darwin
+[debug] [2019-03-22T10:33:21.101Z] Node Version:  v8.9.4
+[debug] [2019-03-22T10:33:21.102Z] Time:          Fri Mar 22 2019 10:33:21 GMT+0000 (GMT)
+[debug] [2019-03-22T10:33:21.102Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-22T10:33:21.115Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-22T10:33:21.115Z] > authorizing via signed-in user
+[debug] [2019-03-22T10:33:21.117Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-03-22T10:33:21.738Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-22T10:33:21.739Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/futbol-cards  
+ 
+[debug] [2019-03-22T10:33:22.602Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jamesmorgan/Dropbox/workspace-blockrocket/futbol-cards-api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-03-22T10:33:56.195Z] Fetching environment
+[debug] [2019-03-22T10:33:56.200Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1067786577179:getServerAppConfig  
+ 
+[debug] [2019-03-22T10:33:56.439Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-22T10:33:56.440Z] Starting @google-cloud/functions-emulator
+[debug] [2019-03-22T10:34:08.080Z] Parsing function triggers
+[info] ✔  functions: api: http://localhost:5000/futbol-cards/us-central1/api

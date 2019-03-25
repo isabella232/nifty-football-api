@@ -1,5 +1,9 @@
 
 module.exports = [
+    'one-tone-no-trim',
+    'one-tone-no-trim-short',
+    'one-tone-trim',
+    'one-tone-trim-short',
     'classic',
     'classic-short',
     'classic-stripe',
@@ -18,10 +22,6 @@ module.exports = [
     'classic-sash-short',
     'classic-chevron-short',
     'classic-hoops-short',
-    'one-tone-no-trim',
-    'one-tone-no-trim-short',
-    'one-tone-trim',
-    'one-tone-trim-short',
     'fade',
     'fade-short',
     'chequed',
@@ -32,6 +32,8 @@ module.exports = [
     'classic-tertiary-shorts-short',
     'classic-tertiary-socks',
     'classic-tertiary-socks-short',
+    'classic-tertiary-socks-and-cuff',
+    'classic-tertiary-socks-and-cuff-short',
     'lyon',
     'lyon-short',
 ];
