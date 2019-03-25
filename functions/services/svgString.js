@@ -12,11 +12,11 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
         <!--.st3{fill:#FFFFFF;}-->
         <!--.st2{fill:#FFFFFF;}-->
         .Name{font-family:'Anton', sans-serif;}
-        .Name{font-size:64px; letter-spacing: 4px;}
+        .Name{font-size:64px; letter-spacing: 3px;}
 		.Position{font-family:sans-serif;}
 		.Position{font-size:38px;}
 		.Average{font-family:'Anton', sans-serif;}
-		.Average{font-size:118px; letter-spacing: 10px;}
+		.Average{font-size:118px; letter-spacing: 6px;}
 		.TokenId{font-family:sans-serif;;}
 		.TokenId{font-size:38px; fill:white;}
         <!--.st6{font-size:70px;}-->

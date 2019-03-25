@@ -32,6 +32,8 @@ module.exports = [
     'classic-tertiary-shorts-short',
     'classic-tertiary-socks',
     'classic-tertiary-socks-short',
+    'classic-tertiary-socks-and-cuff',
+    'classic-tertiary-socks-and-cuff-short',
     'lyon',
     'lyon-short',
 ];
