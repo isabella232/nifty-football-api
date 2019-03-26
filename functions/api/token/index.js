@@ -49,6 +49,20 @@ token.get('/account/:address', async (req, res, next) => {
     }
 });
 
+token.get('/tokens/:address', async (req, res, next) => {
+    try {
+        const address = req.params.address;
+        const network = req.params.network;
+
+        const {tokenIds} = await futballcardsService.accountTokenDetails(network, address);
+
+
+        return res.status(200).json(tokenIds);
+    } catch (e) {
+        next(e);
+    }
+});
+
 token.get('/contract/info', async (req, res, next) => {
     try {
         const network = req.params.network;

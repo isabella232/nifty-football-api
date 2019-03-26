@@ -81,7 +81,7 @@ image.get('/:tokenId', async (req, res, next) => {
 
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 
-        console.log(tokenDetails);
+        // console.log(tokenDetails);
 
         const svg = cheerioSVGService.process(require('../../services/svgString'), tokenDetails);
 
