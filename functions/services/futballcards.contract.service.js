@@ -5,6 +5,10 @@ const nationalities = require('./data/nationalities');
 const positions = require('./data/positions');
 const cheerioSVGService = require('./cheerioSVGService.service');
 
+const ethnicities = require(`./data/ethnicities`);
+const kits = require(`./data/kits`);
+const colours = require(`./data/colours`);
+
 const axios = require('axios');
 
 const lookupMetadata = async (tokenUri) => {
@@ -76,8 +80,11 @@ class FutballCardsContractService {
             nationality: _nationality.toNumber(),
             position: _position.toNumber(),
             ethnicity: _ethnicity.toNumber(),
+            ethincityText: ethnicities[_ethnicity.toNumber()].name,
             kit: _kit.toNumber(),
+            kitText: kits[_kit.toNumber()],
             colour: _colour.toNumber(),
+            colourText: colours[_colour.toNumber()].name,
             strength: _strength.toNumber(),
             speed: _speed.toNumber(),
             intelligence: _intelligence.toNumber(),

@@ -1,120 +1,120 @@
 module.exports = [
     {
-        name: 'Burnley',
+        name: 'Claret',
         primary: '#6C1D45',
         secondary: '#99D6EA',
         tertiary: '#F0B323'
     },
     {
-        name: 'Arsenal',
+        name: 'Gunner',
         primary: '#DB0007',
         secondary: '#FFFFFF',
         tertiary: '#063672'
     },
     {
-        name: 'Manchester City',
+        name: 'Moon',
         primary: '#6CABDD',
         secondary: '#1C2C5B',
         tertiary: '#FFFFFF'
     },
     {
-        name: 'Newcastle',
+        name: 'Broon',
         primary: '#241F20',
         secondary: '#FFFFFF',
         tertiary: '#F1BE48'
     },
     {
-        name: 'Watford',
+        name: 'Hornet',
         primary: '#FBEE23',
         secondary: '#ED2127',
         tertiary: '#11210C'
     },
     {
-        name: 'West Ham',
+        name: 'Hammer',
         primary: '#7A263A',
         secondary: '#1BB1E7',
         tertiary: '#F3D459'
     },
     {
-        name: 'Chelsea',
+        name: 'Pensioner',
         primary: '#034694',
         secondary: '#FFFFFF',
         tertiary: '#EE242C'
     },
     {
-        name: 'Liverpool',
+        name: 'Liver',
         primary: '#C8102E',
         secondary: '#F6EB61',
         tertiary: '#00B2A9'
     },
     {
-        name: 'Tottenham',
+        name: 'Spurs',
         primary: '#FFFFFF',
         secondary: '#132257',
         tertiary: '#F3D459'
     },
     {
-        name: 'Leeds',
+        name: 'Leonis',
         primary: '#FFCD00',
         secondary: '#005B9E',
         tertiary: '#FFFFFF'
     },
     {
-        name: 'Wolverhampton',
+        name: 'Wolf',
         primary: '#FDB913',
         secondary: '#231F20',
         tertiary: '#C8102E'
     },
     {
-        name: 'Barcelona',
+        name: 'Catalan',
         primary: '#A50044',
         secondary: '#004D98',
         tertiary: '#EDBB00'
     },
     {
-        name: 'Real Betis',
+        name: 'Betty',
         primary: '#0BB363',
         secondary: '#E7A614',
         tertiary: '#D62550'
     },
     {
-        name: 'Deportivo',
+        name: 'Tivo',
         primary: '#57175E',
         secondary: '#A38D44',
         tertiary: '#B9D9EC'
     },
     {
-        name: 'Real Madrid',
+        name: 'Galactico',
         primary: '#FFFFFF',
         secondary: '#00529F',
         tertiary: '#FEBE10'
     },
     {
-        name: 'Roma',
+        name: 'Roman',
         primary: '#8E1F2F',
         secondary: '#F0BC42',
         tertiary: '#CACACC'
     },
     {
-        name: 'Juve',
+        name: 'Lady',
         primary: '#FFFFFF',
         secondary: '#000',
         tertiary: '#FFCD00'
     },
     {
-        name: 'AC Milan',
+        name: 'Grosvenor',
         primary: '#FB090B',
         secondary: '#000',
         tertiary: '#FFFFFF'
     },
     {
-        name: 'Everton',
+        name: 'Toffee',
         primary: '#003399',
         secondary: '#FFFFFF',
         tertiary: '#FFFFFF'
     },
     {
-        name: 'Southampton',
+        name: 'Tiss',
         primary: '#D71920',
         secondary: '#130C0E',
         tertiary: '#0DB14B'
@@ -138,7 +138,7 @@ module.exports = [
         tertiary: '#FF0000'
     },
     {
-        name: 'ThreeLions',
+        name: 'Lions',
         primary: '#FFFFFF',
         secondary: '#003366',
         tertiary: '#FF0000'
