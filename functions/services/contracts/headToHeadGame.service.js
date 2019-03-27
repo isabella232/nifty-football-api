@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const {connectToHeadToHeadGame} = require("../web3/networks");
-const futballCardsContractService = require("../futballcards.contract.service");
+const futballCardsContractService = require("./futballcards.contract.service");
 
 class HeadToHeadGameService {
 

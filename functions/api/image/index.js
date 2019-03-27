@@ -1,9 +1,9 @@
-const cheerioSVGService = require('../../services/cheerioSVGService.service');
-const futballcardsService = require('../../services/futballcards.contract.service');
+const cheerioSVGService = require('../../services/images/cheerioSVGService.service');
+const futballcardsService = require('../../services/contracts/futballcards.contract.service');
 
-const ethnicities = require('../../services/data/ethnicities');
-const kits = require('../../services/data/kits');
-const colours = require('../../services/data/colours');
+const ethnicities = require('../../services/images/data/ethnicities');
+const kits = require('../../services/images/data/kits');
+const colours = require('../../services/images/data/colours');
 
 const _ = require('lodash');
 
@@ -34,7 +34,7 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
 
         // console.log(paramTokenValues);
 
-        const svg = cheerioSVGService.player(require('../../services/svgString'), paramTokenValues);
+        const svg = cheerioSVGService.player(require('../../services/images/svgString'), paramTokenValues);
 
         res.contentType('image/svg+xml');
         return res.send(svg);
@@ -53,7 +53,7 @@ image.get('/xxx', async (req, res, next) => {
             colour: Math.floor(Math.random() * 17),
         };
 
-        const svg = cheerioSVGService.process(require('../../services/svgString'), paramTokenValues);
+        const svg = cheerioSVGService.process(require('../../services/images/svgString'), paramTokenValues);
         res.contentType('image/svg+xml');
         return res.send(svg);
     } catch (e) {
@@ -83,7 +83,7 @@ image.get('/:tokenId', async (req, res, next) => {
 
         // console.log(tokenDetails);
 
-        const svg = cheerioSVGService.process(require('../../services/svgString'), tokenDetails);
+        const svg = cheerioSVGService.process(require('../../services/images/svgString'), tokenDetails);
 
         // console.log(svg);
         res.contentType('image/svg+xml');
@@ -103,7 +103,7 @@ image.get('/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next
             colour: req.params.colour,
         };
 
-        const svg = cheerioSVGService.process(require('../../services/svgString'), paramTokenValues);
+        const svg = cheerioSVGService.process(require('../../services/images/svgString'), paramTokenValues);
         res.contentType('image/svg+xml');
         return res.send(svg);
     } catch (e) {

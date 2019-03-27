@@ -27,3 +27,8 @@ allFiredEvents
 /analyzer/
 /build
 package-lock.json
+firebase-debug.log
+/functions/firebase-debug.log
+futbol-cards-api.iml
+.runtimeconfig.json
+/functions/_keys

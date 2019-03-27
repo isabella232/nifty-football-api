@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const futballcardsService = require('../../services/futballcards.contract.service');
+const futballcardsService = require('../../services/contracts/futballcards.contract.service');
 
 const token = require('express').Router({mergeParams: true});
 
