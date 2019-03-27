@@ -1,11 +1,12 @@
 const _ = require('lodash');
 
 const mapper = require('./mapper');
+const {getContractForNetworkAndAddress} = require('nifty-football-contract-tools');
+
 const {web3Provider} = require('../../services/web3/networks');
 
 const blockchainService = require('../../services/web3/blockchain.service');
 const blockProcessingService = require('../../services/data/blockProcessingService');
-const {getContractForNetworkAndAddress} = require('nifty-football-contract-tools');
 const eventsStoreService = require('../../services/data/eventsStore.service');
 
 const eventScrapper = require('express').Router({mergeParams: true});
