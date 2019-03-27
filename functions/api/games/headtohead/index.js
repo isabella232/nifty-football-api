@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const headToHeadGameService = require('../../../services/games/headToHeadGame.service');
+const headToHeadGameService = require('../../../services/contracts/headToHeadGame.service');
 
 const headToHead = require('express').Router({mergeParams: true});
 

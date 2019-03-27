@@ -1,4 +1,4 @@
-const {connectToMarketplace} = require('./web3/networks');
+const {connectToMarketplace} = require('../web3/networks');
 const futballCardsContractService = require('./futballcards.contract.service');
 
 const axios = require('axios');

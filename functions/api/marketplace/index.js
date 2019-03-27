@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const marketplaceContractService = require('../../services/buyNowMarketplace.contract.service');
+const marketplaceContractService = require('../../services/contracts/buyNowMarketplace.contract.service');
 
 const marketplace = require('express').Router({mergeParams: true});
 

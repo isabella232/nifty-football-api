@@ -2,6 +2,8 @@ const _ = require("lodash");
 
 const {ethjsProvider} = require('../../services/web3/networks');
 
+// FIXME refactor this to use web3 not ethjs
+
 class BlockchainService {
 
     async getTransaction(network, txsHash) {

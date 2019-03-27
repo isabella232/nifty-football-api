@@ -1,9 +1,7 @@
 const _ = require('lodash');
 const Eth = require('ethjs');
 
-const {ethjsProvider} = require('../../services/web3/networks');
-
-const futballcardsService = require('../../services/futballcards.contract.service');
+const futballcardsService = require('../../services/contracts/futballcards.contract.service');
 const blockchainService = require('../../services/web3/blockchain.service');
 
 const txs = require('express').Router({mergeParams: true});

@@ -1,9 +1,9 @@
-const {connectToToken, ethjsProvider} = require('./web3/networks');
-const firstNames = require('./data/0/firstNames');
-const lastNames = require('./data/0/lastNames');
-const nationalities = require('./data/nationalities');
-const positions = require('./data/positions');
-const cheerioSVGService = require('./cheerioSVGService.service');
+const {connectToToken, ethjsProvider} = require('../web3/networks');
+const firstNames = require('../images/data/0/firstNames');
+const lastNames = require('../images/data/0/lastNames');
+const nationalities = require('../images/data/nationalities');
+const positions = require('../images/data/positions');
+const cheerioSVGService = require('../images/cheerioSVGService.service');
 
 const ethnicities = require(`./data/ethnicities`);
 const kits = require(`./data/kits`);

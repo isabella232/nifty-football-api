@@ -1,5 +1,8 @@
 const functions = require('firebase-functions');
 
+const admin = require('firebase-admin');
+admin.initializeApp();
+
 const cors = require('cors');
 const express = require('express');
 const app = express();
@@ -15,21 +18,27 @@ const marketplace = require('./api/marketplace');
 const image = require('./api/image');
 const headToHead = require('./api/games/headtohead');
 const txs = require('./api/txs');
+const eventScraper = require('./api/eventScraper');
 
-// IMAGE API
+const queryParamKeyChecker = require('./api/middlewares/queryParamKeyChecker');
+
+// Image API (used as part of tokenUri() metadata)
 app.use('/network/:network/image', image);
 
-// TOKEN API
+// Token API (serve tokenUri() metadata)
 app.use('/network/:network/token', token);
 
-// MARKETPLACE API
+// Marketplace API
 app.use('/network/:network/marketplace', marketplace);
 
-// GAME API
+// Games API
 app.use('/network/:network/games/headtohead', headToHead);
 
-
+// Transaction listener
 app.use('/network/:network/txs', txs);
+
+// Transaction listener
+app.use('/network/:network/scraper', queryParamKeyChecker, eventScraper);
 
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
