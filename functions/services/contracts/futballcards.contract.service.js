@@ -5,9 +5,9 @@ const nationalities = require('../images/data/nationalities');
 const positions = require('../images/data/positions');
 const cheerioSVGService = require('../images/cheerioSVGService.service');
 
-const ethnicities = require(`./data/ethnicities`);
-const kits = require(`./data/kits`);
-const colours = require(`./data/colours`);
+const ethnicities = require(`../images/data/ethnicities`);
+const kits = require(`../images/data/kits`);
+const colours = require(`../images/data/colours`);
 
 const axios = require('axios');
 

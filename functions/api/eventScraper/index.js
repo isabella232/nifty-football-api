@@ -5,7 +5,6 @@ const {getContractForNetworkAndAddress} = require('nifty-football-contract-tools
 
 const {web3Provider} = require('../../services/web3/networks');
 
-const blockchainService = require('../../services/web3/blockchain.service');
 const blockProcessingService = require('../../services/data/blockProcessingService');
 const eventsStoreService = require('../../services/data/eventsStore.service');
 
@@ -17,12 +16,12 @@ eventScrapper.get('/events/:address', async (request, response) => {
 
         const provider = web3Provider(network);
 
-        const latestBlock = await blockchainService.getLatestBlockNumber(network);
+        const latestBlock = await provider.eth.getBlockNumber();
 
         // Moving pointer approx 12 blocks behind the main chain to prevent chain re-orgs
         const numberOfConfirmations = 12;
         const blockMinusConfirmations = latestBlock - numberOfConfirmations;
-        console.log(`Event Scrapper - using block [${blockMinusConfirmations}] which is [${numberOfConfirmations}] behind network [${network}]`);
+        console.log(`Event Scrapper - using block [${blockMinusConfirmations}] which is [${numberOfConfirmations}] behind network [${network}] which is [${latestBlock}]`);
 
         const flow = blockProcessingService.getEventScrapperFlow(network, address, deploymentBlock);
 
@@ -34,7 +33,7 @@ eventScrapper.get('/events/:address', async (request, response) => {
             ? blockMinusConfirmations
             : lastProcessedBlock + 10000;
 
-        const WatchingContract = provider.contract(abi).at(address);
+        const WatchingContract = provider.eth.Contract(abi, address);
 
         // Get the next set of events
         const events = await WatchingContract.getPastEvents('allEvents', {

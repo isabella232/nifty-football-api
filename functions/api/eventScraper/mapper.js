@@ -6,7 +6,7 @@ const _ = require('lodash');
 module.exports = (event, block) => {
 
     return {
-        id: `${event.transactionHash}`,
+        id: `${event.transactionHash}_${event.logIndex}`,
         event: event.event,
         address: event.address,
         signature: event.signature,

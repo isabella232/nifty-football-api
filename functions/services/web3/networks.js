@@ -17,7 +17,7 @@ function getWebSocketProviderUri(network) {
     if (_.toNumber(network) === 5777) {
         return 'http://127.0.0.1:7545'; // a.k.a. truffle
     }
-    return `https://${getNetwork(network)}.infura.io/v3/${INFURA_KEY}`;
+    return `wss://${getNetwork(network)}.infura.io/ws/v3/${INFURA_KEY}`;
 }
 
 const connectToToken = (network) => {
