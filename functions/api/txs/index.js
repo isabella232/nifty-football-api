@@ -4,8 +4,9 @@ const Eth = require('ethjs');
 const futballcardsService = require('../../services/contracts/futballcards.contract.service');
 const blockchainService = require('../../services/web3/blockchain.service');
 
-const txs = require('express').Router({mergeParams: true});
+const {abi} = require('nifty-football-contract-tools');
 
+const txs = require('express').Router({mergeParams: true});
 
 txs.get('/mints/:transactionId/cards', async (req, res, next) => {
     try {
@@ -23,7 +24,7 @@ txs.get('/mints/:transactionId/cards', async (req, res, next) => {
         }
 
         // Decode the logs
-        const decoder = Eth.abi.logDecoder(require('../../services/web3/abi/futballcards.abi'));
+        const decoder = Eth.abi.logDecoder(abi.FutballCardsAbi);
         const events = decoder(results.logs);
 
         // Filter on mints
