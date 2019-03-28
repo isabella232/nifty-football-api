@@ -23,19 +23,19 @@ function getWebSocketProviderUri(network) {
 const connectToToken = (network) => {
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
         .contract(abi.FutballCardsAbi)
-        .at(contracts.getNiftyFootballNft(network));
+        .at(contracts.getNiftyFootballNft(network).address);
 };
 
 const connectToMarketplace = (network) => {
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
         .contract(abi.BuyNowMarketplaceAbi)
-        .at(contracts.getNiftyFootballMarketplace(network));
+        .at(contracts.getNiftyFootballMarketplace(network).address);
 };
 
 const connectToHeadToHeadGame = (network) => {
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
         .contract(abi.HeadToHeadAbi)
-        .at(contracts.getHeadToHeadGame(network));
+        .at(contracts.getHeadToHeadGame(network).address);
 };
 
 const ethjsProvider = (network) => {
