@@ -613,10 +613,10 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
 
 class CheerioSVGService {
 
-    process (svgXml, {ethnicity, kit, colour, fullName, positionText, attributeAvg, tokenId}) {
-        const ethnicities = require(`./functions/services/images/data`)[ethnicity];
-        const kitToken = require(`./functions/services/images/data`)[kit];
-        const colours = require(`./functions/services/images/data`)[colour];
+    process(svgXml, {ethnicity, kit, colour, fullName, positionText, attributeAvg, tokenId}) {
+        const ethnicities = require(`./data/ethnicities`)[ethnicity];
+        const kitToken = require(`./data/kits`)[kit];
+        const colours = require(`./data/colours`)[colour];
 
         const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours});
 
@@ -630,10 +630,10 @@ class CheerioSVGService {
         return $.xml();
     }
 
-    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
+    player(svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
 
-        const kitToken = require(`./functions/services/images/data`)[kit];
-        const colours = require(`./functions/services/images/data`)[colour];
+        const kitToken = require(`./data/kits`)[kit];
+        const colours = require(`./data/colours`)[colour];
 
         const {fills, opacity} = generateSVG({
             skin,
