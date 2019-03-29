@@ -12,7 +12,7 @@ module.exports = `<?xml version="1.0" encoding="utf-8"?>
         <!--.st3{fill:#FFFFFF;}-->
         <!--.st2{fill:#FFFFFF;}-->
         .Name{font-family:'Anton', sans-serif;}
-        .Name{font-size:64px; letter-spacing: 3px;}
+        .Name{font-size:58px; letter-spacing: 3px;}
 		.Position{font-family:sans-serif;}
 		.Position{font-size:38px;}
 		.Average{font-family:'Anton', sans-serif;}

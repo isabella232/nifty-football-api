@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 
 const admin = require("firebase-admin");
 admin.initializeApp({
-    credential: admin.credential.cert(require('./_keys/futbol-cards-firebase-adminsdk-7ji84-d42b0ec4f1')),
+    credential: admin.credential.cert(require('./_keys/futbol-cards-firebase-adminsdk')),
     databaseURL: "https://futbol-cards.firebaseio.com"
 });
 
