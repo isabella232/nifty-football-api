@@ -37,6 +37,24 @@ class EventsStoreService {
                 return data;
             });
     }
+
+
+    async cardRankings(network) {
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection('attributeAvg')
+            .orderBy('attributeAvg', 'desc')
+            .orderBy('tokenId', 'asc')
+            .get()
+            .then((querySet) => {
+                const tokens = new Set();
+                querySet.forEach((doc) => {
+                    tokens.add(doc.data());
+                });
+                return Array.from(tokens);
+            });
+    }
 }
 
 module.exports = new EventsStoreService();

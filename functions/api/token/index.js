@@ -18,6 +18,19 @@ token.get('/pointers', async (req, res, next) => {
     }
 });
 
+token.get('/rankings', async (req, res, next) => {
+    console.log(`RANKINGS`);
+    try {
+        const network = req.params.network;
+
+        const data = await eventsStoreService.cardRankings(network);
+
+        return res.status(200).json(data);
+    } catch (e) {
+        next(e);
+    }
+});
+
 token.get('/:tokenId', async (req, res, next) => {
     try {
         const tokenId = req.params.tokenId;
