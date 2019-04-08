@@ -8,6 +8,8 @@ const {getNetwork} = contracts;
 class EventsStoreService {
 
     async upsertEvent (network, eventData) {
+        // console.log(`Upserting event [${network}]`);
+
         return firestore
             .collection('events')
             .doc(network)
@@ -30,7 +32,7 @@ class EventsStoreService {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))
-            .collection(`average`)
+            .collection(`attributeAvg`)
             .doc(_.toString(tokenId))
             .set(data)
             .then(() => {

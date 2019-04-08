@@ -50,6 +50,7 @@ eventScrapper.get('/events/:address', async (request, response) => {
             // TODO add USD price
 
             const mappedEvent = mapper(event, block);
+
             return eventsStoreService.upsertEvent(network, mappedEvent);
         });
 

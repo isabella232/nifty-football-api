@@ -1,15 +1,15 @@
 const functions = require('firebase-functions');
 
-const admin = require("firebase-admin");
+const admin = require('firebase-admin');
 admin.initializeApp({
     credential: admin.credential.cert(require('./_keys/futbol-cards-firebase-adminsdk')),
-    databaseURL: "https://futbol-cards.firebaseio.com"
+    databaseURL: 'https://futbol-cards.firebaseio.com'
 });
 
 const cors = require('cors');
 const express = require('express');
 const app = express();
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 app.use(cors({origin: true}));
 app.use(bodyParser.json());
@@ -46,3 +46,38 @@ app.use('/network/:network/scraper', queryParamKeyChecker, eventScraper);
 // Expose Express API as a single Cloud Function:
 exports.api = functions.https.onRequest(app);
 
+/**
+ * Triggered when a new event is added to the DB
+ */
+exports.newEventTrigger =
+    functions.firestore
+        .document('/events/{network}/data/{hash}')
+        .onWrite(async (change, context) => {
+
+            const get = require('lodash/get');
+
+            const document = change.after.exists ? change.after.data() : null;
+            const {network, hash} = context.params;
+
+            console.info(`Event - onWrite @ [/events/${network}/data/${hash}]`, document);
+            console.info(`Event >> `, document.event);
+
+            // Handle differing events
+            switch (document.event) {
+                case 'CardMinted':
+                    const tokenId = get(document, 'returnValues._tokenId');
+                    console.log(`TOKEN ID`, tokenId);
+
+                    const tokenDetails = await require('./services/contracts/futballcards.contract.service').tokenDetails(
+                        network,
+                        tokenId,
+                    );
+                    await require('./services/data/eventsStore.service').upsertAttrsAvg(
+                        network,
+                        tokenId,
+                        tokenDetails.attributeAvg,
+                    );
+                    break;
+
+            }
+        });

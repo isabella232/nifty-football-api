@@ -24,9 +24,7 @@ module.exports = (event, block) => {
         topics: _.get(event, 'topics', []),
 
         // All raw event args
-        returnValues: {
-            ...event.returnValues
-        },
+        returnValues: _.mapValues(event.returnValues, (v) => v.toNumber ? v.toNumber() : v.toString()),
 
         // query by array-contains
         event_array: [event.event],
