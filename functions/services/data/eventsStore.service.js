@@ -8,8 +8,6 @@ const {getNetwork} = contracts;
 class EventsStoreService {
 
     async upsertEvent (network, eventData) {
-        // console.log(`Upserting event [${network}]`);
-
         return firestore
             .collection('events')
             .doc(network)
