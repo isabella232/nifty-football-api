@@ -60,7 +60,6 @@ exports.newEventTrigger =
             const {network, hash} = context.params;
 
             console.info(`Event - onWrite @ [/events/${network}/data/${hash}]`, document);
-            console.info(`Event >> `, document.event);
 
             // Handle differing events
             switch (document.event) {
