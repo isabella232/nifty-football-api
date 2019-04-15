@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const futballcardsService = require('../../services/contracts/futballcards.contract.service');
 
-const eventsStoreService = require('../../services/data/eventsStore.service');
+const cardsService = require('../../services/data/cards.service');
 
 const token = require('express').Router({mergeParams: true});
 
@@ -19,11 +19,10 @@ token.get('/pointers', async (req, res, next) => {
 });
 
 token.get('/rankings', async (req, res, next) => {
-    console.log(`RANKINGS`);
     try {
         const network = req.params.network;
 
-        const data = await eventsStoreService.cardRankings(network);
+        const data = await cardsService.cardRankings(network);
 
         return res.status(200).json(data);
     } catch (e) {
@@ -96,7 +95,7 @@ token.put('/:tokenId/average', async (req, res, next) => {
 
         const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
 
-        const data = await eventsStoreService.upsertAttrsAvg(network, parseInt(tokenId), tokenDetails.attributeAvg);
+        const data = await cardsService.upsertAttrsAvg(network, parseInt(tokenId), tokenDetails.attributeAvg);
 
         return res.status(200).json(data);
     } catch (e) {

@@ -14,11 +14,12 @@ const bodyParser = require('body-parser');
 app.use(cors({origin: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-// app.use(require('./api/logger'));
+app.use(require('./api/logger'));
 
+const image = require('./api/image');
 const token = require('./api/token');
 const marketplace = require('./api/marketplace');
-const image = require('./api/image');
+const squad = require('./api/squad');
 const headToHead = require('./api/games/headtohead');
 const txs = require('./api/txs');
 const eventScraper = require('./api/eventScraper');
@@ -33,6 +34,9 @@ app.use('/network/:network/token', token);
 
 // Marketplace API
 app.use('/network/:network/marketplace', marketplace);
+
+// Squad API
+app.use('/network/:network/squad', squad);
 
 // Games API
 app.use('/network/:network/games/headtohead', headToHead);
@@ -67,7 +71,7 @@ exports.newEventTrigger =
                 case 'CardMinted': {
                     const tokenId = get(document, 'returnValues._tokenId');
                     console.log(`Incoming token ID [${tokenId}]`);
-                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
                     break;
                 }
                 // default ERC721 events
@@ -75,7 +79,7 @@ exports.newEventTrigger =
                 case 'Approval': {
                     const tokenId = get(document, 'returnValues.tokenId');
                     console.log(`Incoming token ID [${tokenId}]`);
-                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
                     break;
                 }
                 // token attribute changes
@@ -90,7 +94,7 @@ exports.newEventTrigger =
                 case 'XpAdded': {
                     const tokenId = get(document, 'returnValues._tokenId');
                     console.log(`Incoming token ID [${tokenId}]`);
-                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
                     break;
                 }
 

@@ -10,5 +10,6 @@ module.exports = expressWinston.logger({
         winston.format.json()
     ),
     msg: "HTTP {{req.method}} {{req.url}}", // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
-    expressFormat: true
+    expressFormat: true,
+    level: 'INFO'
 });
