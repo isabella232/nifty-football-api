@@ -2,7 +2,7 @@ const {connectToToken} = require('../web3/networks');
 const firstNames = require('../images/data/0/firstNames');
 const lastNames = require('../images/data/0/lastNames');
 const nationalities = require('../images/data/nationalities');
-const positions = require('../images/data/positions');
+const positions = require('../images/data/positions').LOOKUP;
 
 const ethnicities = require(`../images/data/ethnicities`);
 const kits = require(`../images/data/kits`);

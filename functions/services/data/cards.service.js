@@ -67,6 +67,25 @@ class CardsService {
                 return Array.from(tokens);
             });
     }
+
+    async getTopPlayerInPositionForAddress(network, address, position, total) {
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection('attributeAvg')
+            .where('owner', '==', address)
+            .where('position', '==', position)
+            .orderBy('attributeAvg', 'desc')
+            .limit(total)
+            .get()
+            .then((querySet) => {
+                const cards = [];
+                querySet.forEach((doc) => {
+                    cards.push(doc.data());
+                });
+                return cards;
+            });
+    }
 }
 
 module.exports = new CardsService();
