@@ -13,9 +13,6 @@ class CardsService {
 
         const tokenDetails = await futballCardsContractService.tokenDetails(network, tokenId);
 
-        await this.upsertAttrsAvg(network, tokenId, tokenDetails.attributeAvg);
-
-        // FIXME Why have two collections?
         return this.upsertPlayerDetails(network, tokenId, tokenDetails);
     }
 
@@ -35,33 +32,15 @@ class CardsService {
                 return tokenDetails;
             });
     }
-
-    async upsertAttrsAvg(network, tokenId, attributeAvg) {
-        console.log(`Upserting average attrs [${network}] [${tokenId}] [${attributeAvg}]`);
-
-        const data = {
-            tokenId: tokenId,
-            attributeAvg: attributeAvg,
-        };
-
-        return firestore
-            .collection(`cards`)
-            .doc(getNetwork(network))
-            .collection(`attributeAvg`)
-            .doc(_.toString(tokenId))
-            .set(data)
-            .then(() => {
-                return data;
-            });
-    }
-
+    
     async cardRankings(network) {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))
-            .collection('attributeAvg')
+            .collection('players')
             .orderBy('attributeAvg', 'desc')
             .orderBy('tokenId', 'asc')
+            .limit(50)
             .get()
             .then((querySet) => {
                 const tokens = new Set();
