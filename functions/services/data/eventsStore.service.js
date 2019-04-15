@@ -2,9 +2,12 @@ const _ = require('lodash');
 
 const firestore = require('./firebase.service').firestore();
 
+const {contracts} = require('nifty-football-contract-tools');
+const {getNetwork} = contracts;
+
 class EventsStoreService {
 
-    async upsertEvent(network, eventData) {
+    async upsertEvent (network, eventData) {
         return firestore
             .collection('events')
             .doc(network)
@@ -16,6 +19,42 @@ class EventsStoreService {
             });
     }
 
+    async upsertAttrsAvg (network, tokenId, attributeAvg) {
+        console.log(`Upserting average attrs [${network}] [${tokenId}] [${attributeAvg}]`);
+
+        const data = {
+            tokenId: tokenId,
+            attributeAvg: attributeAvg,
+        };
+
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection(`attributeAvg`)
+            .doc(_.toString(tokenId))
+            .set(data)
+            .then(() => {
+                return data;
+            });
+    }
+
+
+    async cardRankings(network) {
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection('attributeAvg')
+            .orderBy('attributeAvg', 'desc')
+            .orderBy('tokenId', 'asc')
+            .get()
+            .then((querySet) => {
+                const tokens = new Set();
+                querySet.forEach((doc) => {
+                    tokens.add(doc.data());
+                });
+                return Array.from(tokens);
+            });
+    }
 }
 
 module.exports = new EventsStoreService();

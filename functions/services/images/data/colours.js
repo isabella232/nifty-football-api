@@ -44,7 +44,7 @@ module.exports = [
     {
         name: 'Liver',
         primary: '#C8102E',
-        secondary: '#F6EB61',
+        secondary: '#FDEC00',
         tertiary: '#00B2A9'
     },
     {
