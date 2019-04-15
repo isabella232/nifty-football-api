@@ -19,10 +19,23 @@ squad.get('/:address/top', async (req, res, next) => {
 
         const strikers = await carrdService.getTopPlayerInPositionForAddress(network, address, STRIKER, 2);
 
+        const topSquad = [
+            ...keeper,
+            ...defence,
+            ...midfield,
+            ...strikers,
+        ];
+
+        const hasFullSquad = topSquad.length === 11;
+
+        const squadTotal = hasFullSquad
+            ? _.reduce(topSquad, (sum, value) => sum + value.attributeAvg, 0)
+            : 0;
+
         return res
             .status(200)
             .json({
-                total: 0, // TODO show as zero if not got a full squad
+                total: squadTotal,
                 team: {
                     keeper: keeper,
                     defence: defence,
