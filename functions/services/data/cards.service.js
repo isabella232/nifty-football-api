@@ -72,7 +72,7 @@ class CardsService {
             });
     }
 
-    async getTopPlayerInPositionForAddress(network, address, position, total) {
+    async getTopPlayersInPositionForAddress(network, address, position, total = 1) {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))

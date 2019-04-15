@@ -18,13 +18,13 @@ squad.get('/:address/top', async (req, res, next) => {
             strikers: 2
         };
 
-        const keeper = await carrdService.getTopPlayerInPositionForAddress(network, address, GOAL_KEEPER, formation.keeper);
+        const keeper = await carrdService.getTopPlayersInPositionForAddress(network, address, GOAL_KEEPER, formation.keeper);
 
-        const defence = await carrdService.getTopPlayerInPositionForAddress(network, address, DEFENDER, formation.defence);
+        const defence = await carrdService.getTopPlayersInPositionForAddress(network, address, DEFENDER, formation.defence);
 
-        const midfield = await carrdService.getTopPlayerInPositionForAddress(network, address, MIDFIELDER, formation.midfield);
+        const midfield = await carrdService.getTopPlayersInPositionForAddress(network, address, MIDFIELDER, formation.midfield);
 
-        const strikers = await carrdService.getTopPlayerInPositionForAddress(network, address, STRIKER, formation.strikers);
+        const strikers = await carrdService.getTopPlayersInPositionForAddress(network, address, STRIKER, formation.strikers);
 
         const topSquad = [
             ...keeper,
