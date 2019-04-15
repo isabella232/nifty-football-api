@@ -53,32 +53,46 @@ exports.newEventTrigger =
     functions.firestore
         .document('/events/{network}/data/{hash}')
         .onWrite(async (change, context) => {
-
             const get = require('lodash/get');
 
-            const document = change.after.exists ? change.after.data() : null;
             const {network, hash} = context.params;
+            const document = change.after.exists ? change.after.data() : null;
 
             console.info(`Event - onWrite @ [/events/${network}/data/${hash}]`, document);
 
-            if (document) {
-                // Handle differing events
-                switch (document.event) {
-                    case 'CardMinted':
-                        const tokenId = get(document, 'returnValues._tokenId');
-                        console.log(`TOKEN ID`, tokenId);
+            const event = _.get(document, 'event');
 
-                        const tokenDetails = await require('./services/contracts/futballcards.contract.service').tokenDetails(
-                            network,
-                            tokenId,
-                        );
-                        await require('./services/data/eventsStore.service').upsertAttrsAvg(
-                            network,
-                            tokenId,
-                            tokenDetails.attributeAvg,
-                        );
-                        break;
-
+            // Handle differing events
+            switch (event) {
+                case 'CardMinted': {
+                    const tokenId = get(document, 'returnValues._tokenId');
+                    console.log(`Incoming token ID [${tokenId}]`);
+                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    break;
                 }
+                // default ERC721 events
+                case 'Transfer':
+                case 'Approval': {
+                    const tokenId = get(document, 'returnValues.tokenId');
+                    console.log(`Incoming token ID [${tokenId}]`);
+                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    break;
+                }
+                // token attribute changes
+                case 'CardAttributesSet':
+                case 'NameSet':
+                case 'SpecialSet':
+                case 'BadgeSet':
+                case 'SponsorSet':
+                case 'NumberSet':
+                case 'BootsSet':
+                case 'StarAdded':
+                case 'XpAdded': {
+                    const tokenId = get(document, 'returnValues._tokenId');
+                    console.log(`Incoming token ID [${tokenId}]`);
+                    await require('./services/data/eventsStore.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    break;
+                }
+
             }
         });

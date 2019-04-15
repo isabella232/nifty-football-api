@@ -1,35 +1,14 @@
-const {connectToToken, ethjsProvider} = require('../web3/networks');
+const {connectToToken} = require('../web3/networks');
 const firstNames = require('../images/data/0/firstNames');
 const lastNames = require('../images/data/0/lastNames');
 const nationalities = require('../images/data/nationalities');
 const positions = require('../images/data/positions');
-const cheerioSVGService = require('../images/cheerioSVGService.service');
 
 const ethnicities = require(`../images/data/ethnicities`);
 const kits = require(`../images/data/kits`);
 const colours = require(`../images/data/colours`);
 
-const axios = require('axios');
-
-const lookupMetadata = async (tokenUri) => {
-    const tokenMeta = await axios.get(tokenUri);
-    const meta = tokenMeta.data;
-    return {
-        tokenUri,
-        ...meta
-    };
-};
-
 class FutballCardsContractService {
-
-    async tokenBaseURI(network = 1) {
-        console.log(`Find base token URI on network [${network}]`);
-
-        const token = connectToToken(network);
-        const tokenBaseURI = await token.tokenBaseURI();
-        // console.log(tokenBaseURI);
-        return tokenBaseURI;
-    }
 
     async tokenPointers(network = 1) {
         console.log(network);
