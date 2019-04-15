@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const functions = require('firebase-functions');
 
 const admin = require('firebase-admin');
@@ -14,7 +16,9 @@ const bodyParser = require('body-parser');
 app.use(cors({origin: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(require('./api/logger'));
+
+// FIXME enable this in PROD?
+// app.use(require('./api/logger'));
 
 const image = require('./api/image');
 const token = require('./api/token');
@@ -64,7 +68,7 @@ exports.newEventTrigger =
 
             console.info(`Event - onWrite @ [/events/${network}/data/${hash}]`, document);
 
-            const event = _.get(document, 'event');
+            const event = get(document, 'event');
 
             // Handle differing events
             switch (event) {

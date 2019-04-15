@@ -6,10 +6,8 @@ module.exports = expressWinston.logger({
         new winston.transports.Console()
     ],
     format: winston.format.combine(
-        winston.format.colorize(),
         winston.format.json()
     ),
     msg: "HTTP {{req.method}} {{req.url}}", // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
-    expressFormat: true,
-    level: 'INFO'
+    expressFormat: true
 });

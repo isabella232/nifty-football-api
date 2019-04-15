@@ -12,7 +12,25 @@ class CardsService {
         console.log(`Rebuild and storing token details for ID [${tokenId}] on network [${network}]`);
 
         const tokenDetails = await futballCardsContractService.tokenDetails(network, tokenId);
-        return this.upsertAttrsAvg(network, tokenId, tokenDetails.attributeAvg);
+
+        await this.upsertAttrsAvg(network, tokenId, tokenDetails.attributeAvg);
+
+        // FIXME Why have two collections?
+        return this.upsertPlayerDetails(network, tokenId, tokenDetails);
+    }
+
+    async upsertPlayerDetails(network, tokenId, tokenDetails) {
+        console.log(`Upsert player details [${network}] [${tokenId}]`);
+
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection(`players`)
+            .doc(_.toString(tokenId))
+            .set(tokenDetails)
+            .then(() => {
+                return tokenDetails;
+            });
     }
 
     async upsertAttrsAvg(network, tokenId, attributeAvg) {
@@ -51,28 +69,11 @@ class CardsService {
             });
     }
 
-    async cardRankings(network) {
-        return firestore
-            .collection(`cards`)
-            .doc(getNetwork(network))
-            .collection('attributeAvg')
-            .orderBy('attributeAvg', 'desc')
-            .orderBy('tokenId', 'asc')
-            .get()
-            .then((querySet) => {
-                const tokens = new Set();
-                querySet.forEach((doc) => {
-                    tokens.add(doc.data());
-                });
-                return Array.from(tokens);
-            });
-    }
-
     async getTopPlayerInPositionForAddress(network, address, position, total) {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))
-            .collection('attributeAvg')
+            .collection('players')
             .where('owner', '==', address)
             .where('position', '==', position)
             .orderBy('attributeAvg', 'desc')
