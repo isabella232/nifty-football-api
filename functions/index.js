@@ -61,22 +61,24 @@ exports.newEventTrigger =
 
             console.info(`Event - onWrite @ [/events/${network}/data/${hash}]`, document);
 
-            // Handle differing events
-            switch (document.event) {
-                case 'CardMinted':
-                    const tokenId = get(document, 'returnValues._tokenId');
-                    console.log(`TOKEN ID`, tokenId);
+            if (document) {
+                // Handle differing events
+                switch (document.event) {
+                    case 'CardMinted':
+                        const tokenId = get(document, 'returnValues._tokenId');
+                        console.log(`TOKEN ID`, tokenId);
 
-                    const tokenDetails = await require('./services/contracts/futballcards.contract.service').tokenDetails(
-                        network,
-                        tokenId,
-                    );
-                    await require('./services/data/eventsStore.service').upsertAttrsAvg(
-                        network,
-                        tokenId,
-                        tokenDetails.attributeAvg,
-                    );
-                    break;
+                        const tokenDetails = await require('./services/contracts/futballcards.contract.service').tokenDetails(
+                            network,
+                            tokenId,
+                        );
+                        await require('./services/data/eventsStore.service').upsertAttrsAvg(
+                            network,
+                            tokenId,
+                            tokenDetails.attributeAvg,
+                        );
+                        break;
 
+                }
             }
         });
