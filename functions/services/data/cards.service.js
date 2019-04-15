@@ -27,7 +27,10 @@ class CardsService {
             .doc(getNetwork(network))
             .collection(`players`)
             .doc(_.toString(tokenId))
-            .set(tokenDetails)
+            .set({
+                tokenId,
+                ...tokenDetails
+            })
             .then(() => {
                 return tokenDetails;
             });

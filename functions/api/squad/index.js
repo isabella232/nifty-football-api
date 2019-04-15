@@ -11,13 +11,20 @@ squad.get('/:address/top', async (req, res, next) => {
     try {
         const {address, network} = req.params;
 
-        const keeper = await carrdService.getTopPlayerInPositionForAddress(network, address, GOAL_KEEPER, 1);
+        const formation = {
+            keeper: 1,
+            defence: 4,
+            midfield: 4,
+            strikers: 2
+        };
 
-        const defence = await carrdService.getTopPlayerInPositionForAddress(network, address, DEFENDER, 4);
+        const keeper = await carrdService.getTopPlayerInPositionForAddress(network, address, GOAL_KEEPER, formation.keeper);
 
-        const midfield = await carrdService.getTopPlayerInPositionForAddress(network, address, MIDFIELDER, 4);
+        const defence = await carrdService.getTopPlayerInPositionForAddress(network, address, DEFENDER, formation.defence);
 
-        const strikers = await carrdService.getTopPlayerInPositionForAddress(network, address, STRIKER, 2);
+        const midfield = await carrdService.getTopPlayerInPositionForAddress(network, address, MIDFIELDER, formation.midfield);
+
+        const strikers = await carrdService.getTopPlayerInPositionForAddress(network, address, STRIKER, formation.strikers);
 
         const topSquad = [
             ...keeper,
@@ -32,12 +39,20 @@ squad.get('/:address/top', async (req, res, next) => {
             ? _.reduce(topSquad, (sum, value) => sum + value.attributeAvg, 0)
             : 0;
 
+        const squadAverage = hasFullSquad
+            ? Math.floor(squadTotal / 11)
+            : 0;
+
         return res
             .status(200)
             .json({
-                total: squadTotal,
+                owner: address,
+                network: network,
+                formation: formation,
+                squadTotal: squadTotal,
+                squadAverage: squadAverage,
                 team: {
-                    keeper: keeper,
+                    keeper: _.size(keeper) === 1 ? keeper[0] : {},
                     defence: defence,
                     midfield: midfield,
                     strikers: strikers
