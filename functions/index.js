@@ -13,7 +13,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-app.use(cors({origin: true}));
+app.use(cors());
+app.options('*', cors({origin: false}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -51,8 +53,12 @@ app.use('/network/:network/txs', txs);
 // Transaction listener
 app.use('/network/:network/scraper', queryParamKeyChecker, eventScraper);
 
+// Create "main" function to host all other top-level functions
+const main = express();
+main.use('/api', app);
+
 // Expose Express API as a single Cloud Function:
-exports.api = functions.https.onRequest(app);
+exports.main = functions.https.onRequest(main);
 
 /**
  * Triggered when a new event is added to the DB
