@@ -18,6 +18,8 @@
  EDB188	DD9F76	CE8963
  */
 
+// USED BY NIFTY BUILDER - see nations for nationality / Ethnicity mappings
+
 module.exports = [
     {
         name: 'Neville',
