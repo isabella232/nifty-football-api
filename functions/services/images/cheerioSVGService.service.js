@@ -626,7 +626,7 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId, nationali
 class CheerioSVGService {
 
     process (svgXml, {ethnicity, kit, colour, fullName, nationality, position, positionText, attributeAvg, tokenId}) {
-        const ethnicities = require(`./data/ethnicities`)[ethnicity];
+        const ethnicities = nations[nationality].ethnicities[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
 
