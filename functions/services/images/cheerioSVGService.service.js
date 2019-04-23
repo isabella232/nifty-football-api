@@ -2,7 +2,6 @@ const _ = require('lodash');
 const cheerio = require('cheerio');
 
 const shadeColor = (color, percent) => {
-
     var R = parseInt(color.substring(1, 3), 16);
     var G = parseInt(color.substring(3, 5), 16);
     var B = parseInt(color.substring(5, 7), 16);
@@ -23,11 +22,12 @@ const shadeColor = (color, percent) => {
 };
 
 const black = `#000`;
+const blackish = `#2E2828`;
 const white = `#FFF`;
 const whiteDark = '#F5F5F5';
 
-const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary}) => {
-
+const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary, position = 3, tokenId = 0}) => {
+    
     let fills = {
         Background: '#247209',
         // Background: shadeColor(primary, -50),
@@ -74,6 +74,12 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Fade: secondary,
         Croat_LS: secondary,
         Croat_SS: secondary,
+
+        Badge_shield: secondary,
+
+        // evens are black, odds are white
+        Goalkeeper_glove: (tokenId % 2 === 0) ? blackish : whiteDark,
+        Goalkeeper_glove_strap: (tokenId % 2 === 0) ? black : blackish,
     };
 
     let opacity = {
@@ -120,6 +126,10 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Croat_SS: 0,
         Lyon_lower_strip: 0,
         Lyon_top_Layer: 0,
+
+        Badge_shield: 0,
+        Goalkeeper_glove: parseInt(position) === 0 ? 1 : 0,
+        Goalkeeper_glove_strap: parseInt(position) === 0 ? 1 : 0,
     };
 
     // console.log(kitToken);
@@ -613,12 +623,12 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
 
 class CheerioSVGService {
 
-    process(svgXml, {ethnicity, kit, colour, fullName, positionText, attributeAvg, tokenId}) {
+    process (svgXml, {ethnicity, kit, colour, fullName, position, positionText, attributeAvg, tokenId}) {
         const ethnicities = require(`./data/ethnicities`)[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
 
-        const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours});
+        const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours, position, tokenId});
 
         const $ = cheerio.load(
             svgXml,
@@ -630,7 +640,7 @@ class CheerioSVGService {
         return $.xml();
     }
 
-    player(svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
+    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
 
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -646,7 +656,7 @@ class CheerioSVGService {
             tache,
             stubble,
             kitToken,
-            ...colours
+            ...colours,
         });
 
         const $ = cheerio.load(
