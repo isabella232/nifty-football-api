@@ -1,3 +1,23 @@
+/**
+ * Main Colour, Cheek shadow, Main Shadow
+
+ E0AC69	D8A064	C68442
+
+ C68642	BA783C	A56832
+
+ F1C27D  E2AF6D	D19D59
+
+ 8D5524	7C461E	663714
+
+ 7e4d1c	754214	60300F
+
+ 5B3719	4F2D15	442611
+
+ FFCFAE	F4BE9A	E5AB83
+
+ EDB188	DD9F76	CE8963
+ */
+
 module.exports = [
     {
         name: 'Neville',
@@ -135,7 +155,7 @@ module.exports = [
         name: 'Rodman',
         skin: ['#5B3719', 1],
         cheek: ['#4F2D15', 1],
-        shadow: ['#60300F', 1],
+        shadow: ['#442611', 1],
         hair_top: ['#DC143C', .7],
         hair_bottom: ['#DC143C', .2],
         beard: ['#8D5524', 0],
