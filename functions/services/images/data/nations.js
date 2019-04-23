@@ -1163,7 +1163,7 @@ module.exports = {
             'Gosha',
             'Arsenii',
             'Petr',
-            'Íèêèòà',
+            'Nikita',
             'German',
             'Maksim',
             'Niko',
