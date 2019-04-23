@@ -4,14 +4,14 @@ const firestore = require('./firebase.service').firestore();
 
 const {getNetwork} = require('nifty-football-contract-tools').contracts;
 
-const futballCardsContractService = require('../contracts/futballcards.contract.service');
+const niftyFootballContractService = require('../contracts/niftyFootball.contract.service');
 
 class CardsService {
 
     async rebuildAndStoreTokenDetails(network, tokenId) {
         console.log(`Rebuild and storing token details for ID [${tokenId}] on network [${network}]`);
 
-        const tokenDetails = await futballCardsContractService.tokenDetails(network, tokenId);
+        const tokenDetails = await niftyFootballContractService.tokenDetails(network, tokenId);
 
         return this.upsertPlayerDetails(network, tokenId, tokenDetails);
     }

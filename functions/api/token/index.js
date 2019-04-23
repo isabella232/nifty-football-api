@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const futballcardsService = require('../../services/contracts/futballcards.contract.service');
+const niftyFootballService = require('../../services/contracts/niftyFootball.contract.service');
 
 const cardsService = require('../../services/data/cards.service');
 
@@ -10,7 +10,7 @@ token.get('/pointers', async (req, res, next) => {
     try {
         const network = req.params.network;
 
-        const pointers = await futballcardsService.tokenPointers(network);
+        const pointers = await niftyFootballService.tokenPointers(network);
 
         return res.status(200).json(pointers);
     } catch (e) {
@@ -35,7 +35,7 @@ token.get('/:tokenId', async (req, res, next) => {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
 
-        const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
+        const tokenDetails = await niftyFootballService.tokenDetails(network, tokenId);
 
         return res.status(200).json(tokenDetails);
     } catch (e) {
@@ -48,10 +48,10 @@ token.get('/account/:address', async (req, res, next) => {
         const address = req.params.address;
         const network = req.params.network;
 
-        const {tokenIds} = await futballcardsService.accountTokenDetails(network, address);
+        const {tokenIds} = await niftyFootballService.accountTokenDetails(network, address);
 
         const tokenDetails = await Promise.all(_.map(tokenIds, (tokenId) => {
-            return futballcardsService.tokenDetails(network, tokenId);
+            return niftyFootballService.tokenDetails(network, tokenId);
         }));
 
         return res.status(200).json({
@@ -68,7 +68,7 @@ token.get('/tokens/:address', async (req, res, next) => {
         const address = req.params.address;
         const network = req.params.network;
 
-        const {tokenIds} = await futballcardsService.accountTokenDetails(network, address);
+        const {tokenIds} = await niftyFootballService.accountTokenDetails(network, address);
 
         return res.status(200).json(tokenIds);
     } catch (e) {
@@ -80,7 +80,7 @@ token.get('/contract/info', async (req, res, next) => {
     try {
         const network = req.params.network;
 
-        const contractInfo = await futballcardsService.contractInfo(network);
+        const contractInfo = await niftyFootballService.contractInfo(network);
 
         return res.status(200).json(contractInfo);
     } catch (e) {
@@ -93,7 +93,7 @@ token.put('/:tokenId/average', async (req, res, next) => {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
 
-        const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
+        const tokenDetails = await niftyFootballService.tokenDetails(network, tokenId);
 
         const data = await cardsService.upsertAttrsAvg(network, parseInt(tokenId), tokenDetails.attributeAvg);
 

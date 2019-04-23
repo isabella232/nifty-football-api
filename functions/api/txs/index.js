@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const Eth = require('ethjs');
 
-const futballcardsService = require('../../services/contracts/futballcards.contract.service');
+const niftyFootballService = require('../../services/contracts/niftyFootball.contract.service');
 const blockchainService = require('../../services/web3/blockchain.service');
 
 const {abi} = require('nifty-football-contract-tools');
@@ -34,7 +34,7 @@ txs.get('/mints/:transactionId/cards', async (req, res, next) => {
 
         // Lookup cards
         const cards = await Promise.all(_.map(mints, ({_tokenId}) => {
-            return futballcardsService.tokenDetails(network, _tokenId);
+            return niftyFootballService.tokenDetails(network, _tokenId);
         }));
 
         const currentBlockNumber = await blockchainService.getLatestBlockNumber(network);

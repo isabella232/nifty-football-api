@@ -1,5 +1,5 @@
 const cheerioSVGService = require('../../services/images/cheerioSVGService.service');
-const futballcardsService = require('../../services/contracts/futballcards.contract.service');
+const niftyFootballContractService = require('../../services/contracts/niftyFootball.contract.service');
 
 const ethnicities = require('../../services/images/data/ethnicities');
 const kits = require('../../services/images/data/kits');
@@ -43,24 +43,6 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
     }
 });
 
-image.get('/xxx', async (req, res, next) => {
-    try {
-
-        const paramTokenValues = {
-            nationality: 0,
-            ethnicity: Math.floor(Math.random() * 11),
-            kit: Math.floor(Math.random() * 24),
-            colour: Math.floor(Math.random() * 17),
-        };
-
-        const svg = cheerioSVGService.process(require('../../services/images/svgString'), paramTokenValues);
-        res.contentType('image/svg+xml');
-        return res.send(svg);
-    } catch (e) {
-        next(e);
-    }
-});
-
 image.get('/data', async (req, res, next) => {
     try {
 
@@ -79,8 +61,7 @@ image.get('/:tokenId', async (req, res, next) => {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
 
-        const tokenDetails = await futballcardsService.tokenDetails(network, tokenId);
-
+        const tokenDetails = await niftyFootballContractService.tokenDetails(network, tokenId);
 
         const svg = cheerioSVGService.process(require('../../services/images/svgString'), tokenDetails);
 

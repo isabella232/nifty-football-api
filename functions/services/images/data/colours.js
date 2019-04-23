@@ -1,5 +1,29 @@
 module.exports = [
     {
+        name: 'Betty',
+        primary: '#0BB363',
+        secondary: '#E7A614',
+        tertiary: '#D62550'
+    },
+    {
+        name: 'Clover',
+        primary: '#339800',
+        secondary: '#FFFFFF',
+        tertiary: '#FF710F'
+    },
+    {
+        name: 'Hornet',
+        primary: '#FBEE23',
+        secondary: '#ED2127',
+        tertiary: '#11210C'
+    },
+    {
+        name: 'Tulip',
+        primary: '#FF4F00',
+        secondary: '#FFFFFF',
+        tertiary: '#263769'
+    },
+    {
         name: 'Claret',
         primary: '#6C1D45',
         secondary: '#99D6EA',
@@ -22,12 +46,6 @@ module.exports = [
         primary: '#241F20',
         secondary: '#FFFFFF',
         tertiary: '#F1BE48'
-    },
-    {
-        name: 'Hornet',
-        primary: '#FBEE23',
-        secondary: '#ED2127',
-        tertiary: '#11210C'
     },
     {
         name: 'Hammer',
@@ -72,12 +90,6 @@ module.exports = [
         tertiary: '#EDBB00'
     },
     {
-        name: 'Betty',
-        primary: '#0BB363',
-        secondary: '#E7A614',
-        tertiary: '#D62550'
-    },
-    {
         name: 'Tivo',
         primary: '#57175E',
         secondary: '#A38D44',
@@ -118,18 +130,6 @@ module.exports = [
         primary: '#D71920',
         secondary: '#130C0E',
         tertiary: '#0DB14B'
-    },
-    {
-        name: 'Clover',
-        primary: '#339800',
-        secondary: '#FFFFFF',
-        tertiary: '#FF710F'
-    },
-    {
-        name: 'Tulip',
-        primary: '#FF4F00',
-        secondary: '#FFFFFF',
-        tertiary: '#263769'
     },
     {
         name: 'Scotia',
