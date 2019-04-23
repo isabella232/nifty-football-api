@@ -32,7 +32,7 @@ class CardsService {
                 return tokenDetails;
             });
     }
-    
+
     async cardRankings(network) {
         return firestore
             .collection(`cards`)
