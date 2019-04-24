@@ -1,14 +1,12 @@
 const {connectToToken} = require('../web3/networks');
-const firstNames = require('../images/data/0/firstNames');
-const lastNames = require('../images/data/0/lastNames');
-const nationalities = require('../images/data/nationalities');
+const nations = require('../images/data/nations');
 const positions = require('../images/data/positions').LOOKUP;
 
 const ethnicities = require(`../images/data/ethnicities`);
 const kits = require(`../images/data/kits`);
 const colours = require(`../images/data/colours`);
 
-class FutballCardsContractService {
+class NiftyFootballContractService {
 
     async tokenPointers(network = 1) {
         console.log(network);
@@ -76,8 +74,8 @@ class FutballCardsContractService {
             sponsor: _sponsor.toNumber(),
             number: _number.toNumber(),
             boots: _boots.toNumber(),
-            fullName: `${firstNames[_firstName.toNumber()]} ${lastNames[_lastName.toNumber()]}`,
-            nationalityText: `${nationalities[_nationality.toNumber()]}`,
+            fullName: `${nations[_nationality.toNumber()].firstNames[_firstName.toNumber()]} ${nations[_nationality.toNumber()].lastNames[_lastName.toNumber()]}`,
+            nationalityText: `${nations[_nationality.toNumber()].name}`,
             positionText: `${positions[_position.toNumber()]}`,
             owner: owner[0],
             tokenId: tokenId,
@@ -113,4 +111,4 @@ class FutballCardsContractService {
     }
 }
 
-module.exports = new FutballCardsContractService();
+module.exports = new NiftyFootballContractService();

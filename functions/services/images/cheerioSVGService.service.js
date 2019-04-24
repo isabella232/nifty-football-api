@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const cheerio = require('cheerio');
+const nations = require('./data/nations');
 
 const shadeColor = (color, percent) => {
     var R = parseInt(color.substring(1, 3), 16);
@@ -607,7 +608,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
     };
 };
 
-const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
+const fillSVG = ($, {fills, opacity, name, position, average, tokenId, nationality}) => {
 
     _.forEach(fills, (v, k) => $(`#${k}`).attr('fill', v));
     _.forEach(opacity, (v, k) => $(`#${k}`).attr('opacity', v));
@@ -619,12 +620,13 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId}) => {
     $('#Position').html(position ? position.toUpperCase() : 'NA');
     $('#Average').html(average ? average : 'NA');
     $('#TokenId').html('#' + ('0000000' + parseInt(tokenId)).slice(-8));
+    $('#flag_img').attr('href', nations[nationality].flag);
 };
 
 class CheerioSVGService {
 
-    process (svgXml, {ethnicity, kit, colour, fullName, position, positionText, attributeAvg, tokenId}) {
-        const ethnicities = require(`./data/ethnicities`)[ethnicity];
+    process (svgXml, {ethnicity, kit, colour, fullName, nationality, position, positionText, attributeAvg, tokenId}) {
+        const ethnicities = nations[nationality].ethnicities[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
 
@@ -635,7 +637,7 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        fillSVG($, {fills, opacity, name: fullName, position: positionText, average: attributeAvg, tokenId});
+        fillSVG($, {fills, opacity, name: fullName, position: positionText, average: attributeAvg, tokenId, nationality});
 
         return $.xml();
     }
@@ -664,7 +666,7 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        fillSVG($, {fills, opacity, name, position, average, tokenId});
+        fillSVG($, {fills, opacity, name, position, average, tokenId, nationality: 0});
 
         return $.xml();
     }

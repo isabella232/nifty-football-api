@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const {connectToHeadToHeadGame} = require("../web3/networks");
-const futballCardsContractService = require("./futballcards.contract.service");
+const niftyFootballContractService = require("./niftyFootball.contract.service");
 
 class HeadToHeadGameService {
 
@@ -22,11 +22,11 @@ class HeadToHeadGameService {
                 const game = await this.getGame(network, gameId);
 
                 const homeCard = game.state !== 0 && game.homeTokenId !== 0
-                    ? await futballCardsContractService.tokenDetails(network, game.homeTokenId)
+                    ? await niftyFootballContractService.tokenDetails(network, game.homeTokenId)
                     : {};
 
                 const awayCard = game.state !== 0 && game.awayTokenId !== 0
-                    ? await futballCardsContractService.tokenDetails(network, game.awayTokenId)
+                    ? await niftyFootballContractService.tokenDetails(network, game.awayTokenId)
                     : {};
 
                 openGames.push({
@@ -95,11 +95,11 @@ class HeadToHeadGameService {
 
         // Dont make the call for token details if game not created
         const homeCard = numState !== 0 && numHomeTokenId !== 0
-            ? await futballCardsContractService.tokenDetails(network, homeTokenId)
+            ? await niftyFootballContractService.tokenDetails(network, homeTokenId)
             : {};
 
         const awayCard = numState !== 0 && numAwayTokenId !== 0
-            ? await futballCardsContractService.tokenDetails(network, awayTokenId)
+            ? await niftyFootballContractService.tokenDetails(network, awayTokenId)
             : {};
 
         return {
