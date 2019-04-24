@@ -24,7 +24,7 @@ txs.get('/mints/:transactionId/cards', async (req, res, next) => {
         }
 
         // Decode the logs
-        const decoder = Eth.abi.logDecoder(abi.FutballCardsAbi);
+        const decoder = Eth.abi.logDecoder(abi.NiftyFootballTradingCardAbi);
         const events = decoder(results.logs);
 
         // Filter on mints

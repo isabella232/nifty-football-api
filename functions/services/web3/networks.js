@@ -22,20 +22,22 @@ function getWebSocketProviderUri(network) {
 
 const connectToToken = (network) => {
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
-        .contract(abi.FutballCardsAbi)
+        .contract(abi.NiftyFootballTradingCardAbi)
         .at(contracts.getNiftyFootballNft(network).address);
 };
 
 const connectToMarketplace = (network) => {
-    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
-        .contract(abi.BuyNowMarketplaceAbi)
-        .at(contracts.getNiftyFootballMarketplace(network).address);
+    // FIXME
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)));
+        // .contract(abi.BuyNowMarketplaceAbi)
+        // .at(contracts.getNiftyFootballMarketplace(network).address);
 };
 
 const connectToHeadToHeadGame = (network) => {
-    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
-        .contract(abi.HeadToHeadAbi)
-        .at(contracts.getHeadToHeadGame(network).address);
+    // FIXME
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)));
+        // .contract(abi.HeadToHeadAbi)
+        // .at(contracts.getHeadToHeadGame(network).address);
 };
 
 const ethjsProvider = (network) => {
