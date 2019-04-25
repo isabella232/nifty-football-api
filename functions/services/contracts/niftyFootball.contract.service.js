@@ -8,7 +8,7 @@ const colours = require(`../images/data/colours`);
 
 class NiftyFootballContractService {
 
-    async tokenPointers(network = 1) {
+    async tokenPointers (network = 1) {
         console.log(network);
         const token = connectToToken(network);
         const totalCards = await token.totalCards();
@@ -18,7 +18,7 @@ class NiftyFootballContractService {
         };
     }
 
-    async tokenDetails(network = 1, tokenId) {
+    async tokenDetails (network = 1, tokenId) {
         console.log(`Find token details for [${tokenId}] on network [${network}]`);
 
         const token = connectToToken(network);
@@ -82,7 +82,7 @@ class NiftyFootballContractService {
         };
     }
 
-    async accountTokenDetails(network = 1, address) {
+    async accountTokenDetails (network = 1, address) {
         console.log(`Get account token details [${address}] on network [${network}]`);
 
         const token = connectToToken(network);
@@ -94,7 +94,7 @@ class NiftyFootballContractService {
         };
     }
 
-    async contractInfo(network = 1) {
+    async contractInfo (network = 1) {
         console.log(`Get contract info on network [${network}]`);
 
         const token = connectToToken(network);
