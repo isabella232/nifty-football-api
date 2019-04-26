@@ -4,6 +4,7 @@ const niftyFootballContractService = require('../../services/contracts/niftyFoot
 const ethnicities = require('../../services/images/data/ethnicities');
 const kits = require('../../services/images/data/kits');
 const colours = require('../../services/images/data/colours');
+const nations = require('../../services/images/data/nations');
 
 const _ = require('lodash');
 
@@ -47,9 +48,9 @@ image.get('/data', async (req, res, next) => {
     try {
 
         return res.status(200).json({
-            ethnicities: ethnicities,
             kits: kits,
             colours: colours,
+            flags: _.mapValues(nations, (n) => n.flag),
         });
     } catch (e) {
         next(e);
@@ -90,7 +91,5 @@ image.get('/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next
         next(e);
     }
 });
-
-
 
 module.exports = image;
