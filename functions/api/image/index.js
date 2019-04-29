@@ -1,7 +1,6 @@
 const cheerioSVGService = require('../../services/images/cheerioSVGService.service');
 const niftyFootballContractService = require('../../services/contracts/niftyFootball.contract.service');
 
-const ethnicities = require('../../services/images/data/ethnicities');
 const kits = require('../../services/images/data/kits');
 const colours = require('../../services/images/data/colours');
 const nations = require('../../services/images/data/nations');
@@ -10,7 +9,7 @@ const _ = require('lodash');
 
 const image = require('express').Router({mergeParams: true});
 
-image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/name/:name/position/:position/average/:average/tokenId/:tokenId', async (req, res, next) => {
+image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_opacity/hair_top/:hair_top/:hair_top_opacity/hair_bottom/:hair_bottom/:hair_bottom_opacity/beard/:beard/:beard_opacity/tache/:tache/:tache_opacity/stubble/:stubble/:stubble_opacity/kit/:kit/colour/:colour/name/:name/position/:position/average/:average/tokenId/:tokenId/nationality/:nationality', async (req, res, next) => {
     try {
 
         console.log(req.params);
@@ -31,6 +30,7 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
             position: req.params.position,
             average: req.params.average,
             tokenId: parseInt(req.params.tokenId),
+            nationality: parseInt(req.params.nationality),
         };
 
         // console.log(paramTokenValues);
@@ -51,6 +51,8 @@ image.get('/data', async (req, res, next) => {
             kits: kits,
             colours: colours,
             flags: _.mapValues(nations, (n) => n.flag),
+            nationalties: _.mapValues(nations, (n) => n.name),
+            exampleEthnicities: nations['44'].ethnicities, // ENGLAND - used by nifty-builder
         });
     } catch (e) {
         next(e);

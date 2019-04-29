@@ -2,7 +2,6 @@ const {connectToToken} = require('../web3/networks');
 const nations = require('../images/data/nations');
 const positions = require('../images/data/positions').LOOKUP;
 
-const ethnicities = require(`../images/data/ethnicities`);
 const kits = require(`../images/data/kits`);
 const colours = require(`../images/data/colours`);
 
@@ -57,7 +56,7 @@ class NiftyFootballContractService {
             nationality: _nationality.toNumber(),
             position: _position.toNumber(),
             ethnicity: _ethnicity.toNumber(),
-            ethincityText: ethnicities[_ethnicity.toNumber()].name,
+            ethincityText: nations[_ethnicity.toNumber()].name,
             kit: _kit.toNumber(),
             kitText: kits[_kit.toNumber()],
             colour: _colour.toNumber(),
