@@ -267,7 +267,6 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
             };
             break;
         case 'villa_s':
-            console.log(`VILLA S`);
             opacity = {
                 ...opacity,
                 Villa_Style_SS: 1,
