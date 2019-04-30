@@ -56,7 +56,7 @@ class NiftyFootballContractService {
             nationality: _nationality.toNumber(),
             position: _position.toNumber(),
             ethnicity: _ethnicity.toNumber(),
-            ethincityText: nations[_ethnicity.toNumber()].name,
+            ethincityText: nations[_nationality.toNumber()].ethnicities[_ethnicity.toNumber()].name,
             kit: _kit.toNumber(),
             kitText: kits[_kit.toNumber()],
             colour: _colour.toNumber(),
