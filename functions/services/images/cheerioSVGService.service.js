@@ -69,6 +69,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Rovers_Shirt_Panel_Short_Sleeve: secondary,
         Pinstripe: secondary,
         Villa_style_LS: secondary,
+        Villa_Style_SS: secondary,
         Sash: secondary,
         Chevron: secondary,
         Hoops_Long_Sleeve: secondary,
@@ -120,6 +121,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Rovers_Shirt_Panel_Short_Sleeve: 0,
         Pinstripe: 0,
         Villa_style_LS: 0,
+        Villa_style_SS: 0,
         Sash: 0,
         Chevron: 0,
         Hoops_Long_Sleeve: 0,
@@ -135,7 +137,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
 
     // console.log(kitToken);
     switch (kitToken) {
-        case 'classic':
+        case 'classic_l':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -145,7 +147,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
-        case 'classic-short':
+        case 'classic_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -161,13 +163,13 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
-        case 'classic-stripe':
+        case 'stripe_l':
             opacity = {
                 ...opacity,
                 Stripe: 1,
             };
             break;
-        case 'classic-single-hoop':
+        case 'single_hoop_l':
             opacity = {
                 ...opacity,
                 Boca_Stripe: 1,
@@ -175,19 +177,19 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Cuff: 0,
             };
             break;
-        case 'classic-rovers':
+        case 'rovers_l':
             opacity = {
                 ...opacity,
                 Rovers_Shirt_Panel_Long_Sleeve: 1,
             };
             break;
-        case 'classic-pinstripe':
+        case 'pinstripe_l':
             opacity = {
                 ...opacity,
                 Pinstripe: 1,
             };
             break;
-        case 'classic-villa':
+        case 'villa_l':
             opacity = {
                 ...opacity,
                 Villa_style_LS: 1,
@@ -195,7 +197,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Cuff: 0,
             };
             break;
-        case 'classic-sash':
+        case 'sash_l':
             opacity = {
                 ...opacity,
                 Sash: 1,
@@ -203,19 +205,19 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Cuff: 0,
             };
             break;
-        case 'classic-chevron':
+        case 'chevron_l':
             opacity = {
                 ...opacity,
                 Chevron: 1,
             };
             break;
-        case 'classic-hoops':
+        case 'hoops_l':
             opacity = {
                 ...opacity,
                 Hoops_Long_Sleeve: 1,
             };
             break;
-        case 'classic-stripe-short':
+        case 'stripe_s':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -227,7 +229,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 1,
             };
             break;
-        case 'classic-single-hoop-short':
+        case 'single_hoop_s':
             opacity = {
                 ...opacity,
                 Boca_Stripe: 1,
@@ -240,7 +242,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 0,
             };
             break;
-        case 'classic-rovers-short':
+        case 'rovers_s':
             opacity = {
                 ...opacity,
                 Rovers_Shirt_Panel_Short_Sleeve: 1,
@@ -252,7 +254,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 1,
             };
             break;
-        case 'classic-pinstripe-short':
+        case 'pinstripe_s':
             opacity = {
                 ...opacity,
                 Pinstripe: 1,
@@ -264,10 +266,10 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 1,
             };
             break;
-        case 'classic-villa-short':
+        case 'villa_s':
             opacity = {
                 ...opacity,
-                Villa_style_LS: 1,
+                Villa_Style_SS: 1,
                 Long_Sleeve: 0,
                 LongSleeve: 0,
                 Cuff: 0,
@@ -277,7 +279,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 0,
             };
             break;
-        case 'classic-sash-short':
+        case 'sash_s':
             opacity = {
                 ...opacity,
                 Sash: 1,
@@ -290,7 +292,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 0,
             };
             break;
-        case 'classic-chevron-short':
+        case 'chevron_s':
             opacity = {
                 ...opacity,
                 Chevron: 1,
@@ -302,7 +304,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 1,
             };
             break;
-        case 'classic-hoops-short':
+        case 'hoops_s':
             opacity = {
                 ...opacity,
                 Hoops_Long_Sleeve: 1,
@@ -314,7 +316,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: 1,
             };
             break;
-        case 'one-tone-no-trim':
+        case 'one_tone_l':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -329,7 +331,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
-        case 'one-tone-no-trim-short':
+        case 'one_tone_s':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -350,7 +352,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
-        case 'one-tone-trim':
+        case 'one_tone_trim_l':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -367,7 +369,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? whiteDark : shadeColor(primary, -4),
             };
             break;
-        case 'one-tone-trim-short':
+        case 'one_tone_trim_s':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -390,7 +392,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
-        case 'fade':
+        case 'fade_l':
             opacity = {
                 ...opacity,
                 Fade: 1,
@@ -404,7 +406,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Socks: primary,
             };
             break;
-        case 'fade-short':
+        case 'fade_s':
             opacity = {
                 ...opacity,
                 Fade: 1,
@@ -423,7 +425,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Socks: primary,
             };
             break;
-        case 'chequed':
+        case 'chequed_l':
             opacity = {
                 ...opacity,
                 Croat_LS: 1,
@@ -437,7 +439,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Socks: primary,
             };
             break;
-        case 'chequed-short':
+        case 'chequed_s':
             opacity = {
                 ...opacity,
                 Croat_SS: 1,
@@ -456,7 +458,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Socks: primary,
             };
             break;
-        case 'arse':
+        case 'arse_l':
             fills = {
                 ...fills,
                 LongSleeve: secondary,
@@ -464,7 +466,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Cuff: primary,
             };
             break;
-        case 'arse-short':
+        case 'arse_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -481,13 +483,13 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 ShortSleeve_cuff: primary,
             };
             break;
-        case 'classic-tertiary-shorts':
+        case 'tertiary_shorts_l':
             fills = {
                 ...fills,
                 Shorts: tertiary,
             };
             break;
-        case 'classic-tertiary-shorts-short':
+        case 'tertiary_shorts_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -502,7 +504,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Shorts: tertiary,
             };
             break;
-        case 'classic-tertiary-socks':
+        case 'tertiary_socks_l':
             fills = {
                 ...fills,
                 Socks: tertiary,
@@ -510,7 +512,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Upper_Sock: tertiary,
             };
             break;
-        case 'classic-tertiary-socks-short':
+        case 'tertiary_socks_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -530,7 +532,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
-        case 'classic-tertiary-socks-and-cuff':
+        case 'tertiary_socks_and_cuff_l':
             opacity = {
                 ...opacity,
                 Stripe: 1,
@@ -545,7 +547,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
-        case 'classic-tertiary-socks-and-cuff-short':
+        case 'tertiary_socks_and_cuff_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -567,7 +569,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Stripe: primary === white ? '#F5F5F5' : shadeColor(primary, -4),
             };
             break;
-        case 'lyon':
+        case 'tri_top_l':
             opacity = {
                 ...opacity,
                 Lyon_lower_strip: 1,
@@ -580,7 +582,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Lyon_top_Layer: secondary,
             };
             break;
-        case 'lyon-short':
+        case 'tri_top_s':
             opacity = {
                 ...opacity,
                 Long_Sleeve: 0,
@@ -642,7 +644,7 @@ class CheerioSVGService {
         return $.xml();
     }
 
-    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123}) {
+    player (svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123, nationality = 44}) {
 
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
@@ -658,6 +660,7 @@ class CheerioSVGService {
             tache,
             stubble,
             kitToken,
+            nationality,
             ...colours,
         });
 
@@ -666,7 +669,7 @@ class CheerioSVGService {
             {xmlMode: true}
         );
 
-        fillSVG($, {fills, opacity, name, position, average, tokenId, nationality: 0});
+        fillSVG($, {fills, opacity, name, position, average, tokenId, nationality});
 
         return $.xml();
     }
