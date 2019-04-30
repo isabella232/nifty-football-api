@@ -28,6 +28,7 @@ const marketplace = require('./api/marketplace');
 const squad = require('./api/squad');
 const headToHead = require('./api/games/headtohead');
 const txs = require('./api/txs');
+const activity = require('./api/activity');
 const eventScraper = require('./api/eventScraper');
 
 const queryParamKeyChecker = require('./api/middlewares/queryParamKeyChecker');
@@ -49,6 +50,9 @@ app.use('/network/:network/games/headtohead', headToHead);
 
 // Transaction listener
 app.use('/network/:network/txs', txs);
+
+// Transaction listener
+app.use('/network/:network/activity', activity);
 
 // Transaction listener
 app.use('/network/:network/scraper', queryParamKeyChecker, eventScraper);

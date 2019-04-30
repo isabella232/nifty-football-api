@@ -51,6 +51,23 @@ class CardsService {
             });
     }
 
+    async latestCards(network, limit = 50) {
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection('players')
+            .orderBy('tokenId', 'desc')
+            .limit(_.toNumber(limit))
+            .get()
+            .then((querySet) => {
+                const tokens = new Set();
+                querySet.forEach((doc) => {
+                    tokens.add(doc.data());
+                });
+                return Array.from(tokens);
+            });
+    }
+
     async getTopPlayersInPositionForAddress(network, address, position, total = 1) {
         return firestore
             .collection(`cards`)
