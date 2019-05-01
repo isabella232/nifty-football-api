@@ -43,6 +43,19 @@ token.get('/:tokenId', async (req, res, next) => {
     }
 });
 
+token.get('/:tokenId/details', async (req, res, next) => {
+    try {
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
+
+        const tokenDetails = await niftyFootballService.tokenDetails(network, tokenId);
+
+        return res.status(200).json(tokenDetails);
+    } catch (e) {
+        next(e);
+    }
+});
+
 token.get('/account/:address', async (req, res, next) => {
     try {
         const address = req.params.address;
