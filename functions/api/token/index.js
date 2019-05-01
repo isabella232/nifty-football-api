@@ -35,7 +35,7 @@ token.get('/:tokenId', async (req, res, next) => {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
 
-        const tokenDetails = await niftyFootballService.tokenDetails(network, tokenId);
+        const tokenDetails = await niftyFootballService.tokenMetaData(network, tokenId);
 
         return res.status(200).json(tokenDetails);
     } catch (e) {
