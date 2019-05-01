@@ -82,12 +82,6 @@ exports.newEventTrigger =
 
             // Handle differing events
             switch (event) {
-                case 'CardMinted': {
-                    const tokenId = get(document, 'returnValues._tokenId');
-                    console.log(`Incoming token ID [${tokenId}]`);
-                    await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
-                    break;
-                }
                 // default ERC721 events
                 case 'Transfer':
                 case 'Approval': {
