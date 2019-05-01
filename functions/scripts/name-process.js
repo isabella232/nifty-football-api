@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 void async function () {
-    const data = require('./data/39_lastname');
+    const data = require('./data/7_lastname');
 
     console.log(
         _.reduce(data, (obj, v, i) => {
