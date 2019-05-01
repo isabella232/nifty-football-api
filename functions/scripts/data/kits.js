@@ -1,0 +1,43 @@
+module.exports = [
+    // GO LIVE START
+
+    'one_tone_l',
+    'one_tone_s',
+    'one_tone_trim_l',
+    'one_tone_trim_s',
+    'classic_l',
+    'classic_s',
+    'stripe_l',
+    'stripe_s',
+    'single_hoop_l',
+    'single_hoop_s',
+    'pinstripe_l',
+    'pinstripe_s',
+    'tertiary_shorts_l',
+    'tertiary_shorts_s',
+    'sash_l',
+    'sash_s',
+    'chevron_l',
+    'chevron_s',
+    'arse_l',
+    'arse_s',
+    'fade_l',
+    'fade_s',
+
+    // GO LIVE END
+
+    'rovers_l',
+    'rovers_s',
+    'chequed_l',
+    'chequed_s',
+    'hoops_l',
+    'hoops_s',
+    'villa_l',
+    'villa_s',
+    'tertiary_socks_l',
+    'tertiary_socks_s',
+    'tertiary_socks_and_cuff_l',
+    'tertiary_socks_and_cuff_s',
+    'tri_top_l',
+    'tri_top_s',
+];
