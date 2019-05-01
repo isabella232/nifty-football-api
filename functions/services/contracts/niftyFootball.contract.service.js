@@ -295,7 +295,6 @@ class NiftyFootballContractService {
             positionName: positions[position],
             positionText: _.capitalize(positions[position]),
             ethnicity: ethnicity,
-            ethincityText: nations[nationality].ethnicities[ethnicity].name,
             kit: kit,
             kitName: kitName,
             kitText: kitText,

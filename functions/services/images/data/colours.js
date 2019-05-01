@@ -161,9 +161,6 @@ module.exports = {
         secondary: '#FFFFFF',
         tertiary: '#000000'
     },
-
-
-    // Post-go live
     23: {
         number: 23,
         name: 'green_black',
