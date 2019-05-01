@@ -72,7 +72,7 @@ class NiftyFootballContractService {
             sponsorName,
             numberName,
             bootsName
-        } = await NiftyFootballContractService._getExtras(tokenId);
+        } = await NiftyFootballContractService._getExtras(token, tokenId);
 
         const owner = await token.ownerOf(tokenId);
 
