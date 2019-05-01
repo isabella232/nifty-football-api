@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 992.1
+    1455"
+     style="enable-background:new 0 0 992.1 1455;" xml:space="preserve">
+    <style type="text/css">
+.Footer {
+    fill: #FFE000;
+}
+    </style>
+    <switch>
+        <g>
+            <g id="Card">
+                <g>
+                    <path class="Background" fill="gray" d="M906.07,0.08H87.23c-47.85,0-86.65,38.79-86.65,86.75v1280.84c0,47.85,38.79,86.65,86.65,86.65h818.83
+                    c47.85,0,86.65-38.79,86.65-86.65V86.83C992.71,38.98,953.92,0.08,906.07,0.08z"/>
+                </g>
+            </g>
+            <path class="Footer"
+                  d="M0.59,1256.8v110.87c0,47.85,38.79,86.65,86.65,86.65h818.83c47.85,0,86.65-38.79,86.65-86.65V1256.8H0.59z"
+            />
+        </g>
+    </switch>
+</svg>
