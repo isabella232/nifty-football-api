@@ -135,8 +135,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
         Goalkeeper_glove_strap: parseInt(position) === 0 ? 1 : 0,
     };
 
-    // console.log(kitToken);
-    switch (kitToken) {
+    switch (kitToken.name) {
         case 'classic_l':
             opacity = {
                 ...opacity,

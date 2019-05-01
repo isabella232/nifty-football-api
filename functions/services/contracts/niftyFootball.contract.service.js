@@ -58,7 +58,7 @@ class NiftyFootballContractService {
             ethnicity: _ethnicity.toNumber(),
             ethincityText: nations[_nationality.toNumber()].ethnicities[_ethnicity.toNumber()].name,
             kit: _kit.toNumber(),
-            kitText: kits[_kit.toNumber()],
+            kitText: kits[_kit.toNumber()].name,
             colour: _colour.toNumber(),
             colourText: colours[_colour.toNumber()].name,
             strength: _strength.toNumber(),
@@ -73,11 +73,11 @@ class NiftyFootballContractService {
             sponsor: _sponsor.toNumber(),
             number: _number.toNumber(),
             boots: _boots.toNumber(),
-            fullName: `${nations[_nationality.toNumber()].firstNames[_firstName.toNumber()]} ${nations[_nationality.toNumber()].lastNames[_lastName.toNumber()]}`,
+            fullName: `${nations[_nationality.toNumber()].firstNames[_firstName.toNumber()].latin} ${nations[_nationality.toNumber()].lastNames[_lastName.toNumber()].latin}`,
             nationalityText: `${nations[_nationality.toNumber()].name}`,
             positionText: `${positions[_position.toNumber()]}`,
             owner: owner[0],
-            tokenId: tokenId,
+            tokenId: parseInt(tokenId),
         };
     }
 
