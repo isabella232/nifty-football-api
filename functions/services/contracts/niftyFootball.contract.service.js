@@ -12,7 +12,8 @@ const {
     bootsMapper,
     badgeMapper,
     numberMapper,
-    sponsorMapper
+    sponsorMapper,
+    backgroundColourMapper
 } = require("../images/data/mappers");
 
 class NiftyFootballContractService {
@@ -154,9 +155,10 @@ class NiftyFootballContractService {
 
         return {
             name: fullName,
-            description: `${fullName} is a ${_.capitalize(positionText)} from ${_.capitalize(nationalityText)} playing in the ${kitText} kit`,
+            description: `${fullName} is a ${_.capitalize(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
             image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}`,
             external_url: "https://niftyfootball.cards",
+            background_color: backgroundColourMapper(nationality).hex,
             attributes: [
                 {
                     trait_type: "nationality",
@@ -283,7 +285,7 @@ class NiftyFootballContractService {
         const position = _position.toNumber();
 
         const kitName = kits[kit].name;
-        const kitText = _.capitalize(_.split(kitName, "_").join(" "));
+        const kitText = _.split(kitName, "_").join(" ");
         const colourName = colours[colour].name;
         const colourText = _.capitalize(_.split(colourName, "_").join(" "));
 
@@ -334,7 +336,7 @@ class NiftyFootballContractService {
             specialName: specialMapper(special),
             firstName: firstName,
             lastName: lastName,
-            fullName: `${_.upperFirst(nations[nationality].firstNames[firstName].latin)} ${_.upperFirst(nations[nationality].lastNames[lastName].latin)}`,
+            fullName: `${_.capitalize(nations[nationality].firstNames[firstName].latin)} ${_.capitalize(nations[nationality].lastNames[lastName].latin)}`,
         };
     }
 

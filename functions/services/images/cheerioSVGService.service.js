@@ -601,6 +601,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
             };
             break;
         default:
+            console.error(`Something has gone wrong finding a kit!!`, kitToken.name)
     }
 
     return {
