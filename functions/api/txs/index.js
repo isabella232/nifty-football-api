@@ -12,6 +12,7 @@ txs.get('/mints/:transactionId/cards', async (req, res, next) => {
     try {
         const network = req.params.network;
         const transactionId = req.params.transactionId;
+        console.log(network, transactionId);
 
         const results = await blockchainService.getTransactionReceipt(network, transactionId);
         if (!results) {
@@ -29,12 +30,12 @@ txs.get('/mints/:transactionId/cards', async (req, res, next) => {
 
         // Filter on mints
         const mints = _.filter(events, ({_eventName}) => {
-            return _eventName === 'CardMinted';
+            return _eventName === 'Transfer';
         });
 
         // Lookup cards
-        const cards = await Promise.all(_.map(mints, ({_tokenId}) => {
-            return niftyFootballService.tokenDetails(network, _tokenId);
+        const cards = await Promise.all(_.map(mints, ({tokenId}) => {
+            return niftyFootballService.tokenDetails(network, tokenId);
         }));
 
         const currentBlockNumber = await blockchainService.getLatestBlockNumber(network);
