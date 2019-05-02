@@ -76,6 +76,23 @@ image.get('/:tokenId', async (req, res, next) => {
     }
 });
 
+image.get('/:tokenId/back', async (req, res, next) => {
+    try {
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
+
+        const tokenDetails = await niftyFootballContractService.tokenDetails(network, tokenId);
+
+        const svg = cheerioSVGService.cardBack(tokenDetails);
+
+        // console.log(svg);
+        res.contentType('image/svg+xml');
+        return res.send(svg);
+    } catch (e) {
+        next(e);
+    }
+});
+
 image.get('/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next) => {
     try {
 

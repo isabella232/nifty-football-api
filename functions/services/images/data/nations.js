@@ -66,6 +66,8 @@ const redish = '#B55239';
 const milk = '#E6CEA8';
 const cocoa = '#71635A';
 
+// N.B: flags are also stored in the API for the back of card lookup
+
 module.exports = {
     44: {
         name: 'England',

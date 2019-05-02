@@ -601,7 +601,7 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
             };
             break;
         default:
-            console.error(`Something has gone wrong finding a kit!!`, kitToken.name)
+            console.error(`Something has gone wrong finding a kit!!`, kitToken.name);
     }
 
     return {
@@ -681,6 +681,31 @@ class CheerioSVGService {
 
         return $.xml();
     }
+
+    cardBack(tokenDetails) {
+        const {fullName, positionText, attributeAvg, strength, skill, speed, intelligence, nationality} = tokenDetails;
+
+        const svgCardBack = require('./svgBackCardString');
+
+        const $ = cheerio.load(
+            svgCardBack,
+            {xmlMode: true}
+        );
+
+        $('#fullname').html(fullName);
+        $('#position').html(positionText);
+        $('#attributeAvg').html(attributeAvg);
+        $('#strength').html(strength);
+        $('#skill').html(skill);
+        $('#speed').html(speed);
+        $('#intelligence').html(intelligence);
+        $('#intelligence').html(intelligence);
+        $('#flag_img').attr('href', nations[nationality].flag);
+
+        return $.xml();
+    }
+
+
 }
 
 module.exports = new CheerioSVGService();

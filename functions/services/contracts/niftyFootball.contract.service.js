@@ -157,6 +157,7 @@ class NiftyFootballContractService {
             name: fullName,
             description: `${fullName} is a ${_.capitalize(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
             image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}`,
+            secondary_image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}/back`,
             external_url: "https://niftyfootball.cards",
             background_color: backgroundColourMapper(nationality).hex,
             attributes: [
