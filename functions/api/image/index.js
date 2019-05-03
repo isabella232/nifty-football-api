@@ -1,9 +1,9 @@
-const cheerioSVGService = require('../../services/images/cheerioSVGService.service');
+const cheerioSVGService = require('./cheerioSVGService.service');
 const niftyFootballContractService = require('../../services/contracts/niftyFootball.contract.service');
 
-const kits = require('../../services/images/data/kits');
-const colours = require('../../services/images/data/colours');
-const nations = require('../../services/images/data/nations');
+const kits = require('./data/kits');
+const colours = require('./data/colours');
+const nations = require('./data/nations');
 
 const _ = require('lodash');
 
@@ -35,7 +35,7 @@ image.get('/skin/:skin/:skin_opacity/shadow/:shadow/cheek/:cheek/eye/:eye/:eye_o
 
         // console.log(paramTokenValues);
 
-        const svg = cheerioSVGService.player(require('../../services/images/svgString'), paramTokenValues);
+        const svg = cheerioSVGService.player(require('./svgString'), paramTokenValues);
 
         res.contentType('image/svg+xml');
         return res.send(svg);
@@ -66,7 +66,7 @@ image.get('/:tokenId', async (req, res, next) => {
 
         const tokenDetails = await niftyFootballContractService.tokenDetails(network, tokenId);
 
-        const svg = cheerioSVGService.process(require('../../services/images/svgString'), tokenDetails);
+        const svg = cheerioSVGService.process(require('./svgString'), tokenDetails);
 
         // console.log(svg);
         res.contentType('image/svg+xml');
@@ -86,7 +86,7 @@ image.get('/ethnicity/:ethnicity/kit/:kit/colour/:colour', async (req, res, next
             colour: req.params.colour,
         };
 
-        const svg = cheerioSVGService.process(require('../../services/images/svgString'), paramTokenValues);
+        const svg = cheerioSVGService.process(require('./svgString'), paramTokenValues);
         res.contentType('image/svg+xml');
         return res.send(svg);
     } catch (e) {

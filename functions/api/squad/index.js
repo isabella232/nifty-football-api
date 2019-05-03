@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const squad = require('express').Router({mergeParams: true});
 
-const {GOAL_KEEPER, STRIKER, MIDFIELDER, DEFENDER} = require('../../services/images/data/positions').OPTIONS;
+const {GOAL_KEEPER, STRIKER, MIDFIELDER, DEFENDER} = require('../image/data/positions').OPTIONS;
 
 
 const carrdService = require('../../services/data/cards.service');

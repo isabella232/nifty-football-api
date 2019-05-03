@@ -1,11 +1,11 @@
 const _ = require('lodash');
 
 const {connectToToken} = require('../web3/networks');
-const nations = require('../images/data/nations');
-const positions = require('../images/data/positions').LOOKUP;
+const nations = require('../../api/image/data/nations');
+const positions = require('../../api/image/data/positions').LOOKUP;
 
-const kits = require(`../images/data/kits`);
-const colours = require(`../images/data/colours`);
+const kits = require(`../../api/image/data/kits`);
+const colours = require(`../../api/image/data/colours`);
 
 const {
     specialMapper,
@@ -14,7 +14,7 @@ const {
     numberMapper,
     sponsorMapper,
     backgroundColourMapper
-} = require("../images/data/mappers");
+} = require("../../api/image/data/mappers");
 
 class NiftyFootballContractService {
 
@@ -155,7 +155,7 @@ class NiftyFootballContractService {
 
         return {
             name: fullName,
-            description: `${fullName} is a ${_.capitalize(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
+            description: `${fullName} is a ${_.lowerCase(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
             image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}`,
             external_url: "https://niftyfootball.cards",
             background_color: backgroundColourMapper(nationality).hex,
