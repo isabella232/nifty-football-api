@@ -61,8 +61,14 @@ app.use('/network/:network/scraper', queryParamKeyChecker, eventScraper);
 const main = express();
 main.use('/api', app);
 
+// Slightly bump the defaults to 512mb and 2min timeout
+const runtimeOpts = {
+    memory: '512MB',
+    timeoutSeconds: 240
+};
+
 // Expose Express API as a single Cloud Function:
-exports.main = functions.https.onRequest(main);
+exports.main = functions.runWith(runtimeOpts).https.onRequest(main);
 
 /**
  * Triggered when a new event is added to the DB
