@@ -13,10 +13,6 @@ class CardsService {
 
         const tokenDetails = await niftyFootballContractService.tokenDetails(getNetwork(network), tokenId);
 
-        // FIXME remove log once fixed
-        console.log(tokenDetails);
-
-
         return this.upsertPlayerDetails(network, tokenId, tokenDetails);
     }
 
