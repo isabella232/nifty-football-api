@@ -132,7 +132,7 @@ class NiftyFootballContractService {
             nationality,
             nationalityText,
             positionText,
-            ethnicity,
+            ethincityText,
             kitText,
             colourText,
         } = await NiftyFootballContractService._getCardDetail(token, tokenId);
@@ -184,7 +184,7 @@ class NiftyFootballContractService {
                 },
                 {
                     trait_type: "ethnicity",
-                    value: `${nationalityText} #${ethnicity}`
+                    value: `${ethincityText}`
                 },
                 {
                     display_type: "boost_percentage",
@@ -298,6 +298,7 @@ class NiftyFootballContractService {
             positionName: positions[position],
             positionText: _.capitalize(positions[position]),
             ethnicity: ethnicity,
+            ethincityText: `${nations[nationality].name} #${ethnicity}`,
             kit: kit,
             kitName: kitName,
             kitText: kitText,

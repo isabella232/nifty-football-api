@@ -92,7 +92,7 @@ exports.newEventTrigger =
                 case 'Transfer':
                 case 'Approval': {
                     const tokenId = get(document, 'returnValues.tokenId');
-                    console.log(`Incoming token ID [${tokenId}]`);
+                    console.log(`Incoming token ID [${tokenId}] for event [${event}]`);
                     await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
                     break;
                 }
@@ -107,7 +107,7 @@ exports.newEventTrigger =
                 case 'StarAdded':
                 case 'XpAdded': {
                     const tokenId = get(document, 'returnValues._tokenId');
-                    console.log(`Incoming token ID [${tokenId}]`);
+                    console.log(`Incoming token ID [${tokenId}] for event [${event}]`);
                     await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
                     break;
                 }

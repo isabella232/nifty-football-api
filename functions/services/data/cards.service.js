@@ -11,7 +11,11 @@ class CardsService {
     async rebuildAndStoreTokenDetails(network, tokenId) {
         console.log(`Rebuild and storing token details for ID [${tokenId}] on network [${network}]`);
 
-        const tokenDetails = await niftyFootballContractService.tokenDetails(network, tokenId);
+        const tokenDetails = await niftyFootballContractService.tokenDetails(getNetwork(network), tokenId);
+
+        // FIXME remove log once fixed
+        console.log(tokenDetails);
+
 
         return this.upsertPlayerDetails(network, tokenId, tokenDetails);
     }
