@@ -438,7 +438,7 @@ module.exports = {
                 hair_bottom: [darkBrown, full],
                 beard: [darkBrown, bald],
                 tache: [darkBrown, bald],
-                stubble: [black, threeQuarter],
+                stubble: [black, full],
                 eye: [black, full],
             },
             17: {
@@ -1308,7 +1308,7 @@ module.exports = {
                 hair_bottom: [darkBrown, full],
                 beard: [darkBrown, bald],
                 tache: [darkBrown, bald],
-                stubble: [black, threeQuarter],
+                stubble: [black, bald],
                 eye: [black, full],
             },
             17: {
@@ -2178,7 +2178,7 @@ module.exports = {
                 hair_bottom: [darkBrown, full],
                 beard: [darkBrown, bald],
                 tache: [darkBrown, bald],
-                stubble: [black, threeQuarter],
+                stubble: [black, bald],
                 eye: [black, full],
             },
             17: {
@@ -2613,7 +2613,7 @@ module.exports = {
                 hair_bottom: [darkBrown, full],
                 beard: [darkBrown, bald],
                 tache: [darkBrown, bald],
-                stubble: [black, threeQuarter],
+                stubble: [black, bald],
                 eye: [black, full],
             },
             17: {
