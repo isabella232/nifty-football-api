@@ -52,7 +52,7 @@ image.get('/data', async (req, res, next) => {
             colours: colours,
             flags: _.mapValues(nations, (n) => n.flag),
             nationalties: _.mapValues(nations, (n) => n.name),
-            exampleEthnicities: nations['44'].ethnicities, // ENGLAND - used by nifty-builder
+            exampleEthnicities: nations['39'].ethnicities, // ENGLAND - used by nifty-builder
         });
     } catch (e) {
         next(e);
