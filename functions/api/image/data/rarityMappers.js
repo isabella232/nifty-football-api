@@ -29,7 +29,7 @@ const coloursMapper = (rawData) => {
             };
         })
         .mapKeys((value, key) => {
-            return colours[key].name;
+            return _.capitalize(_.split(colours[key].name, "_").join(" "));
         })
         .value();
 };
@@ -45,7 +45,7 @@ const kitsMapper = (rawData) => {
             return percentage(total, value.length);
         })
         .mapKeys((value, key) => {
-            return kits[key].name;
+            return _.capitalize(_.split(kits[key].name, "_").join(" "));
         })
         .value();
 };
@@ -61,7 +61,7 @@ const positionsMapper = (rawData) => {
             return percentage(total, value.length);
         })
         .mapKeys((value, key) => {
-            return _.toLower(positions[key]);
+            return _.capitalize(positions[key]);
         })
         .value();
 };
@@ -77,13 +77,13 @@ const nationalitiesMapper = (rawData) => {
             return percentage(total, value.length);
         })
         .mapKeys((value, key) => {
-            return _.toLower(nations[key].name);
+            return _.capitalize(nations[key].name);
         })
         .value();
 };
 
 const percentage = (total, found) => {
-    return `${((found / total) * 100).toFixed(2)}%`;
+    return `${((found / total) * 100).toFixed(1)}`;
 };
 
 module.exports = {
