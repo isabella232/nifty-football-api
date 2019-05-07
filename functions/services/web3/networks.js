@@ -26,18 +26,30 @@ const connectToToken = (network) => {
         .at(contracts.getNiftyFootballNft(network).address);
 };
 
+const connectToRegularPackGenerator = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
+        .contract(abi.NiftyFootballTradingCardGeneratorAbi)
+        .at(contracts.getNiftyFootballRegularPackGenerator(network).address);
+};
+
+const connectToElitePackGenerator = (network) => {
+    return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)))
+        .contract(abi.NiftyFootballTradingCardEliteGeneratorAbi)
+        .at(contracts.getNiftyFootballElitePackGenerator(network).address);
+};
+
 const connectToMarketplace = (network) => {
     // FIXME
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)));
-        // .contract(abi.BuyNowMarketplaceAbi)
-        // .at(contracts.getNiftyFootballMarketplace(network).address);
+    // .contract(abi.BuyNowMarketplaceAbi)
+    // .at(contracts.getNiftyFootballMarketplace(network).address);
 };
 
 const connectToHeadToHeadGame = (network) => {
     // FIXME
     return new Eth(new Eth.HttpProvider(getHttpProviderUri(network)));
-        // .contract(abi.HeadToHeadAbi)
-        // .at(contracts.getHeadToHeadGame(network).address);
+    // .contract(abi.HeadToHeadAbi)
+    // .at(contracts.getHeadToHeadGame(network).address);
 };
 
 const ethjsProvider = (network) => {
@@ -53,5 +65,7 @@ module.exports = {
     web3Provider,
     connectToToken,
     connectToHeadToHeadGame,
-    connectToMarketplace
+    connectToMarketplace,
+    connectToRegularPackGenerator,
+    connectToElitePackGenerator,
 };
