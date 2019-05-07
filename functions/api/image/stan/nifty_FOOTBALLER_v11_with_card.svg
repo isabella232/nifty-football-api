@@ -6,11 +6,7 @@
      style="enable-background:new 0 0 992.13 1483.32;" xml:space="preserve">
 
     <style type="text/css">
-	<!--.st0{fill:#02562C;}-->
-        <!--.st1{fill:#D86AA1;}-->
         .Footer{fill:#FFE000;}
-        <!--.st3{fill:#FFFFFF;}-->
-        <!--.st2{fill:#FFFFFF;}-->
         .Name{font-family:'Anton', sans-serif;}
         .Name{font-size:58px;}
 		.Position{font-family:'Anton', sans-serif;}
@@ -19,40 +15,6 @@
 		.Average{font-size:102px;}
 		.TokenId{font-family:'Anton', sans-serif;;}
 		.TokenId{font-size:38px; fill:white;}
-        <!--.st6{font-size:70px;}-->
-        <!--.st7{fill:#ED1C24;}-->
-        <!--.st8{font-size:43.8153px;}-->
-        <!--.st9{font-size:57.3457px;}-->
-        <!--.st10{fill:#E8BE95;}-->
-        <!--.st11{fill:lime;}-->
-        <!--.st12{opacity:0.5;fill:#D8A275;}-->
-        <!--.st13{opacity:0.75;fill:#A67C52;}-->
-        <!--.st14{fill:#EFD9A0;}-->
-        <!--.st15{fill:#0071BC;}-->
-        <!--.st16{fill:#603813;}-->
-        <!--.st17{opacity:0.5;fill:#603813;}-->
-        <!--.st18{fill:#C1272D;}-->
-        <!--.st19{display:none;}-->
-        <!--.st20{display:inline;}-->
-        <!--.st21{fill:#F15A24;}-->
-        <!--.st22{fill:#FBB03B;}-->
-        <!--.st23{fill:#F7931E;}-->
-        <!--.st24{fill:#9E005D;}-->
-        <!--.st25{fill:#009245;}-->
-        <!--.st26{fill:#8CC63F;}-->
-        <!--.st27{fill:#E84E1F;}-->
-        <!--.st28{fill:#FCEE21;}-->
-        <!--.st29{fill:#D9E021;}-->
-        <!--.st30{fill:#ED1E79;}-->
-        <!--.st31{fill:#29ABE2;}-->
-        <!--.st32{fill:#D4145A;}-->
-        <!--.st33{fill:#FF0000;}-->
-        <!--.st34{opacity:0.1;}-->
-        <!--.st35{fill:#333333;}-->
-        <!--.st36{fill:#4D4D4D;}-->
-        <!--.st37{fill:#FBE03B;}-->
-        <!--.st38{font-family:'Freshman';}-->
-        <!--.st39{font-size:67.1515px;}-->
 </style>
 	<style type="text/css">
 	<![CDATA[
