@@ -196,7 +196,7 @@ module.exports = {
             7: {latin: 'ANDERSON'},
             8: {latin: 'MACDONALD'},
             9: {latin: 'MURRAY'},
-            1: {latin: 'SCOTT'},
+            10: {latin: 'SCOTT'},
             11: {latin: 'TAYLOR'},
             12: {latin: 'REID'},
             13: {latin: 'CLARK'},
