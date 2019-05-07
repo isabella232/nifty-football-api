@@ -73,7 +73,7 @@ class CardsService {
             .collection(`cards`)
             .doc(getNetwork(network))
             .collection('players')
-            .where('owner', '==', address) // TODO checksum all addresses before save and at query
+            .where('owner', '==', address)
             .where('position', '==', position)
             .orderBy('attributeAvg', 'desc')
             .limit(total)
