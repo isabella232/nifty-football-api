@@ -29,13 +29,14 @@ squad.get('/:address/top', async (req, res, next) => {
             ...strikers,
         ];
 
-        const hasFullSquad = topSquad.length === 11;
+        const hasFullTeam = topSquad.length === 11;
+        const hasEmptySquad = topSquad.length === 0;
 
-        const squadTotal = hasFullSquad
+        const squadTotal = hasFullTeam
             ? _.reduce(topSquad, (sum, value) => sum + value.attributeAvg, 0)
             : 0;
 
-        const squadAverage = hasFullSquad
+        const squadAverage = hasFullTeam
             ? Math.floor(squadTotal / 11)
             : 0;
 
@@ -53,6 +54,8 @@ squad.get('/:address/top', async (req, res, next) => {
                 formation: formation,
                 squadTotal: squadTotal,
                 squadAverage: squadAverage,
+                hasFullTeam: hasFullTeam,
+                hasEmptySquad: hasEmptySquad,
                 team: {
                     goalkeepers: complete(goalkeepers, {}, formation.goalkeepers),
                     defence: complete(defence, {}, formation.defence),
