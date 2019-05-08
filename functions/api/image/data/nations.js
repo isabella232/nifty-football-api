@@ -1262,7 +1262,7 @@ module.exports = {
                 beard: [black, bald],
                 tache: [black, bald],
                 stubble: [black, bald],
-                eye: [black, threeQuarter],
+                eye: [black, full],
             },
             11: {
                 ...beige2,
@@ -1388,7 +1388,7 @@ module.exports = {
                 beard: [darkBrown, bald],
                 tache: [black, bald],
                 stubble: [black, bald],
-                eye: [black, threeQuarter],
+                eye: [black, full],
             },
         },
     },
