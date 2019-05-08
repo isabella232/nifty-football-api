@@ -218,5 +218,12 @@ module.exports = {
         primary: '#120FBC',
         secondary: '#DC0902',
         tertiary: '#FFFFFF'
+    },
+    31: {
+        number: 31,
+        name: 'blue_yellow',
+        primary: '#005B9E',
+        secondary: '#FFCD00',
+        tertiary: '#FFFFFF'
     }
 };
