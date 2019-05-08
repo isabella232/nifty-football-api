@@ -1931,6 +1931,7 @@ module.exports = {
             98: {latin: 'Martin'},
             99: {latin: 'John'},
             100: {latin: 'Dino'},
+            101: {latin: 'Vincent'},
         },
         lastNames: {
             0: {latin: 'Abruzzo'},
@@ -2032,7 +2033,8 @@ module.exports = {
             96: {latin: 'Venturi'},
             97: {latin: 'Vinci'},
             98: {latin: 'Zappa'},
-            99: {latin: 'Zunino'}
+            99: {latin: 'Zunino'},
+            100: {latin: 'Almeida'},
         },
         ethnicities: {
             0: {
