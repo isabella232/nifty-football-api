@@ -165,7 +165,7 @@ module.exports = {
             78: {latin: 'Calum'},
             79: {latin: 'Alasdair'},
             80: {latin: 'Robin'},
-            81: {latin: 'Greig'},
+            81: {latin: 'Oliver'},
             82: {latin: 'Angus'},
             83: {latin: 'Russell'},
             84: {latin: 'Cameron'},
@@ -183,7 +183,8 @@ module.exports = {
             96: {latin: 'Justin'},
             97: {latin: 'Benjamin'},
             98: {latin: 'Shaun'},
-            99: {latin: 'Callum'}
+            99: {latin: 'Callum'},
+            100: {latin: 'Stanley'},
         },
         lastNames: {
             0: {latin: 'SMITH'},
@@ -284,8 +285,10 @@ module.exports = {
             95: {latin: 'MACLEAN'},
             96: {latin: 'WARD'},
             97: {latin: 'BOYLE'},
-            98: {latin: 'CURRIE'},
-            99: {latin: 'O\'NEILL'}
+            98: {latin: 'MORGAN'},
+            99: {latin: 'O\'NEILL'},
+            100: {latin: 'CARDING'},
+            101: {latin: 'CHOW'},
         },
         ethnicities: {
             0: {
@@ -618,7 +621,8 @@ module.exports = {
             96: {latin: 'Alejandro'},
             97: {latin: 'Caden'},
             98: {latin: 'Blake'},
-            99: {latin: 'Carson'}
+            99: {latin: 'Carson'},
+            100: {latin: 'Preston'},
         },
         lastNames: {
             0: {latin: 'SMITH'},
@@ -720,7 +724,8 @@ module.exports = {
             96: {latin: 'RUSSELL'},
             97: {latin: 'GRIFFIN'},
             98: {latin: 'DIAZ'},
-            99: {latin: 'HAYES'}
+            99: {latin: 'HAYES'},
+            100: {latin: 'Attebery'},
         },
         ethnicities: {
             0: {
@@ -1035,7 +1040,7 @@ module.exports = {
             78: {latin: 'Raul'},
             79: {latin: 'Matu'},
             80: {latin: 'agus'},
-            81: {latin: 'lulu vera'},
+            81: {latin: 'Diego'},
             82: {latin: 'neron'},
             83: {latin: 'ramiro'},
             84: {latin: 'Velizan'},
@@ -1923,7 +1928,8 @@ module.exports = {
             96: {latin: 'Umberto'},
             97: {latin: 'Sergio'},
             98: {latin: 'Martin'},
-            99: {latin: 'John'}
+            99: {latin: 'John'},
+            100: {latin: 'Dino'},
         },
         lastNames: {
             0: {latin: 'Abruzzo'},
@@ -2358,7 +2364,8 @@ module.exports = {
             96: {latin: 'caue'},
             97: {latin: 'vito'},
             98: {latin: 'kaue'},
-            99: {latin: 'zaqueu'}
+            99: {latin: 'zaqueu'},
+            100: {latin: 'zaqueu'},
         },
         lastNames: {
             0: {latin: 'Silva'},

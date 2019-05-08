@@ -53,7 +53,7 @@ const backgroundColourMapper = (number) => {
         case 44:
             return {hex: 'F8F8FF', name: 'ghostwhite'};
         case 1:
-            return {hex: 'FFCCCC', name: 'red'};
+            return {hex: 'F8F8FF', name: 'ghostwhite'};
         case 39:
             return {hex: 'C4D7F3', name: 'dullblue'};
         case 54:
