@@ -22,15 +22,20 @@ const shadeColor = (color, percent) => {
     return `#${RR}${GG}${BB}`.toUpperCase();
 };
 
+const genesisNumber = 1000;
+const genesisGray = `#808080`; // 'gray' in HTML
+const postGenesis = `#696969`; // darker gray
 const black = `#000`;
 const blackish = `#2E2828`;
 const white = `#FFF`;
 const whiteDark = '#F5F5F5';
+const silver = `#D3D3D3`;
 
 const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary, position = 3, tokenId = 0}) => {
 
     let fills = {
-        Background: '#247209',
+        Background: (tokenId <= genesisNumber) ? genesisGray : postGenesis,
+        NiftyLogoCopy: (tokenId <= genesisNumber) ? silver : white,
         // Background: shadeColor(primary, -50),
         Body: skin[0],
         Cheek: cheek[0],
