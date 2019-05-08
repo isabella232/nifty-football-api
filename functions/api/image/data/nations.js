@@ -1161,7 +1161,8 @@ module.exports = {
             96: {latin: 'Soria'},
             97: {latin: 'Villalba'},
             98: {latin: 'Prieto'},
-            99: {latin: 'Martínez'}
+            99: {latin: 'Martínez'},
+            100: {latin: ''},
         },
         ethnicities: {
             0: {
