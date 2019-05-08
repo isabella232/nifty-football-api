@@ -289,6 +289,7 @@ module.exports = {
             99: {latin: 'O\'NEILL'},
             100: {latin: 'CARDING'},
             101: {latin: 'CHOW'},
+            102: {latin: 'FRANCIS'},
         },
         ethnicities: {
             0: {
