@@ -34,7 +34,6 @@ viewBox="0 0 992.13 1483.32" style="enable-background:new 0 0 992.13 1483.32;" x
 
 .TokenId {
     font-family: sans-serif;
-    ;
 }
 
 .TokenId {
