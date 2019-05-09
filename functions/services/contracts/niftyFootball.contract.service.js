@@ -366,7 +366,7 @@ class NiftyFootballContractService {
             numberName: numberMapper(number),
 
             boots: boots,
-            bootsName: bootsMapper(boots),
+            bootsName: bootsMapper(boots).name,
         };
     }
 }

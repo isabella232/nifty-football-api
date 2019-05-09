@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const cheerio = require('cheerio');
 const nations = require('./data/nations');
+const {bootsMapper} = require('./data/mappers');
 
 const shadeColor = (color, percent) => {
     var R = parseInt(color.substring(1, 3), 16);
@@ -31,12 +32,14 @@ const white = `#FFF`;
 const whiteDark = '#F5F5F5';
 const silver = `#D3D3D3`;
 
-const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary, position = 3, tokenId = 0}) => {
+const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kitToken, primary, secondary, tertiary, position = 3, tokenId = 0, boots = 0}) => {
 
     let fills = {
         Background: (tokenId <= genesisNumber) ? genesisGray : postGenesis,
         NiftyLogoCopy: (tokenId <= genesisNumber) ? silver : white,
-        // Background: shadeColor(primary, -50),
+
+        Boots: bootsMapper(boots).hex,
+
         Body: skin[0],
         Cheek: cheek[0],
         Shadow: shadow[0],
@@ -632,12 +635,12 @@ const fillSVG = ($, {fills, opacity, name, position, average, tokenId, nationali
 
 class CheerioSVGService {
 
-    process(svgXml, {ethnicity, kit, colour, fullName, nationality, position, positionText, attributeAvg, tokenId}) {
+    process(svgXml, {ethnicity, kit, colour, fullName, nationality, position, positionText, attributeAvg, tokenId, boots}) {
         const ethnicities = nations[nationality].ethnicities[ethnicity];
         const kitToken = require(`./data/kits`)[kit];
         const colours = require(`./data/colours`)[colour];
 
-        const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours, position, tokenId});
+        const {fills, opacity} = generateSVG({...ethnicities, kitToken, ...colours, position, tokenId, boots});
 
         const $ = cheerio.load(
             svgXml,

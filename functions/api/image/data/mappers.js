@@ -1,7 +1,6 @@
 const STANDARD = 'Standard';
 const NONE = 'None';
 
-
 const specialMapper = (special) => {
     if (special === 0) {
         return NONE;
@@ -27,11 +26,23 @@ const sponsorMapper = (sponsor) => {
 };
 
 const bootsMapper = (boots) => {
-    if (boots === 0) {
-        return STANDARD;
+    switch (boots) {
+        case 0:
+            return {name: STANDARD, hex: '#000000'};
+        case 1:
+            return {name: 'Neon Yellow', hex: '#FFFF00'};
+        case 2:
+            return {name: 'Neon Purple', hex: '#5600FF'};
+        case 3:
+            return {name: 'Blizzard Blue', hex: '#50BFE6'};
+        case 4:
+            return {name: 'Shocking Pink', hex: '#FF6EFF'};
+        case 5:
+            return {name: 'Gold', hex: '#DAA520'};
+        default:
+            console.error(`Invalid boots found [${boots}]`);
+            return {name: STANDARD, hex: '#000000'};
     }
-    console.error(`Invalid boots found [${boots}]`);
-    return STANDARD;
 };
 
 const numberMapper = (number) => {
@@ -50,6 +61,8 @@ const backgroundColourMapper = (number) => {
         // 54 ARGENTINA
         // 55 BRAZIL
         // 7 RUSSIA
+
+        // NOTE without # on hex for OpenSea
         case 44:
             return {hex: 'F8F8FF', name: 'ghostwhite'};
         case 1:
@@ -63,10 +76,10 @@ const backgroundColourMapper = (number) => {
         case 7:
             return {hex: 'F8F8FF', name: 'ghostwhite'};
         default:
+            console.error(`Invalid backgroundColourMapper found [${number}]`);
             return {hex: 'C4D7F3', name: 'dullblue'};
     }
 };
-
 
 module.exports = {
     specialMapper,
@@ -75,4 +88,5 @@ module.exports = {
     bootsMapper,
     numberMapper,
     backgroundColourMapper,
+    bootsMapper,
 };
