@@ -3,6 +3,7 @@ const _ = require('lodash');
 const niftyFootballService = require('../../services/contracts/niftyFootball.contract.service');
 
 const cardsService = require('../../services/data/cards.service');
+const openSeaService = require('../../services/data/openSea.service');
 
 const token = require('express').Router({mergeParams: true});
 
@@ -111,6 +112,19 @@ token.put('/:tokenId/average', async (req, res, next) => {
         const data = await cardsService.upsertAttrsAvg(network, parseInt(tokenId), tokenDetails.attributeAvg);
 
         return res.status(200).json(data);
+    } catch (e) {
+        next(e);
+    }
+});
+
+token.put('/:tokenId/opensea/refresh', async (req, res, next) => {
+    try {
+        const tokenId = req.params.tokenId;
+        const network = req.params.network;
+
+        const results = await openSeaService.refreshTokenMetaData(network, tokenId);
+
+        return res.status(200).json(results);
     } catch (e) {
         next(e);
     }
