@@ -117,7 +117,7 @@ token.put('/:tokenId/average', async (req, res, next) => {
     }
 });
 
-token.put('/:tokenId/open/refresh', async (req, res, next) => {
+token.put('/:tokenId/opensea/refresh', async (req, res, next) => {
     try {
         const tokenId = req.params.tokenId;
         const network = req.params.network;
