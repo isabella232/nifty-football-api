@@ -141,6 +141,7 @@ class NiftyFootballContractService {
             strength,
             intelligence,
             skill,
+            speed,
             attributeAvg,
             specialName,
             fullName,
@@ -195,7 +196,7 @@ class NiftyFootballContractService {
                 {
                     display_type: "boost_percentage",
                     trait_type: "speed",
-                    value: strength,
+                    value: speed,
                     max_value: 100
                 },
                 {
