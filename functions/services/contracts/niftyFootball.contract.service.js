@@ -13,7 +13,8 @@ const {
     badgeMapper,
     numberMapper,
     sponsorMapper,
-    backgroundColourMapper
+    backgroundColourMapper,
+    averageAttributeMapper,
 } = require("../../api/image/data/mappers");
 
 class NiftyFootballContractService {
@@ -62,6 +63,7 @@ class NiftyFootballContractService {
             firstName,
             lastName,
             fullName,
+            fullNameDescription,
         } = await NiftyFootballContractService._getAttributesAndName(token, tokenId, nationality);
 
         const {
@@ -109,6 +111,7 @@ class NiftyFootballContractService {
             firstName,
             lastName,
             fullName,
+            fullNameDescription,
 
             // Extras
             badge,
@@ -145,6 +148,7 @@ class NiftyFootballContractService {
             attributeAvg,
             specialName,
             fullName,
+            fullNameDescription,
         } = await NiftyFootballContractService._getAttributesAndName(token, tokenId, nationality);
 
         const {
@@ -156,7 +160,7 @@ class NiftyFootballContractService {
 
         return {
             name: fullName,
-            description: `${fullName} is a ${_.lowerCase(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
+            description: `${fullNameDescription} is a ${_.lowerCase(positionText)} from ${nationalityText} playing in the ${kitText} kit`,
             image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}`,
             secondary_image: `https://niftyfootball.cards/api/network/${network}/image/${tokenId}/back`,
             external_url: "https://niftyfootball.cards",
@@ -323,6 +327,17 @@ class NiftyFootballContractService {
         const firstName = _firstName.toNumber();
         const lastName = _lastName.toNumber();
 
+        let firstNameLatin = nations[nationality].firstNames[firstName].latin;
+        const lastNameLatin = nations[nationality].lastNames[lastName].latin;
+
+        const fullNameDescription = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
+
+        if ((firstNameLatin.length + lastNameLatin.length) > 19) {
+            firstNameLatin = `${firstNameLatin.charAt(0)}.`;
+        }
+        const fullName = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
+
+
         const strength = _strength.toNumber();
         const speed = _speed.toNumber();
         const intelligence = _intelligence.toNumber();
@@ -334,12 +349,13 @@ class NiftyFootballContractService {
             speed: speed,
             intelligence: intelligence,
             skill: skill,
-            attributeAvg: Math.floor((strength + speed + intelligence + skill) / 4),
+            attributeAvg: averageAttributeMapper({strength, speed, intelligence, skill}),
             special: special,
             specialName: specialMapper(special),
             firstName: firstName,
             lastName: lastName,
-            fullName: `${_.capitalize(nations[nationality].firstNames[firstName].latin)} ${_.capitalize(nations[nationality].lastNames[lastName].latin)}`,
+            fullName: fullName,
+            fullNameDescription: fullNameDescription,
         };
     }
 

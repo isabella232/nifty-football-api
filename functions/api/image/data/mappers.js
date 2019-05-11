@@ -53,6 +53,15 @@ const numberMapper = (number) => {
     return NONE;
 };
 
+const averageAttributeMapper = ({strength = 0, speed = 0, intelligence = 0, skill = 0}) => {
+    try {
+        return Math.floor((strength + speed + intelligence + skill) / 4);
+    }
+    catch (e) {
+        console.error(`Unable to average attributes ${strength}, ${speed}, ${intelligence}, ${skill}`, e)
+    }
+};
+
 const backgroundColourMapper = (number) => {
     switch (number) {
         // 44 ENGLAND
@@ -89,4 +98,5 @@ module.exports = {
     numberMapper,
     backgroundColourMapper,
     bootsMapper,
+    averageAttributeMapper,
 };
