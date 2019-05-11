@@ -1,5 +1,8 @@
+const _ = require('lodash');
+
 const STANDARD = 'Standard';
 const NONE = 'None';
+
 
 const specialMapper = (special) => {
     if (special === 0) {
@@ -62,6 +65,13 @@ const averageAttributeMapper = ({strength = 0, speed = 0, intelligence = 0, skil
     }
 };
 
+const fullNameWithLengthCheckMapper = ({firstName, lastName}, maxLength = 18) => {
+    if ((firstName.length + lastName.length) > maxLength) {
+       return `${firstNameLatin.charAt(0)}. ${_.capitalize(lastNameLatin)}`;
+    }
+    return `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
+};
+
 const backgroundColourMapper = (number) => {
     switch (number) {
         // 44 ENGLAND
@@ -99,4 +109,5 @@ module.exports = {
     backgroundColourMapper,
     bootsMapper,
     averageAttributeMapper,
+    fullNameWithLengthCheckMapper,
 };

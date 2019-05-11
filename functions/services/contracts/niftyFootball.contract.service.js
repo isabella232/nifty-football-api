@@ -15,6 +15,7 @@ const {
     sponsorMapper,
     backgroundColourMapper,
     averageAttributeMapper,
+    fullNameWithLengthCheckMapper,
 } = require("../../api/image/data/mappers");
 
 class NiftyFootballContractService {
@@ -330,14 +331,11 @@ class NiftyFootballContractService {
         let firstNameLatin = nations[nationality].firstNames[firstName].latin;
         const lastNameLatin = nations[nationality].lastNames[lastName].latin;
 
-        const fullNameDescription = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
+        const fullName = fullNameWithLengthCheckMapper({firstName: firstNameLatin, lastName: lastNameLatin});
 
-        if ((firstNameLatin.length + lastNameLatin.length) > 18) {
-            firstNameLatin = `${firstNameLatin.charAt(0)}.`;
-        }
-        const fullName = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
-
-
+        // use the full version on the meta-data description
+        const fullNameDescription = fullNameWithLengthCheckMapper({firstName: firstNameLatin, lastName: lastNameLatin, maxLength: 30});
+        
         const strength = _strength.toNumber();
         const speed = _speed.toNumber();
         const intelligence = _intelligence.toNumber();
