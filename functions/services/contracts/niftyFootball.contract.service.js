@@ -332,7 +332,7 @@ class NiftyFootballContractService {
 
         const fullNameDescription = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
 
-        if ((firstNameLatin.length + lastNameLatin.length) > 19) {
+        if ((firstNameLatin.length + lastNameLatin.length) > 18) {
             firstNameLatin = `${firstNameLatin.charAt(0)}.`;
         }
         const fullName = `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;

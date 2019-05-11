@@ -33,14 +33,14 @@ class CardsService {
             });
     }
 
-    async cardRankings(network) {
+    async cardRankings(network, limit = 100) {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))
             .collection('players')
             .orderBy('attributeAvg', 'desc')
             .orderBy('tokenId', 'asc')
-            .limit(50)
+            .limit(limit)
             .get()
             .then((querySet) => {
                 const tokens = new Set();
