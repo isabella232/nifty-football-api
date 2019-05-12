@@ -22,6 +22,8 @@ squad.get('/:address/top', async (req, res, next) => {
         const midfield = await cardService.getTopPlayersInPositionForAddress(network, address, MIDFIELDER, formation.midfield);
         const strikers = await cardService.getTopPlayersInPositionForAddress(network, address, STRIKER, formation.strikers);
 
+        console.log(address, network, strikers);
+
         const topSquad = [
             ...goalkeepers,
             ...defence,

@@ -73,7 +73,7 @@ class CardsService {
             .collection(`cards`)
             .doc(getNetwork(network))
             .collection('players')
-            .where('owner', '==', address)
+            .where('owner', '==', address.toLowerCase())  // FIXME James - checksum or this OK?
             .where('position', '==', position)
             .orderBy('attributeAvg', 'desc')
             .limit(total)

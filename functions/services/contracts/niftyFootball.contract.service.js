@@ -335,7 +335,7 @@ class NiftyFootballContractService {
 
         // use the full version on the meta-data description
         const fullNameDescription = fullNameWithLengthCheckMapper({firstName: firstNameLatin, lastName: lastNameLatin, maxLength: 30});
-        
+
         const strength = _strength.toNumber();
         const speed = _speed.toNumber();
         const intelligence = _intelligence.toNumber();

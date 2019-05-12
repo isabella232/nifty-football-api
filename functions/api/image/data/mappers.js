@@ -67,9 +67,9 @@ const averageAttributeMapper = ({strength = 0, speed = 0, intelligence = 0, skil
 
 const fullNameWithLengthCheckMapper = ({firstName, lastName}, maxLength = 18) => {
     if ((firstName.length + lastName.length) > maxLength) {
-       return `${firstNameLatin.charAt(0)}. ${_.capitalize(lastNameLatin)}`;
+       return `${firstName.charAt(0)}. ${_.capitalize(lastName)}`;
     }
-    return `${_.capitalize(firstNameLatin)} ${_.capitalize(lastNameLatin)}`;
+    return `${_.capitalize(firstName)} ${_.capitalize(lastName)}`;
 };
 
 const backgroundColourMapper = (number) => {
