@@ -65,7 +65,7 @@ const averageAttributeMapper = ({strength = 0, speed = 0, intelligence = 0, skil
     }
 };
 
-const fullNameWithLengthCheckMapper = ({firstName, lastName}, maxLength = 18) => {
+const fullNameWithLengthCheckMapper = ({firstName, lastName}, maxLength = 17) => {
     if ((firstName.length + lastName.length) > maxLength) {
        return `${firstName.charAt(0)}. ${_.capitalize(lastName)}`;
     }
