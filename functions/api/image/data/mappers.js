@@ -1,5 +1,8 @@
+const _ = require('lodash');
+
 const STANDARD = 'Standard';
 const NONE = 'None';
+
 
 const specialMapper = (special) => {
     if (special === 0) {
@@ -53,6 +56,22 @@ const numberMapper = (number) => {
     return NONE;
 };
 
+const averageAttributeMapper = ({strength = 0, speed = 0, intelligence = 0, skill = 0}) => {
+    try {
+        return Math.floor((strength + speed + intelligence + skill) / 4);
+    }
+    catch (e) {
+        console.error(`Unable to average attributes ${strength}, ${speed}, ${intelligence}, ${skill}`, e)
+    }
+};
+
+const fullNameWithLengthCheckMapper = ({firstName, lastName}, maxLength = 17) => {
+    if ((firstName.length + lastName.length) > maxLength) {
+       return `${firstName.charAt(0)}. ${_.capitalize(lastName)}`;
+    }
+    return `${_.capitalize(firstName)} ${_.capitalize(lastName)}`;
+};
+
 const backgroundColourMapper = (number) => {
     switch (number) {
         // 44 ENGLAND
@@ -89,4 +108,6 @@ module.exports = {
     numberMapper,
     backgroundColourMapper,
     bootsMapper,
+    averageAttributeMapper,
+    fullNameWithLengthCheckMapper,
 };
