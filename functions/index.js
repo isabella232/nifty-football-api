@@ -96,8 +96,15 @@ exports.newEventTrigger =
                 case 'Transfer':
                 case 'Approval': {
                     const tokenId = get(document, 'returnValues.tokenId');
-                    console.log(`Incoming token ID [${tokenId}] for event [${event}]`);
+                    const from = get(document, 'returnValues.from');
+                    const to = get(document, 'returnValues.to');
+
+                    console.log(`Incoming token ID [${tokenId}] for event [${event}] from [${from}] to [${to}]`);
+
                     await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    await require('./services/data/teams.service').refreshTopTeamForAddress(network, from);
+                    await require('./services/data/teams.service').refreshTopTeamForAddress(network, to);
+
                     break;
                 }
                 // token attribute changes
@@ -113,6 +120,7 @@ exports.newEventTrigger =
                     const tokenId = get(document, 'returnValues._tokenId');
                     console.log(`Incoming token ID [${tokenId}] for event [${event}]`);
                     await require('./services/data/cards.service').rebuildAndStoreTokenDetails(network, tokenId);
+                    await require('./services/data/teams.service').refreshTopTeamForTokenOwner(network, tokenId);
                     break;
                 }
 

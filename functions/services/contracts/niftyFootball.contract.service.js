@@ -7,6 +7,8 @@ const positions = require('../../api/image/data/positions').LOOKUP;
 const kits = require(`../../api/image/data/kits`);
 const colours = require(`../../api/image/data/colours`);
 
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+
 const {
     specialMapper,
     bootsMapper,
@@ -258,6 +260,27 @@ class NiftyFootballContractService {
         };
     }
 
+    async ownerOf(network = 1, tokenId) {
+        console.log(`Owner of token ID [${tokenId}] on network [${network}]`);
+
+        const token = connectToToken(network);
+
+        const data = await token.ownerOf(tokenId);
+
+        const owner = data[0];
+        return owner !== ZERO_ADDRESS
+            ? owner
+            : null;
+    }
+
+    async tokenIdPointer(network = 1) {
+        console.log(`Getting token ID pointer on network [${network}]`);
+        const token = connectToToken(network);
+        const tokenIdPointer = await token.tokenIdPointer();
+        console.log(tokenIdPointer['0']);
+        return tokenIdPointer[0].toNumber();
+    }
+
     async contractInfo(network = 1) {
         console.log(`Get contract info on network [${network}]`);
 
@@ -334,7 +357,11 @@ class NiftyFootballContractService {
         const fullName = fullNameWithLengthCheckMapper({firstName: firstNameLatin, lastName: lastNameLatin});
 
         // use the full version on the meta-data description
-        const fullNameDescription = fullNameWithLengthCheckMapper({firstName: firstNameLatin, lastName: lastNameLatin, maxLength: 30});
+        const fullNameDescription = fullNameWithLengthCheckMapper({
+            firstName: firstNameLatin,
+            lastName: lastNameLatin,
+            maxLength: 30
+        });
 
         const strength = _strength.toNumber();
         const speed = _speed.toNumber();

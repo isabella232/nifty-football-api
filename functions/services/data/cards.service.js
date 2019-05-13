@@ -68,12 +68,22 @@ class CardsService {
             });
     }
 
+    async getCardById(network, tokenId) {
+        return firestore
+            .collection(`cards`)
+            .doc(getNetwork(network))
+            .collection('players')
+            .doc(_.toString(tokenId))
+            .get();
+    }
+
     async getTopPlayersInPositionForAddress(network, address, position, total = 1) {
         return firestore
             .collection(`cards`)
             .doc(getNetwork(network))
             .collection('players')
-            .where('owner', '==', address.toLowerCase())  // FIXME James - checksum or this OK?
+            // FIXME James - checksum or this OK?
+            .where('owner', '==', address.toLowerCase())
             .where('position', '==', position)
             .orderBy('attributeAvg', 'desc')
             .limit(total)
