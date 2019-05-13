@@ -11,7 +11,7 @@ token.get('/pointers', async (req, res, next) => {
     try {
         const network = req.params.network;
 
-        const pointers = await niftyFootballService.tokenPointers(network);
+        const pointers = await niftyFootballService.totalCards(network);
 
         return res.status(200).json(pointers);
     } catch (e) {

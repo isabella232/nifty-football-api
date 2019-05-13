@@ -44,8 +44,6 @@ void async function () {
         owners.add(owner);
     }
 
-    console.log(owners);
-
     for (let owner in owners) {
         await teamsService.refreshTopTeamForTokenOwner(network, owner);
     }

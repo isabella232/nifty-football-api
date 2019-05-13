@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const firestore = require('./firebase.service').firestore();
 
-const niftyFootballContractService = require('../contracts/niftyFootball.contract.service');
+const niftyFootballService = require('../contracts/niftyFootball.contract.service');
 const {getNetwork} = require('nifty-football-contract-tools').contracts;
 
 const cardService = require('./cards.service');
@@ -32,8 +32,9 @@ class TeamsService {
             ...strikers,
         ];
 
-        const hasFullTeam = topSquad.length === 11;
-        const hasEmptySquad = topSquad.length === 0;
+        const squadSize = topSquad.length;
+        const hasFullTeam = squadSize === 11;
+        const hasEmptySquad = squadSize === 0;
 
         const squadTotal = getSquadTotal(hasFullTeam, topSquad);
 
@@ -42,9 +43,11 @@ class TeamsService {
             network: network,
             formation: DEFAULT_FORMATION,
             squadTotal: squadTotal,
-            squadAverage: getSquadAverage(hasFullTeam, squadTotal),
+            squadAverage: getSquadAverage(hasFullTeam, squadTotal, squadSize),
+            squadSize: squadSize,
             hasFullTeam: hasFullTeam,
             hasEmptySquad: hasEmptySquad,
+            lastRefreshedDate: Date.now(),
             team: {
                 goalkeepers: fillPosition(_.map(goalkeepers, 'tokenId'), DEFAULT_FORMATION.goalkeepers, 0),
                 defence: fillPosition(_.map(defence, 'tokenId'), DEFAULT_FORMATION.defence, 0),
@@ -66,7 +69,7 @@ class TeamsService {
 
     async refreshTopTeamForTokenOwner(network, tokenId) {
         console.log(`Refreshing top team for owner of token [${tokenId}] on [${network}]`);
-        const owner = await niftyFootballContractService.ownerOf(network, tokenId);
+        const owner = await niftyFootballService.ownerOf(network, tokenId);
         if (!owner) {
             console.error(`Owner not found for token ID [${tokenId}] on network [${network}]`);
             return;
@@ -109,8 +112,8 @@ class TeamsService {
         topTeam.team = {
             goalkeepers: fillPosition(_.map(topTeam.team.goalkeepers, getPlayer), DEFAULT_FORMATION.goalkeepers, {}),
             defence: fillPosition(_.map(topTeam.team.defence, getPlayer), DEFAULT_FORMATION.defence, {}),
-            midfield: fillPosition(_.map(topTeam.team.midfield, getPlayer), DEFAULT_FORMATION.midfield, 0),
-            strikers: fillPosition(_.map(topTeam.team.strikers, getPlayer), DEFAULT_FORMATION.strikers, 0)
+            midfield: fillPosition(_.map(topTeam.team.midfield, getPlayer), DEFAULT_FORMATION.midfield, {}),
+            strikers: fillPosition(_.map(topTeam.team.strikers, getPlayer), DEFAULT_FORMATION.strikers, {})
         };
 
         return topTeam;
@@ -130,9 +133,9 @@ const getSquadTotal = (hasFullTeam, topSquad) => {
         : 0;
 };
 
-const getSquadAverage = (hasFullTeam, squadTotal) => {
+const getSquadAverage = (hasFullTeam, squadTotal, expectedSize = 11) => {
     return hasFullTeam
-        ? Math.floor(squadTotal / 11)
+        ? Math.floor(squadTotal / expectedSize)
         : 0;
 };
 

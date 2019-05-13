@@ -22,13 +22,13 @@ const {
 
 class NiftyFootballContractService {
 
-    async tokenPointers(network = 1) {
+    async totalCards(network = 1) {
         console.log(network);
         const token = connectToToken(network);
         const totalCards = await token.totalCards();
 
         return {
-            totalCards: totalCards[0]
+            totalCards: totalCards[0].toNumber()
         };
     }
 
@@ -275,9 +275,11 @@ class NiftyFootballContractService {
 
     async tokenIdPointer(network = 1) {
         console.log(`Getting token ID pointer on network [${network}]`);
+
         const token = connectToToken(network);
+
         const tokenIdPointer = await token.tokenIdPointer();
-        console.log(tokenIdPointer['0']);
+
         return tokenIdPointer[0].toNumber();
     }
 

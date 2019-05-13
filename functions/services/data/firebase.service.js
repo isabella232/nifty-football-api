@@ -17,18 +17,18 @@ module.exports = {
         db = admin.database();
         return db;
     },
-    firestore: (overAdmin = false) => {
+    firestore: (overriddenAdmin = false) => {
         if (firestore) {
             // console.log("using cached firestore instance");
             return firestore;
         }
-        if (!overAdmin && !admin) {
+        if (!overriddenAdmin && !admin) {
             throw new Error('Service not setup...!');
         }
 
         // When invoking from a script (see ./scripts/) we need to bootstrap firebase earlier
-        firestore = overAdmin
-            ? overAdmin.firestore()
+        firestore = overriddenAdmin
+            ? overriddenAdmin.firestore()
             : admin.firestore();
 
         const settings = {timestampsInSnapshots: true};
