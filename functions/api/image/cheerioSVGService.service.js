@@ -660,36 +660,6 @@ class CheerioSVGService {
         return $.xml();
     }
 
-    player(svgXml, {skin, shadow, cheek, eye, hair_top, hair_bottom, beard, tache, stubble, kit, colour, name = 'Andy Gray', position = 'Striker', average = '91', tokenId = 123, nationality = 44}) {
-
-        const kitToken = require(`./data/kits`)[kit];
-        const colours = require(`./data/colours`)[colour];
-
-        const {fills, opacity} = generateSVG({
-            skin,
-            shadow,
-            cheek,
-            eye,
-            hair_top,
-            hair_bottom,
-            beard,
-            tache,
-            stubble,
-            kitToken,
-            nationality,
-            ...colours,
-        });
-
-        const $ = cheerio.load(
-            svgXml,
-            {xmlMode: true}
-        );
-
-        fillSVG($, {fills, opacity, name, position, average, tokenId, nationality});
-
-        return $.xml();
-    }
-
     cardBack(tokenDetails) {
         const {fullName, positionText, attributeAvg, strength, skill, speed, intelligence, nationality} = tokenDetails;
 
