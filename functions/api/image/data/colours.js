@@ -225,5 +225,12 @@ module.exports = {
         primary: '#005B9E',
         secondary: '#FFCD00',
         tertiary: '#FFFFFF'
+    },
+    32: {
+        number: 32,
+        name: 'city_lime',
+        primary: '#211E2A',
+        secondary: '#9BC0DF',
+        tertiary: '#C5FF69'
     }
 };

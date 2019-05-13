@@ -42,6 +42,8 @@ const bootsMapper = (boots) => {
             return {name: 'Shocking Pink', hex: '#FF6EFF'};
         case 5:
             return {name: 'Gold', hex: '#DAA520'};
+        case 1500:
+            return {name: 'Lime', hex: '#00FF00'}; // One-time use for #1500
         default:
             console.error(`Invalid boots found [${boots}]`);
             return {name: STANDARD, hex: '#000000'};

@@ -608,6 +608,48 @@ const generateSVG = ({skin, shadow, cheek, eye, hair_top, hair_bottom, beard, ta
                 Lyon_top_Layer: secondary,
             };
             break;
+        case 'pinstripe_alt_long_sleeved':
+            opacity = {
+                ...opacity,
+                Pinstripe: 1,
+                Neckline: 0,
+                Cuff: 0,
+            };
+            fills = {
+                ...fills,
+                Shorts: primary,
+                Pinstripe_left: tertiary,
+                Pinstripe_right: tertiary,
+                Pinstripe_middle: tertiary,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+            };
+            break;
+        case 'pinstripe_alt_short_sleeved':
+            opacity = {
+                ...opacity,
+                Pinstripe: 1,
+                Neckline: 0,
+                Long_Sleeve: 0,
+                LongSleeve: 0,
+                Cuff: 0,
+                Short_Sleeve: 1,
+                ShortSleeve: 1,
+                ShortSleeve_cuff: 0,
+            };
+            fills = {
+                ...fills,
+                Shorts: primary,
+                Pinstripe_left: tertiary,
+                Pinstripe_right: tertiary,
+                Pinstripe_middle: tertiary,
+                Socks: tertiary,
+                Sock_Stripes: tertiary,
+                Upper_Sock: tertiary,
+            };
+            break;
+            break;
         default:
             console.error(`Something has gone wrong finding a kit!!`, kitToken.name);
     }
