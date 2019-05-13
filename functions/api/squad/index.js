@@ -22,7 +22,7 @@ squad.get(`/league`, async (req, res, next) => {
     try {
         const {network} = req.params;
 
-        const data = teamService.getTopTeams(network);
+        const data = await teamService.getTopTeams(network);
 
         return res
             .status(200)

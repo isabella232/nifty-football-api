@@ -81,15 +81,16 @@ class TeamsService {
         return firestore
             .collection(`top-team`)
             .doc(getNetwork(network))
+            .collection('address')
             .orderBy('squadAverage', 'desc')
             .limit(limit)
             .get()
             .then((querySet) => {
-                const team = new Set();
+                const teams = [];
                 querySet.forEach((doc) => {
-                    team.add(doc.data());
+                    teams.push(doc.data());
                 });
-                return Array.from(team);
+                return teams;
             });
     }
 
@@ -134,6 +135,7 @@ const getSquadTotal = (hasFullTeam, topSquad) => {
 };
 
 const getSquadAverage = (hasFullTeam, squadTotal, expectedSize = 11) => {
+    // FIXME make this more precious - 1 or 2 decimal
     return hasFullTeam
         ? Math.floor(squadTotal / expectedSize)
         : 0;
