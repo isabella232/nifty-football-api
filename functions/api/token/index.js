@@ -38,7 +38,10 @@ token.get('/:tokenId', async (req, res, next) => {
 
         const tokenDetails = await niftyFootballService.tokenMetaData(network, tokenId);
 
-        return res.status(200).json(tokenDetails);
+        return res
+            .status(200)
+            .set('Cache-Control', 'public, max-age=86400')
+            .json(tokenDetails);
     } catch (e) {
         next(e);
     }

@@ -69,7 +69,9 @@ image.get('/:tokenId', async (req, res, next) => {
         const svg = cheerioSVGService.process(require('./svgString'), tokenDetails);
 
         // console.log(svg);
-        res.contentType('image/svg+xml');
+        res
+            .contentType('image/svg+xml')
+            .set('Cache-Control', 'public, max-age=86400');
         return res.send(svg);
     } catch (e) {
         next(e);
