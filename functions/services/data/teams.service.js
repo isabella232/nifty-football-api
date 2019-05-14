@@ -82,6 +82,7 @@ class TeamsService {
             .collection(`top-team`)
             .doc(getNetwork(network))
             .collection('address')
+            .where('hasFullTeam', '==', true)
             .orderBy('squadAverage', 'desc')
             .limit(limit)
             .get()

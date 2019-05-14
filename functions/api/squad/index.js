@@ -21,8 +21,9 @@ squad.get('/:address/top', async (req, res, next) => {
 squad.get(`/league`, async (req, res, next) => {
     try {
         const {network} = req.params;
+        const limit = _.toNumber(_.get(req.query, 'limit', 50));
 
-        const data = await teamService.getTopTeams(network);
+        const data = await teamService.getTopTeams(network, limit);
         const totalCompleteTeams = await teamService.totalCompleteTeamsInExistence(network);
         const totalPartialTeams = await teamService.totalPartialTeamsInExistence(network);
 
