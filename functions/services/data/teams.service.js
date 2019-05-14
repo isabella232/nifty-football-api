@@ -44,6 +44,7 @@ class TeamsService {
             formation: DEFAULT_FORMATION,
             squadTotal: squadTotal,
             squadAverage: getSquadAverage(hasFullTeam, squadTotal, squadSize),
+            squadAverageRounded: getSquadAverageRounded(hasFullTeam, squadTotal, squadSize),
             squadSize: squadSize,
             hasFullTeam: hasFullTeam,
             hasEmptySquad: hasEmptySquad,
@@ -160,6 +161,12 @@ const getSquadTotal = (hasFullTeam, topSquad) => {
 const getSquadAverage = (hasFullTeam, squadTotal, expectedSize = 11) => {
     return hasFullTeam
         ? (squadTotal / expectedSize).toFixed(2)
+        : 0;
+};
+
+const getSquadAverageRounded = (hasFullTeam, squadTotal, expectedSize = 11) => {
+    return hasFullTeam
+        ? Math.floor(squadTotal / expectedSize)
         : 0;
 };
 
