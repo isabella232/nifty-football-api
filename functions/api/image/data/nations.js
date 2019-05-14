@@ -186,6 +186,10 @@ module.exports = {
             99: {latin: 'Callum'},
             100: {latin: 'Stanley'},
             101: {latin: 'Blue'},
+            102: {latin: 'Tony'},
+            103: {latin: 'Bobby'},
+            104: {latin: 'Nathan'},
+            105: {latin: 'Neil'},
         },
         lastNames: {
             0: {latin: 'SMITH'},
@@ -292,6 +296,11 @@ module.exports = {
             101: {latin: 'CHOW'},
             102: {latin: 'FRANCIS'},
             103: {latin: 'MOON'},
+            104: {latin: 'VALENTINE'},
+            105: {latin: 'LEDGER'},
+            106: {latin: 'DAZZLER'},
+            107: {latin: 'AGIUS'},
+            108: {latin: 'FLETCHER'},
         },
         ethnicities: {
             0: {
