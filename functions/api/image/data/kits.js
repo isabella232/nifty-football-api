@@ -33,6 +33,8 @@ module.exports = {
     31: {name: 'hoops_short_sleeved'},
     32: {name: 'tri_top_long_sleeved'},
     33: {name: 'tri_top_short_sleeved'},
-    34: {name: 'chequed_long_sleeved'}, // REMOVED
-    35: {name: 'chequed_short_sleeved'}, // REMOVED
+    34: {name: 'pinstripe_alt_long_sleeved'},
+    35: {name: 'pinstripe_alt_short_sleeved'},
+    36: {name: 'chequed_long_sleeved'}, // REMOVED
+    37: {name: 'chequed_short_sleeved'}, // REMOVED
 };
