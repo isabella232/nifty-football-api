@@ -94,6 +94,28 @@ class TeamsService {
             });
     }
 
+    async totalCompleteTeamsInExistence(network) {
+        const availableCount = await firestore
+            .collection(`top-team`)
+            .doc(getNetwork(network))
+            .collection('address')
+            .where('hasFullTeam', '==', true)
+            .get();
+
+        return availableCount.size;
+    }
+
+    async totalPartialTeamsInExistence(network) {
+        const availableCount = await firestore
+            .collection(`top-team`)
+            .doc(getNetwork(network))
+            .collection('address')
+            .where('hasFullTeam', '==', false)
+            .get();
+
+        return availableCount.size;
+    }
+
     async getTopTeamForAddress(network, address) {
         const topTeam = await firestore
             .collection(`top-team`)
@@ -135,9 +157,8 @@ const getSquadTotal = (hasFullTeam, topSquad) => {
 };
 
 const getSquadAverage = (hasFullTeam, squadTotal, expectedSize = 11) => {
-    // FIXME make this more precious - 1 or 2 decimal
     return hasFullTeam
-        ? Math.floor(squadTotal / expectedSize)
+        ? (squadTotal / expectedSize).toFixed(2)
         : 0;
 };
 

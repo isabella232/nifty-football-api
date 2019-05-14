@@ -7,7 +7,7 @@ const positions = require('../../api/image/data/positions').LOOKUP;
 const kits = require(`../../api/image/data/kits`);
 const colours = require(`../../api/image/data/colours`);
 
-const ZERO_ADDRESS = '0x0';
+const ZERO_ADDRESS = '0x';
 
 const {
     specialMapper,

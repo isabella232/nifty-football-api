@@ -23,10 +23,16 @@ squad.get(`/league`, async (req, res, next) => {
         const {network} = req.params;
 
         const data = await teamService.getTopTeams(network);
+        const totalCompleteTeams = await teamService.totalCompleteTeamsInExistence(network);
+        const totalPartialTeams = await teamService.totalPartialTeamsInExistence(network);
 
         return res
             .status(200)
-            .json(data);
+            .json({
+                totalComplete: totalCompleteTeams,
+                totalPartial: totalPartialTeams,
+                results: data
+            });
     } catch (e) {
         next(e);
     }
